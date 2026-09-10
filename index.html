@@ -34,6 +34,11 @@
   .bar{display:flex;align-items:center;justify-content:space-between;gap:16px}
   .brand{display:flex;align-items:center;gap:10px;color:var(--blue);font-weight:700;letter-spacing:.28em;font-size:18px}
   .brand svg{display:block}
+  nav.main{display:flex;gap:18px;flex-wrap:wrap;justify-content:center}
+  nav.main a{color:var(--ink);font-size:13px;padding:4px 0;border-bottom:2px solid transparent}
+  nav.main a:hover{color:var(--blue)}
+  nav.main a[aria-current="page"]{color:var(--blue);border-bottom-color:var(--blue)}
+  @media (max-width:760px){nav.main{gap:12px}}
   .social{display:flex;align-items:center;gap:14px}
   .social a{display:inline-flex;width:34px;height:34px;align-items:center;justify-content:center;border:1.5px solid var(--blue);border-radius:50%;transition:background-color .15s ease,color .15s ease}
   .social a:hover,.social a:focus-visible{background:var(--blue);color:#fff}
@@ -102,6 +107,16 @@
       </svg>
       TECHVERIFY
     </div>
+    <nav class="main" aria-label="Primary">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="services.html">Services</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="quote.html">Get a Quote</a>
+      <a href="sectors.html">Sectors &amp; Standards</a>
+      <a href="industries.html">Industries</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
     <nav class="social" aria-label="Contact">
       <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.4 8.2h4.2V24H.4zM8.3 8.2h4v2.2h.1c.56-1 1.9-2.2 3.9-2.2 4.2 0 5 2.7 5 6.3V24h-4.2v-6.9c0-1.6 0-3.7-2.3-3.7s-2.6 1.8-2.6 3.6V24H8.3z"/></svg></a>
       <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-7.4 8.5L23.3 22h-6.8l-5.3-6.9L5.1 22H2l7.9-9.1L1 2h7l4.8 6.3zM17.7 20h1.7L7.4 3.9H5.6z"/></svg></a>
