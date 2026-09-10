@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>TECHVERIFY — Sectors &amp; Standards</title>
+<meta name="description" content="Eight engineered-product domains mapped to the engineering and safety standards that govern them — motors, switchgear, cables, instruments, HVAC, building envelope, plumbing, electronics and chemicals."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+  :root{--blue:#2540E8;--blue-tint:#E9EDFF;--ink:#232848;--muted:#5A6080;--line:#D8DCF2;--safety:#D9503F;--bg:#FFFFFF;--maxw:1040px}
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:"Space Mono",ui-monospace,SFMono-Regular,Menlo,monospace;line-height:1.7;-webkit-font-smoothing:antialiased}
+  a{color:var(--blue);text-decoration:none}
+  .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  h1,h2,h3{font-family:"Fredoka",system-ui,sans-serif;font-weight:500;color:var(--blue);margin:0}
+  header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:blur(6px);z-index:10}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0}
+  .brand{display:flex;align-items:center;gap:10px;color:var(--blue);font-weight:700;letter-spacing:.26em;font-size:17px}
+  nav.main{display:flex;gap:22px;flex-wrap:wrap}
+  nav.main a{color:var(--ink);font-size:13px;padding:4px 0;border-bottom:2px solid transparent}
+  nav.main a:hover{color:var(--blue)}
+  nav.main a[aria-current="page"]{color:var(--blue);border-bottom-color:var(--blue)}
+  .hero{padding:54px 0 26px;text-align:center}
+  .hero h1{font-size:clamp(34px,6vw,58px);line-height:1.05;margin-bottom:14px}
+  .hero p{max-width:680px;margin:0 auto;color:var(--muted);font-size:14.5px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line)}
+  .dom{padding:34px 26px;border-bottom:1px solid var(--line)}
+  .grid .dom:nth-child(odd){border-right:1px solid var(--line)}
+  .dom .head{display:flex;align-items:center;gap:14px;margin-bottom:10px}
+  .dom .head svg{width:52px;height:52px;flex:none}
+  .dom h2{font-size:21px}
+  .dom .products{font-size:13px;color:var(--ink);margin:0 0 12px}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+  .tag{border:1.5px solid var(--blue);color:var(--blue);border-radius:20px;padding:3px 12px;font-size:11.5px}
+  .safety{font-size:12.5px;color:var(--safety);border-left:3px solid var(--safety);padding:4px 0 4px 12px;margin:0}
+  .safety b{font-weight:700}
+  .gtitle{text-align:center;padding:46px 0 0}
+  .gtitle h2{font-size:26px}
+  .gtitle p{color:var(--muted);font-size:13px;max-width:660px;margin:10px auto 0}
+  .groups{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);margin-top:26px}
+  .grp{padding:22px 24px;border-bottom:1px solid var(--line)}
+  .groups .grp:nth-child(odd){border-right:1px solid var(--line)}
+  .grp h3{font-size:16px;margin-bottom:2px}
+  .grp .role{font-size:11.5px;color:var(--muted);margin:0 0 10px}
+  @media (max-width:760px){.groups{grid-template-columns:1fr}.groups .grp:nth-child(odd){border-right:none}}
+  .cta{border-top:1px solid var(--line);padding:46px 0 60px;text-align:center}
+  .cta h3{font-size:24px;margin-bottom:8px}
+  .cta p{color:var(--muted);font-size:13.5px;margin:0 auto 22px;max-width:520px}
+  .btn{font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;display:inline-block;padding:12px 26px;border-radius:26px;border:1.5px solid var(--blue);background:var(--blue);color:#fff}
+  .btn:hover,.btn:focus-visible{opacity:.88}
+  footer{border-top:1px solid var(--line);padding:22px 0 30px;text-align:center;color:var(--muted);font-size:12px}
+  @media (max-width:760px){.grid{grid-template-columns:1fr}.grid .dom:nth-child(odd){border-right:none}nav.main{gap:14px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <div class="brand">
+      <svg width="24" height="24" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="10" fill="none" stroke="#2540E8" stroke-width="1.6"/><circle cx="13" cy="13" r="2" fill="#2540E8"/><line x1="1" y1="13" x2="25" y2="13" stroke="#2540E8" stroke-width="1" stroke-dasharray="5 3"/><line x1="13" y1="1" x2="13" y2="25" stroke="#2540E8" stroke-width="1" stroke-dasharray="5 3"/></svg>
+      TECHVERIFY
+    </div>
+    <nav class="main" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="quote.html">Get a Quote</a>
+      <a href="sectors.html" aria-current="page">Sectors &amp; Standards</a>
+      <a href="industries.html">Industries</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1>Sectors &amp; Standards</h1>
+      <p>Eight engineered-product domains, each mapped to the engineering and safety standards that govern it — and the failure modes those standards exist to prevent. Hover any tag for the issuing body, country of origin and marking — click it to open the official source.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap grid">
+
+      <article class="dom">
+        <div class="head">
+          <svg viewBox="0 0 52 52" fill="none" stroke="#2540E8" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><rect x="8" y="18" width="24" height="18" rx="4" fill="#E9EDFF"/><line x1="32" y1="27" x2="42" y2="27" stroke-width="3"/><rect x="14" y="12" width="12" height="6" fill="#FFFFFF"/></svg>
+          <h2>Rotating Machines &amp; Drives</h2>
+        </div>
+        <p class="products">LV/MV motors, variable-frequency drives, soft starters.</p>
+        <div class="tags"><span class="tag">IEC 60034</span><span class="tag">IEC 60034-30 (IE)</span><span class="tag">NEMA MG-1</span><span class="tag">IEC 61800</span><span class="tag">IEC 61800-3 EMC</span><span class="tag">UL 61800-5-1</span><span class="tag">ATEX / IECEx (Ex motors)</span><span class="tag">Marine class (DNV · ABS · LR)</span></div>
+        <p class="safety"><b>Safety context:</b> locked-rotor and overload conditions overheat windings and start fires; unfiltered drives disturb networks and trip protection. Thermal protection, efficiency class, and EMC conformity are verifiable — before the order, not after the failure.</p>
+      </article>
+
+      <article class="dom">
+        <div class="head">
+          <svg viewBox="0 0 52 52" fill="none" stroke="#2540E8" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><rect x="14" y="8" width="24" height="36" fill="#E9EDFF"/><line x1="26" y1="8" x2="26" y2="44"/><line x1="14" y1="22" x2="38" y2="22"/><line x1="14" y1="33" x2="38" y2="33"/></svg>
+          <h2>Power Distribution &amp; Switchgear</h2>
+        </div>
+        <p class="products">LV &amp; MV switchgear, distribution boards, busbar trunking, panelboards.</p>
+        <div class="tags"><span class="tag">IEC 61439</span><span class="tag">IEC 61439-6</span><span class="tag">IEC 62271</span><span class="tag">ANSI/IEEE C37</span><span class="tag">IEC 60364</span><span class="tag">UL 891 / 1558</span><span class="tag">IEC 60092 (ships)</span><span class="tag">UL 857 (busway)</span><span class="tag">ASTM B236 / B317</span><span class="tag">BS 2898</span><span class="tag">% IACS (ASTM B193)</span></div>
+        <p class="safety"><b>Safety context:</b> arc-flash events injure electrical workers every year, and counterfeit or unverified breakers have been the subject of repeated industry recalls. Design verification (temperature rise, short-circuit withstand) under IEC 61439 is exactly what separates an assembly from a box of parts.</p>
+      </article>
+
+      <article class="dom">
+        <div class="head">
+          <svg viewBox="0 0 52 52" fill="none" stroke="#2540E8" stroke-width="2" aria-hidden="true"><circle cx="26" cy="26" r="16" fill="#FFFFFF"/><circle cx="26" cy="26" r="10" stroke-dasharray="3 3"/><circle cx="26" cy="26" r="4" fill="#E9EDFF"/></svg>
+          <h2>Cables &amp; Cable Management</h2>
+        </div>
+        <p class="products">LV/MV power cable, control &amp; instrumentation cable, cable tray and ladder.</p>
+        <div class="tags"><span class="tag">IEC 60228</span><span class="tag">IEC 60502</span><span class="tag">IEC 60332</span><span class="tag">EU CPR (EN 50575)</span><span class="tag">NEMA VE-1</span><span class="tag">IEC 61537</span><span class="tag">UL listed</span><span class="tag">IEC 60092-350 (marine)</span></div>
+        <p class="safety"><b>Safety context:</b> substandard and counterfeit cable — undersized conductors, poor insulation — has repeatedly failed flame-propagation tests in market surveillance. The EU classifies cables for fire behaviour under CPR precisely because cabling is how fire and smoke travel through a building.</p>
+      </article>
+
+      <article class="dom">
+        <div class="head">
+          <svg viewBox="0 0 52 52" fill="none" stroke="#2540E8" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="26" cy="24" r="15" fill="#FFFFFF"/><line x1="26" y1="24" x2="35" y2="15" stroke-width="2.5"/><circle cx="26" cy="24" r="2.5" fill="#2540E8" stroke="none"/><rect x="22" y="39" width="8" height="6" fill="#E9EDFF"/></svg>
+          <h2>Instrumentation &amp; Control</h2>
+        </div>
+        <p class="products">Field instruments, transmitters, analyzers, control systems, hazardous-area equipment.</p>
+        <div class="tags"><span class="tag">IEC 61010</span><span class="tag">IEC 60079</span><span class="tag">ATEX / IECEx</span><span class="tag">IEC 61511</span><span class="tag">SIL</span><span class="tag">Class/Div (NEC · CEC)</span><span class="tag">UL / FM haz-loc</span><span class="tag">DNV type approval</span></div>
+        <p class="safety"><b>Safety context:</b> the Buncefield terminal explosion (UK, 2005) followed a tank overfill after level instrumentation and its independent safety switch failed to act. Hazardous-area certification and safety-instrumented-function integrity are not paperwork — they are the last barrier.</p>
+      </article>
+
+      <article class="dom">
+        <div class="head">
+          <svg viewBox="0 0 52 52" fill="none" stroke="#2540E8" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="14" width="36" height="24" rx="3" fill="#E9EDFF"/><line x1="13" y1="20" x2="30" y2="20"/><line x1="13" y1="25" x2="24" y2="25"/><circle cx="35" cy="29" r="5" fill="#FFFFFF"/><circle cx="35" cy="29" r="1.4" fill="#2540E8" stroke="none"/></svg>
+          <h2>HVAC &amp; Mechanical Systems</h2>
+        </div>
+        <p class="products">Chillers, AHUs, rooftop units, fans, split systems, filtration.</p>
+        <div class="tags"><span class="tag">AHRI</span><span class="tag">ASHRAE</span><span class="tag">EN 14511</span><span class="tag">Ecodesign / ErP</span><span class="tag">F-gas</span><span class="tag">ISO 16890</span><span class="tag">UL / CSA</span><span class="tag">Marine class rules</span></div>
+        <p class="safety"><b>Safety context:</b> the industry shift to lower-GWP refrigerants brings mildly flammable A2L classes into occupied buildings, and poorly maintained cooling towers remain a documented Legionella pathway. Refrigerant class, charge limits, and hygiene standards decide what may be installed where.</p>
+      </article>
+
+      <article class="dom">
+        <div class="head">
+          <svg viewBox="0 0 52 52" fill="none" stroke="#2540E8" stroke-width="2" aria-hidden="true"><rect x="12" y="8" width="28" height="36" fill="#FFFFFF"/><line x1="26" y1="8" x2="26" y2="44"/><line x1="12" y1="26" x2="40" y2="26"/><rect x="12" y="8" width="14" height="18" fill="#E9EDFF"/></svg>
+          <h2>Building Envelope</h2>
+        </div>
+        <p class="products">Windows, doors, curtain wall, awnings, cladding interfaces.</p>
+        <div class="tags"><span class="tag">EN 14351</span><span class="tag">EN 13501 (fire)</span><span class="tag">CE / UKCA</span><span class="tag">AAMA / NAFS</span><span class="tag">EN 1627 (security)</span></div>
+        <p class="safety"><b>Safety context:</b> the Grenfell Tower fire (London, 2017) showed how non-compliant façade and envelope products turn a contained incident into a catastrophe. Fire classification and system-level test evidence for envelope products is now scrutinized in every serious market.</p>
+      </article>
+
+      <article class="dom">
+        <div class="head">
+          <svg viewBox="0 0 52 52" fill="none" stroke="#2540E8" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><polygon points="10,20 10,34 26,27" fill="#E9EDFF"/><polygon points="42,20 42,34 26,27" fill="#E9EDFF"/><line x1="26" y1="27" x2="26" y2="14"/><line x1="20" y1="14" x2="32" y2="14"/></svg>
+          <h2>Plumbing &amp; Sanitary</h2>
+        </div>
+        <p class="products">Valves, fittings, pipe systems, water heaters, sanitaryware.</p>
+        <div class="tags"><span class="tag">NSF/ANSI 61</span><span class="tag">WRAS</span><span class="tag">UPC / IPC</span><span class="tag">EN 806</span><span class="tag">Low-lead</span></div>
+        <p class="safety"><b>Safety context:</b> the Flint water crisis (USA, 2014–) made drinking-water contact materials a public-health issue, driving low-lead requirements into law. Certification of wetted materials and backflow protection is what keeps a water system potable.</p>
+      </article>
+
+      <article class="dom">
+        <div class="head">
+          <svg viewBox="0 0 52 52" fill="none" stroke="#2540E8" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="14" y="14" width="24" height="24" fill="#E9EDFF"/><rect x="21" y="21" width="10" height="10" fill="#FFFFFF"/><line x1="9" y1="20" x2="14" y2="20"/><line x1="9" y1="26" x2="14" y2="26"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="38" y1="20" x2="43" y2="20"/><line x1="38" y1="26" x2="43" y2="26"/><line x1="38" y1="32" x2="43" y2="32"/></svg>
+          <h2>Electronics, Appliances &amp; Chemicals</h2>
+        </div>
+        <p class="products">IT hardware, AIDC, consumer &amp; commercial appliances, batteries, chemical products.</p>
+        <div class="tags"><span class="tag">CE (LVD/EMC)</span><span class="tag">IEC 60335</span><span class="tag">IEC 62368-1</span><span class="tag">UL 2272</span><span class="tag">RoHS / WEEE</span><span class="tag">REACH / CLP-GHS</span></div>
+        <p class="safety"><b>Safety context:</b> lithium-battery fires — from the hoverboard wave that produced UL 2272 to today's e-mobility incidents — and repeated appliance fire recalls show what uncertified electronics cost. Chemical products without proper CLP/GHS classification and SDS are a liability at every border.</p>
+      </article>
+
+      <article class="dom">
+        <div class="head">
+          <svg viewBox="0 0 52 52" fill="none" stroke="#2540E8" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M26 8 L42 14 V26 C42 36 34 42 26 46 C18 42 10 36 10 26 V14 Z" fill="#E9EDFF"/><polygon points="26,16 28.2,21.9 34.6,22.2 29.6,26.2 31.3,32.3 26,28.8 20.7,32.3 22.4,26.2 17.4,22.2 23.8,21.9" fill="#FFFFFF"/></svg>
+          <h2>Defense &amp; NATO-Codified Products</h2>
+        </div>
+        <p class="products">NSN-coded items across the ~18M-item NATO catalogue — electronics, spares, field and platform equipment.</p>
+        <div class="tags"><span class="tag">NSN / NCAGE</span><span class="tag">MIL-STD / MIL-PRF</span><span class="tag">DEF STAN</span><span class="tag">STANAG / AQAP</span><span class="tag">QPL / QML</span><span class="tag">DFARS counterfeit rules</span></div>
+        <p class="safety"><b>Safety context:</b> official investigations have documented counterfeit electronic parts deep inside defense supply chains — which is why approved-source verification, NSN-to-CAGE traceability and QPL discipline are mandatory controls, and why export regimes (ITAR/EAR) punish missteps in both directions. Every part must trace to an approved source, or it does not fly.</p>
+      </article>
+
+      <article class="dom">
+        <div class="head">
+          <svg viewBox="0 0 52 52" fill="none" stroke="#2540E8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="26" cy="11" r="4" fill="#E9EDFF"/><line x1="26" y1="15" x2="26" y2="40"/><line x1="16" y1="21" x2="36" y2="21"/><path d="M26 40 C19 40 13 35 11 28"/><path d="M26 40 C33 40 39 35 41 28"/><path d="M11 28 L8 32 M11 28 L15 30"/><path d="M41 28 L44 32 M41 28 L37 30"/></svg>
+          <h2>Marine, Offshore &amp; Shipping</h2>
+        </div>
+        <p class="products">Shipboard and offshore electrical &amp; mechanical equipment, navigation and safety gear.</p>
+        <div class="tags"><span class="tag">DNV · ABS · Lloyd's Register</span><span class="tag">BV · RINA · ClassNK</span><span class="tag">IMO / SOLAS</span><span class="tag">MED wheelmark</span><span class="tag">IEC 60092</span><span class="tag">IEC 60533 (EMC)</span></div>
+        <p class="safety"><b>Safety context:</b> SOLAS — first written after the Titanic — still governs life at sea, and classification societies enforce it: equipment without class type approval or the MED wheelmark does not sail on a classed vessel. Offshore units layer their own rules on top, and surveyors reject undocumented kit at the quay.</p>
+      </article>
+
+      <article class="dom">
+        <div class="head">
+          <svg viewBox="0 0 52 52" fill="none" stroke="#2540E8" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><circle cx="26" cy="28" r="19" stroke-dasharray="4 4" stroke-width="1.5"/><path d="M26 12 C32 19 35 24 35 29 A9 9 0 1 1 17 29 C17 24 20 19 26 12 Z" fill="#E9EDFF"/><path d="M26 24 C29 27 30 29 30 31 A4 4 0 1 1 22 31 C22 29 23 27 26 24 Z" fill="#FFFFFF"/></svg>
+          <h2>Hazardous-Area &amp; Explosion-Proof (Ex)</h2>
+        </div>
+        <p class="products">Ex-rated motors, luminaires, junction boxes, instruments, HVAC and enclosures for gas and dust atmospheres.</p>
+        <div class="tags"><span class="tag">ATEX 2014/34/EU</span><span class="tag">IECEx</span><span class="tag">IEC/EN 60079</span><span class="tag">NEC 500/505 · CEC</span><span class="tag">UL / FM approvals</span><span class="tag">Ex d · e · i · t</span></div>
+        <p class="safety"><b>Safety context:</b> from refinery vapour clouds to grain-dust explosions, ignition inside a classified area is catastrophic. Equipment must carry the exact Ex marking for the zone, gas group and temperature class — and mismatched or partial certificates are one of the most routine audit failures in industry.</p>
+      </article>
+
+
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="gtitle">
+        <h2>Certification groups, segregated</h2>
+        <p>Different bodies do different jobs. Knowing which group owns your requirement is half the route: standards writers set the rules, marks and regimes open markets, class societies clear ships, Ex schemes clear zones, labs test, and defense qualifies its own way.</p>
+      </div>
+      <div class="groups">
+        <div class="grp"><h3>International standards bodies</h3><p class="role">Write the engineering &amp; safety standards</p><div class="tags"><span class="tag">IEC</span><span class="tag">ISO</span><span class="tag">CENELEC (EN)</span><span class="tag">IEEE</span><span class="tag">NEMA</span><span class="tag">ASHRAE / AHRI</span></div></div>
+        <div class="grp"><h3>Regional conformity regimes</h3><p class="role">Legal market entry, region-wide</p><div class="tags"><span class="tag">CE (EU)</span><span class="tag">UKCA (UK)</span><span class="tag">GCC Conformity / G-Mark</span><span class="tag">EU CPR (construction)</span></div></div>
+        <div class="grp"><h3>National marks &amp; schemes</h3><p class="role">Country-level product approval</p><div class="tags"><span class="tag">UL / CSA (N. America)</span><span class="tag">SASO / SABER (KSA)</span><span class="tag">ESMA (UAE)</span><span class="tag">PSQCA (Pakistan)</span><span class="tag">NSF / WRAS (water)</span></div></div>
+        <div class="grp"><h3>Marine classification societies</h3><p class="role">Type approval for classed vessels &amp; offshore (IACS members)</p><div class="tags"><span class="tag">DNV</span><span class="tag">ABS</span><span class="tag">Lloyd's Register</span><span class="tag">Bureau Veritas</span><span class="tag">RINA</span><span class="tag">ClassNK</span><span class="tag">IMO / SOLAS · MED</span></div></div>
+        <div class="grp"><h3>Hazardous-area (Ex) schemes</h3><p class="role">Explosion-protection certification</p><div class="tags"><span class="tag">ATEX 2014/34/EU</span><span class="tag">IECEx</span><span class="tag">NEC 500/505 · CEC</span><span class="tag">UL / FM haz-loc</span><span class="tag">IEC/EN 60079</span></div></div>
+        <div class="grp"><h3>Testing &amp; certification bodies</h3><p class="role">Third-party laboratories that test and certify</p><div class="tags"><span class="tag">UL Solutions</span><span class="tag">TÜV Rheinland / SÜD</span><span class="tag">SGS</span><span class="tag">Intertek</span><span class="tag">CSA Group</span><span class="tag">FM Approvals</span></div></div>
+        <div class="grp"><h3>Defense &amp; NATO qualification</h3><p class="role">Military codification and quality regimes</p><div class="tags"><span class="tag">NATO codification (NSN / NCAGE)</span><span class="tag">MIL-STD / MIL-PRF (US)</span><span class="tag">DEF STAN (UK)</span><span class="tag">AQAP (NATO quality)</span><span class="tag">QPL / QML</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <h3>Which standard governs your product?</h3>
+      <p>Name the product and the target market — you'll get the governing standards, the conformity route, and the gaps.</p>
+      <a class="btn" id="requestLink" href="#">Ask about a product</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 TECHVERIFY — technical compliance, design evaluation &amp; market readiness.</div>
+</footer>
+
+<script>
+  const CONTACT = "umersidiqii@gmail.com";
+  document.getElementById('requestLink').href = "mailto:" + CONTACT + "?subject=" + encodeURIComponent("Standards question about a product");
+</script>
+
+<style>
+.tag{position:relative}
+a.tag{text-decoration:none;cursor:pointer}
+a.tag:hover,a.tag:focus-visible{background:var(--blue);color:#fff}
+.tag[data-tip]:hover::after,.tag[data-tip]:focus-visible::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:#232848;color:#fff;font-size:11px;line-height:1.5;padding:9px 12px;border-radius:8px;width:max-content;max-width:280px;white-space:pre-line;text-align:left;z-index:30;pointer-events:none;box-shadow:0 4px 14px rgba(35,40,72,.25)}
+</style>
+<script>
+(function(){
+var REG=[
+{k:"SABER",n:"SABER conformity platform (SASO)",o:"Saudi Arabia",m:"Product & Shipment CoC",u:"https://saber.sa"},
+{k:"SASO",n:"Saudi Standards, Metrology & Quality Org.",o:"Saudi Arabia",m:"SASO Quality Mark",u:"https://www.saso.gov.sa"},
+{k:"PSQCA",n:"Pakistan Standards & Quality Control Authority",o:"Pakistan",m:"PS mark",u:"https://www.psqca.com.pk"},
+{k:"ESMA",n:"Emirates authority (now under MoIAT)",o:"United Arab Emirates",m:"ECAS / EQM",u:"https://moiat.gov.ae"},
+{k:"UKCA",n:"UK Conformity Assessed",o:"United Kingdom",m:"UKCA mark",u:"https://www.gov.uk/guidance/using-the-ukca-marking"},
+{k:"G-Mark",n:"GCC Standardization Organization (GSO)",o:"Gulf states (HQ Riyadh)",m:"G-Mark",u:"https://www.gso.org.sa"},
+{k:"GCC",n:"GCC Standardization Organization (GSO)",o:"Gulf states (HQ Riyadh)",m:"G-Mark / GCoC",u:"https://www.gso.org.sa"},
+{k:"CENELEC",n:"European electrotechnical standards (EN)",o:"Brussels, EU",m:"",u:"https://www.cencenelec.eu"},
+{k:"IECEx",n:"IEC System for Certification to Ex Standards",o:"International",m:"IECEx CoC",u:"https://www.iecex.com"},
+{k:"IEC",n:"International Electrotechnical Commission",o:"Geneva, Switzerland (international)",m:"CB-Scheme certificates",u:"https://www.iec.ch"},
+{k:"ISO 2",n:"International Organization for Standardization",o:"Geneva, Switzerland",m:"",u:"https://www.iso.org"},
+{k:"ISO 1",n:"International Organization for Standardization",o:"Geneva, Switzerland",m:"",u:"https://www.iso.org"},
+{k:"ISO",n:"International Organization for Standardization",o:"Geneva, Switzerland",m:"",u:"https://www.iso.org"},
+{k:"IEEE",n:"Institute of Electrical & Electronics Engineers",o:"USA",m:"",u:"https://www.ieee.org"},
+{k:"NEMA",n:"National Electrical Manufacturers Association",o:"USA",m:"",u:"https://www.nema.org"},
+{k:"ASHRAE",n:"American Soc. of Heating, Refrigerating & A-C Engineers",o:"USA",m:"",u:"https://www.ashrae.org"},
+{k:"AHRI",n:"Air-Conditioning, Heating & Refrigeration Institute",o:"USA",m:"AHRI Certified",u:"https://www.ahrinet.org"},
+{k:"ATEX",n:"EU Directive 2014/34/EU (explosive atmospheres)",o:"European Union",m:"Ex hexagon + CE",u:"https://single-market-economy.ec.europa.eu/sectors/mechanical-engineering/atex_en"},
+{k:"CE ",n:"CE marking (EU conformity)",o:"European Union",m:"CE",u:"https://single-market-economy.ec.europa.eu/single-market/ce-marking_en"},
+{k:"CPR",n:"EU Construction Products Regulation",o:"European Union",m:"CE + declared fire class",u:"https://single-market-economy.ec.europa.eu/sectors/construction_en"},
+{k:"UL",n:"UL Solutions (Underwriters Laboratories)",o:"USA \u00b7 NRTL",m:"UL Listed / Recognized",u:"https://www.ul.com"},
+{k:"CSA",n:"CSA Group",o:"Canada",m:"CSA mark",u:"https://www.csagroup.org"},
+{k:"NSF",n:"NSF International",o:"USA",m:"NSF mark (potable water)",u:"https://www.nsf.org"},
+{k:"WRAS",n:"Water Regulations Approval Scheme",o:"United Kingdom",m:"WRAS Approved",u:"https://www.wras.co.uk"},
+{k:"Low-lead",n:"US Safe Drinking Water Act low-lead rule",o:"USA",m:"NSF/ANSI 372",u:"https://www.epa.gov"},
+{k:"DNV",n:"DNV (Det Norske Veritas) \u2014 class society",o:"Norway \u00b7 IACS member",m:"DNV type approval",u:"https://www.dnv.com"},
+{k:"ABS",n:"American Bureau of Shipping \u2014 class society",o:"USA \u00b7 IACS member",m:"ABS type approval",u:"https://ww2.eagle.org"},
+{k:"Lloyd",n:"Lloyd's Register \u2014 class society",o:"United Kingdom \u00b7 IACS member",m:"LR type approval",u:"https://www.lr.org"},
+{k:"LR",n:"Lloyd's Register \u2014 class society",o:"United Kingdom \u00b7 IACS member",m:"LR type approval",u:"https://www.lr.org"},
+{k:"Bureau Veritas",n:"Bureau Veritas \u2014 class society",o:"France \u00b7 IACS member",m:"BV type approval",u:"https://www.bureauveritas.com"},
+{k:"RINA",n:"RINA \u2014 class society",o:"Italy \u00b7 IACS member",m:"RINA type approval",u:"https://www.rina.org"},
+{k:"ClassNK",n:"Nippon Kaiji Kyokai \u2014 class society",o:"Japan \u00b7 IACS member",m:"NK type approval",u:"https://www.classnk.or.jp"},
+{k:"IMO",n:"International Maritime Organization (SOLAS)",o:"UN agency, London",m:"",u:"https://www.imo.org"},
+{k:"SOLAS",n:"Safety of Life at Sea Convention (IMO)",o:"International",m:"",u:"https://www.imo.org"},
+{k:"MED",n:"EU Marine Equipment Directive",o:"European Union",m:"Wheelmark",u:"https://www.emsa.europa.eu"},
+{k:"NEC",n:"National Electrical Code (NFPA 70)",o:"USA",m:"Class/Div & Zone markings",u:"https://www.nfpa.org"},
+{k:"CEC",n:"Canadian Electrical Code (CSA C22.1)",o:"Canada",m:"",u:"https://www.csagroup.org"},
+{k:"FM",n:"FM Approvals",o:"USA",m:"FM diamond",u:"https://www.fmapprovals.com"},
+{k:"T\u00dcV",n:"T\u00dcV Rheinland / T\u00dcV S\u00dcD",o:"Germany",m:"T\u00dcV marks",u:"https://www.tuv.com"},
+{k:"SGS",n:"SGS",o:"Switzerland",m:"",u:"https://www.sgs.com"},
+{k:"Intertek",n:"Intertek",o:"United Kingdom",m:"ETL mark",u:"https://www.intertek.com"},
+{k:"NSN",n:"NATO codification system (AC/135)",o:"NATO",m:"NSN / NCAGE",u:"https://www.nspa.nato.int"},
+{k:"NCAGE",n:"NATO Commercial & Government Entity code",o:"NATO",m:"NCAGE",u:"https://www.nspa.nato.int"},
+{k:"MIL-",n:"US defense standards (DoD ASSIST)",o:"USA",m:"MIL-STD / MIL-PRF",u:"https://quicksearch.dla.mil"},
+{k:"DEF STAN",n:"UK MOD Defence Standards",o:"United Kingdom",m:"",u:"https://www.dstan.mod.uk"},
+{k:"AQAP",n:"NATO quality assurance publications",o:"NATO",m:"",u:"https://www.nato.int"},
+{k:"STANAG",n:"NATO Standardization Agreement",o:"NATO",m:"",u:"https://www.nato.int"},
+{k:"QPL",n:"Qualified Products / Manufacturers List (US DLA)",o:"USA",m:"QPL / QML listing",u:"https://www.dla.mil"},
+{k:"DFARS",n:"US Defense FAR Supplement (counterfeit-part rules)",o:"USA",m:"",u:"https://www.acquisition.gov"},
+{k:"ASTM",n:"ASTM International",o:"USA",m:"",u:"https://www.astm.org"},
+{k:"BS 2898",n:"British Standard \u2014 wrought aluminium for electrical purposes",o:"United Kingdom (BSI)",m:"",u:"https://www.bsigroup.com"},
+{k:"AAMA",n:"AAMA / FGIA (NAFS window standards)",o:"USA / Canada",m:"AAMA label",u:"https://fgiaonline.org"},
+{k:"UPC",n:"Uniform Plumbing Code (IAPMO)",o:"USA",m:"UPC shield",u:"https://www.iapmo.org"},
+{k:"IPC",n:"International Plumbing Code (ICC)",o:"USA",m:"",u:"https://www.iccsafe.org"},
+{k:"REACH",n:"EU chemicals regulation (ECHA)",o:"European Union",m:"SDS / registration",u:"https://echa.europa.eu"},
+{k:"CLP",n:"EU Classification, Labelling & Packaging (ECHA)",o:"European Union",m:"GHS pictograms",u:"https://echa.europa.eu"},
+{k:"RoHS",n:"EU Restriction of Hazardous Substances",o:"European Union",m:"CE (RoHS)",u:"https://environment.ec.europa.eu"},
+{k:"WEEE",n:"EU Waste Electrical & Electronic Equipment",o:"European Union",m:"Crossed-out bin symbol",u:"https://environment.ec.europa.eu"},
+{k:"Ecodesign",n:"EU Ecodesign / ErP framework",o:"European Union",m:"Energy label",u:"https://energy.ec.europa.eu"},
+{k:"F-gas",n:"EU F-gas Regulation",o:"European Union",m:"",u:"https://climate.ec.europa.eu"},
+{k:"% IACS",n:"Conductivity vs Int\u2019l Annealed Copper Standard (ASTM B193)",o:"International / USA",m:"% IACS value",u:"https://www.astm.org"},
+{k:"Ex d",n:"Ex protection concepts \u2014 d flameproof, e increased safety, i intrinsic, t dust (IEC 60079)",o:"International",m:"Ex marking string",u:"https://www.iecex.com"},
+{k:"SIL",n:"Safety Integrity Level (IEC 61508 / 61511)",o:"International",m:"SIL 1\u20134",u:"https://www.iec.ch"},
+{k:"EN ",n:"European standard (CEN / CENELEC)",o:"European Union",m:"",u:"https://www.cencenelec.eu"}
+];
+document.querySelectorAll('span.tag').forEach(function(sp){
+  var t=sp.textContent,seen={},hits=[];
+  for(var i=0;i<REG.length&&hits.length<3;i++){var e=REG[i];if(t.indexOf(e.k)>=0&&!seen[e.u+e.n]){seen[e.u+e.n]=1;hits.push(e);}}
+  if(!hits.length)return;
+  var tip=hits.map(function(e){return e.n+" \u2014 "+e.o+(e.m?(" \u2014 mark: "+e.m):"");}).join("\n");
+  var a=document.createElement('a');a.className='tag';a.textContent=t;a.href=hits[0].u;a.target='_blank';a.rel='noopener';a.setAttribute('data-tip',tip);a.title=tip;
+  sp.parentNode.replaceChild(a,sp);
+});
+})();
+</script>
+</body>
+</html>

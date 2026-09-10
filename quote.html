@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>TECHVERIFY — Get a Quote</title>
+<meta name="description" content="Answer a few questions about your product and stage — get an instant, signed indicative quotation with the recommended modules and their scope."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Space+Mono:wght@400;700&family=Caveat:wght@600&display=swap" rel="stylesheet"/>
+<style>
+  :root{--blue:#2540E8;--blue-tint:#E9EDFF;--ink:#232848;--muted:#5A6080;--line:#D8DCF2;--bg:#FFFFFF;--maxw:900px}
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:"Space Mono",ui-monospace,SFMono-Regular,Menlo,monospace;line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:var(--blue);text-decoration:none}
+  .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  h1,h2,h3{font-family:"Fredoka",system-ui,sans-serif;font-weight:500;color:var(--blue);margin:0}
+  header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:blur(6px);z-index:10}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0}
+  .brand{display:flex;align-items:center;gap:10px;color:var(--blue);font-weight:700;letter-spacing:.26em;font-size:17px}
+  nav.main{display:flex;gap:18px;flex-wrap:wrap}
+  nav.main a{color:var(--ink);font-size:13px;padding:4px 0;border-bottom:2px solid transparent}
+  nav.main a:hover{color:var(--blue)}
+  nav.main a[aria-current="page"]{color:var(--blue);border-bottom-color:var(--blue)}
+  .hero{padding:48px 0 6px;text-align:center}
+  .hero h1{font-size:clamp(34px,6vw,56px);line-height:1.05;margin-bottom:12px}
+  .hero p{max-width:640px;margin:0 auto;color:var(--muted);font-size:14px}
+  .phase{border:1.5px solid var(--line);border-top:4px solid var(--blue);padding:22px 26px;margin:26px 0}
+  .phase h2{font-size:18px;margin-bottom:4px}
+  .phase .ph{font-size:11px;color:var(--muted);margin:0 0 14px}
+  .q{margin:0 0 16px}
+  .q p{font-size:13px;font-weight:700;margin:0 0 8px}
+  .opt{display:block;font-size:13px;margin:6px 0;cursor:pointer}
+  .opt input{accent-color:var(--blue);margin-right:8px}
+  .row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+  .row label{display:block;font-size:12px;color:var(--muted);margin-bottom:4px}
+  .row input{width:100%;font-family:inherit;font-size:13px;padding:10px 12px;border:1.5px solid var(--blue);border-radius:12px}
+  .genbar{text-align:center;margin:8px 0 40px}
+  .btn{font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;display:inline-block;padding:12px 26px;border-radius:26px;border:1.5px solid var(--blue);background:var(--blue);color:#fff}
+  .btn:hover,.btn:focus-visible{opacity:.88}
+  .btn.ghost{background:#fff;color:var(--blue);margin-left:10px}
+  .err{color:#D9503F;font-size:12.5px;text-align:center;margin:8px 0;display:none}
+
+  /* quote document */
+  #quote{display:none;border:2px solid var(--ink);margin:10px 0 50px;padding:34px 38px;background:#fff}
+  .qhead{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:2px solid var(--ink);padding-bottom:14px;margin-bottom:16px}
+  .qhead .brand{letter-spacing:.26em}
+  .qmeta{text-align:right;font-size:11.5px;color:var(--muted)}
+  .qmeta b{color:var(--ink)}
+  .qclient{font-size:12.5px;margin:0 0 6px}
+  .qpath{font-size:12.5px;color:var(--muted);margin:0 0 18px}
+  .qmod{border:1px solid var(--line);border-left:4px solid var(--blue);padding:14px 18px;margin:0 0 14px}
+  .qmod .t{display:flex;justify-content:space-between;gap:12px;font-size:13.5px;font-weight:700}
+  .qmod .t .amt{color:var(--blue);white-space:nowrap}
+  .qmod .u{font-size:11px;color:var(--muted);margin:2px 0 8px}
+  .qmod ul{list-style:none;margin:0;padding:0}
+  .qmod li{font-size:12px;padding:3px 0 3px 16px;position:relative}
+  .qmod li::before{content:"";position:absolute;left:0;top:10px;width:5px;height:5px;background:var(--blue)}
+  .qtotal{display:flex;justify-content:space-between;border-top:2px solid var(--ink);padding-top:12px;font-size:15px;font-weight:700}
+  .qtotal .amt{color:var(--blue)}
+  .qnote{font-size:11px;color:var(--muted);margin:10px 0 0}
+  .tier{background:var(--blue-tint);border-left:4px solid var(--blue);padding:12px 16px;font-size:12px;margin:16px 0 0}
+  .sig{display:flex;justify-content:space-between;align-items:flex-end;margin-top:30px;gap:20px}
+  .sig .scope{font-size:11px;color:var(--muted);max-width:420px}
+  .sig .block{text-align:center;min-width:220px}
+  .sig .hand{font-family:"Caveat",cursive;font-size:38px;color:var(--blue);line-height:1;transform:rotate(-3deg)}
+  .sig .rule{border-top:1.5px solid var(--ink);margin:6px 0 4px}
+  .sig .who{font-size:11.5px}
+  .qactions{text-align:center;margin:22px 0 60px}
+  footer{border-top:1px solid var(--line);padding:22px 0 30px;text-align:center;color:var(--muted);font-size:12px}
+  @media (max-width:680px){.row{grid-template-columns:1fr}.sig{flex-direction:column;align-items:flex-start}nav.main{gap:12px}}
+  @media print{
+    header,.hero,form,.genbar,.qactions,footer,.err{display:none !important}
+    #quote{display:block !important;border:none;margin:0;padding:0}
+    body{font-size:12px}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <div class="brand">
+      <svg width="24" height="24" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="10" fill="none" stroke="#2540E8" stroke-width="1.6"/><circle cx="13" cy="13" r="2" fill="#2540E8"/><line x1="1" y1="13" x2="25" y2="13" stroke="#2540E8" stroke-width="1" stroke-dasharray="5 3"/><line x1="13" y1="1" x2="13" y2="25" stroke="#2540E8" stroke-width="1" stroke-dasharray="5 3"/></svg>
+      TECHVERIFY
+    </div>
+    <nav class="main" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="quote.html" aria-current="page">Get a Quote</a>
+      <a href="sectors.html">Sectors &amp; Standards</a>
+      <a href="industries.html">Industries</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1>Get a Quote</h1>
+      <p>Four short phases. Your answers place you on the path, pick the right modules, and generate a signed indicative quotation — instantly, nothing stored.</p>
+    </div>
+  </section>
+
+  <div class="wrap">
+  <form id="assess" onsubmit="return false">
+
+    <section class="phase">
+      <h2>Where you are</h2>
+      <p class="ph">Phase 1 of 4 — your stage decides the path</p>
+      <div class="q">
+        <p>Which best describes your situation right now?</p>
+        <label class="opt"><input type="radio" name="stage" value="designing"> We are designing or specifying the product</label>
+        <label class="opt"><input type="radio" name="stage" value="buying"> We are selecting or buying — offers or products are in hand</label>
+        <label class="opt"><input type="radio" name="stage" value="selling"> We make or import it and want to sell in a new market</label>
+        <label class="opt"><input type="radio" name="stage" value="bidding"> We are bidding a tender</label>
+        <label class="opt"><input type="radio" name="stage" value="issue"> A delivered product has a compliance problem</label>
+      </div>
+    </section>
+
+    <section class="phase">
+      <h2>Standards &amp; evidence</h2>
+      <p class="ph">Phase 2 of 4 — what is known and what is documented</p>
+      <div class="q">
+        <p>Do you know which standards govern the product?</p>
+        <label class="opt"><input type="radio" name="std" value="yes"> Yes — and we hold certificates / test reports</label>
+        <label class="opt"><input type="radio" name="std" value="partial"> Partly — named in the spec but never verified</label>
+        <label class="opt"><input type="radio" name="std" value="no"> No — we need the standards identified</label>
+      </div>
+      <div class="q">
+        <p>What documents do you have? (tick all that apply)</p>
+        <label class="opt"><input type="checkbox" name="docs" value="Datasheets"> Datasheets</label>
+        <label class="opt"><input type="checkbox" name="docs" value="Test reports / certificates"> Test reports / certificates</label>
+        <label class="opt"><input type="checkbox" name="docs" value="Drawings / calculations"> Drawings / calculations</label>
+        <label class="opt"><input type="checkbox" name="docs" value="Samples"> Samples</label>
+        <label class="opt"><input type="checkbox" name="docs" value="Nothing yet"> Nothing yet</label>
+      </div>
+      <div class="q">
+        <p>Do you need testing or acceptance services? (tick all that apply)</p>
+        <label class="opt"><input type="checkbox" name="tst" value="FAT witnessing"> FAT witnessing (factory acceptance test)</label>
+        <label class="opt"><input type="checkbox" name="tst" value="Burn-in program"> Burn-in test program</label>
+        <label class="opt"><input type="checkbox" name="tst" value="Type testing"> Type testing</label>
+        <label class="opt"><input type="checkbox" name="tst" value="Explosion-proof (Ex) testing"> Explosion-proof (Ex) testing</label>
+        <label class="opt"><input type="checkbox" name="tst" value="Routine / sample tests"> Routine / sample tests</label>
+        <label class="opt"><input type="checkbox" name="tst" value="Third-party lab coordination"> Third-party lab coordination (UL / TÜV / SGS / Intertek)</label>
+      </div>
+    </section>
+
+    <section class="phase">
+      <h2>Market &amp; scale</h2>
+      <p class="ph">Phase 3 of 4 — where it must comply, and how much of it</p>
+      <div class="q">
+        <p>Target market(s)?</p>
+        <label class="opt"><input type="checkbox" name="mkt" value="North America (UL/CSA)"> North America (UL/CSA)</label>
+        <label class="opt"><input type="checkbox" name="mkt" value="EU / UK (CE/UKCA)"> EU / UK (CE/UKCA)</label>
+        <label class="opt"><input type="checkbox" name="mkt" value="Gulf (SASO/SABER · G-Mark · GCC)"> Gulf (SASO/SABER · G-Mark · GCC)</label>
+        <label class="opt"><input type="checkbox" name="mkt" value="Pakistan (PSQCA)"> Pakistan (PSQCA)</label>
+        <label class="opt"><input type="checkbox" name="mkt" value="Marine / offshore (DNV · ABS · LR · MED)"> Marine / offshore (class type approval · MED wheelmark)</label>
+        <label class="opt"><input type="checkbox" name="mkt" value="Defense / NATO (NSN · MIL-STD)"> Defense / NATO procurement (NSN · MIL-STD · AQAP)</label>
+        <label class="opt"><input type="checkbox" name="mkt" value="Other"> Other / not sure</label>
+      </div>
+      <div class="q">
+        <p>How many products or designs?</p>
+        <label class="opt"><input type="radio" name="qty" value="1"> One</label>
+        <label class="opt"><input type="radio" name="qty" value="3"> Two to four</label>
+        <label class="opt"><input type="radio" name="qty" value="5"> Five or more</label>
+      </div>
+    </section>
+
+    <section class="phase">
+      <h2>Timeline &amp; details</h2>
+      <p class="ph">Phase 4 of 4 — for the quotation header</p>
+      <div class="q">
+        <p>How soon do you need the result?</p>
+        <label class="opt"><input type="radio" name="time" value="urgent"> Urgent — under two weeks</label>
+        <label class="opt"><input type="radio" name="time" value="month"> Within a month</label>
+        <label class="opt"><input type="radio" name="time" value="planning"> Planning ahead</label>
+      </div>
+      <div class="row">
+        <div><label for="cname">Your name</label><input id="cname" type="text" autocomplete="name"></div>
+        <div><label for="ccomp">Company</label><input id="ccomp" type="text" autocomplete="organization"></div>
+        <div><label for="ccur">Currency</label><input id="ccur" list="curs" value="USD"><datalist id="curs"><option>USD</option><option>CAD</option><option>EUR</option><option>GBP</option><option>SAR</option><option>AED</option><option>PKR</option></datalist></div>
+      </div>
+    </section>
+
+    <p class="err" id="err">Answer the questions in Phases 1–4 (stage, standards, quantity, timeline) to generate the quotation.</p>
+    <div class="genbar">
+      <button class="btn" id="gen" type="button">Generate my quotation</button>
+    </div>
+  </form>
+
+  <article id="quote" aria-label="Quotation">
+    <div class="qhead">
+      <div class="brand">
+        <svg width="24" height="24" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="10" fill="none" stroke="#2540E8" stroke-width="1.6"/><circle cx="13" cy="13" r="2" fill="#2540E8"/><line x1="1" y1="13" x2="25" y2="13" stroke="#2540E8" stroke-width="1" stroke-dasharray="5 3"/><line x1="13" y1="1" x2="13" y2="25" stroke="#2540E8" stroke-width="1" stroke-dasharray="5 3"/></svg>
+        TECHVERIFY
+      </div>
+      <div class="qmeta"><b>Quotation</b> <span id="qref"></span><br>Date: <span id="qdate"></span><br>Valid: 30 days · Indicative</div>
+    </div>
+    <p class="qclient" id="qclient"></p>
+    <p class="qpath" id="qpathtext"></p>
+    <div id="qmods"></div>
+    <div class="qtotal"><span>Estimated total <span id="qtotqual"></span></span><span class="amt" id="qtotal"></span></div>
+    <p class="qnote">Prices converted at fixed reference rates; the invoice governs the final amount and currency. Excludes taxes, third-party laboratory fees and travel. "From" prices are confirmed after the free 20-minute scoping call. Defense &amp; NATO program pricing is not published — it is provided separately, under NDA on request.</p>
+    <div class="tier" id="qtier"></div>
+    <div class="sig">
+      <p class="scope"><b>Scope of this quotation:</b> only the features listed under each module above are included as the service. Anything outside the listed scope is quoted separately, in writing, before work begins. This quotation is generated automatically under the authority of the principal and is confirmed at the scoping call.</p>
+      <div class="block">
+        <div class="hand">Umer Siddiqui</div>
+        <div class="rule"></div>
+        <div class="who">Umer Siddiqui — Principal, TECHVERIFY<br>umersidiqii@gmail.com</div>
+      </div>
+    </div>
+  </article>
+
+  <div class="qactions" id="qactions" style="display:none">
+    <button class="btn" onclick="window.print()">Print / save as PDF</button>
+    <a class="btn ghost" id="mailQuote" href="#">Email this quotation to me</a>
+  </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 TECHVERIFY — technical compliance, design evaluation &amp; market readiness.</div>
+</footer>
+
+<script>
+const CONTACT="umersidiqii@gmail.com";
+const RATES={USD:{r:1,s:"$",step:10},CAD:{r:1.38,s:"C$",step:10},EUR:{r:0.92,s:"\u20AC",step:10},GBP:{r:0.79,s:"\u00A3",step:10},SAR:{r:3.75,s:"SAR ",step:10},AED:{r:3.67,s:"AED ",step:10},PKR:{r:285,s:"Rs ",step:1000}};
+const MODULES={
+ map:{name:"Standards Map",usd:490,per:"product",unit:"per product · one target market · 3–5 days",inc:["Governing standards identified (IEC, EN, ISO, UL/CSA)","Conformity route for the target market","Required marks, certificates and documents list","Known safety failure modes for the product family"]},
+ check:{name:"Compliance Check",usd:1450,per:"product",unit:"per product · 5–10 days",inc:["Datasheet, test-report and certificate verification","Compliance gap list with concrete fixes","Pass / fix / fail verdict","Supplier question set"]},
+ design:{name:"Design Review",usd:2400,per:"design",unit:"per design · 10 days",inc:["Design reviewed against the governing standard","Drawings, calculations and technical file examined","Ratings, derating and materials verified","Written findings with required changes"]},
+ bench:{name:"Benchmark",usd:2400,per:"evaluation",unit:"up to 4 products or designs · 10 days",inc:["Technical + commercial comparison matrix","Alternates and qualified equivalents","Price posture vs the market","Written recommendation: buy, fix, or walk away"]},
+ access:{name:"Market Access",usd:3900,from:true,per:"market",unit:"per product family · per market",inc:["Conformity program for the selected market(s)","Technical file, declarations, labeling and marking","Test-lab and certification coordination (UL, TÜV, SGS, Intertek)","Registration and import documentation support"]},
+ bid:{name:"Source & Bid",usd:2900,from:true,per:"bid",unit:"per bid",inc:["Tender compliance matrix, clause by clause","Bid/No-Bid with win-probability scoring","Technical proposal sections (Shipley/APMP)","Price & award history for the buying agency where available"]},
+ test:{name:"Testing & FAT Management",poa:true,per:"program",unit:"quoted per test program \u00b7 scope, location and witness days set the price",inc:["Test plan aligned to the governing standard","Witnessed FAT, burn-in, type or Ex testing as selected","Factory and third-party laboratory coordination","Witness report with pass / fix / fail findings"]},
+ def:{name:"Defense & NATO Program",poa:true,per:"program",unit:"priced separately \u00b7 not published \u00b7 NDA available",inc:["NCAGE registration and NSN codification","MIL-STD / DEF STAN / AQAP conformity positioning","QPL / QML entry support","Approved-source verification and traceability (counterfeit controls)"]}
+};
+const STAGES={designing:"designing / specifying",buying:"selecting / buying",selling:"entering a new market",bidding:"bidding a tender",issue:"resolving a compliance problem"};
+
+function val(n){const e=document.querySelector('input[name="'+n+'"]:checked');return e?e.value:null}
+function vals(n){return [...document.querySelectorAll('input[name="'+n+'"]:checked')].map(e=>e.value)}
+function money(usd,cur){const k=RATES[cur]||RATES.USD;const v=Math.round(usd*k.r/k.step)*k.step;return k.s+v.toLocaleString('en-US')}
+
+document.getElementById('gen').addEventListener('click',function(){
+  const stage=val('stage'),std=val('std'),qty=val('qty'),time=val('time');
+  const err=document.getElementById('err');
+  if(!stage||!std||!qty||!time){err.style.display='block';return}
+  err.style.display='none';
+  const cur=(document.getElementById('ccur').value||'USD').toUpperCase().trim();
+  const C=RATES[cur]?cur:'USD';
+  const n=parseInt(qty,10);
+  const mkts=vals('mkt');const defense=mkts.some(m=>m.indexOf("Defense")===0);const realMkts=mkts.filter(m=>m!=="Other"&&m.indexOf("Defense")!==0).length||1;
+
+  // Build the path
+  const path=[];
+  if(std!=='yes')path.push('map');
+  if(stage==='designing')path.push('design');
+  if(stage==='buying'){path.push('check');if(n>1)path.push('bench')}
+  if(stage==='selling')path.push('access');
+  if(stage==='bidding'){path.push('check','bid')}
+  if(stage==='issue')path.push('check');
+  const tsts=vals('tst');if(tsts.length)path.push('test');
+  if(defense)path.push('def');
+
+  // Render modules + total
+  let total=0,anyFrom=false,anyPOA=false,html='',mailLines=[];
+  path.forEach((k,i)=>{
+    const m=MODULES[k];
+    if(m.poa){anyPOA=true;html+='<div class="qmod"><div class="t"><span>Step '+(i+1)+' \u2014 '+m.name+'</span><span class="amt">Price on request</span></div><div class="u">'+m.unit+'</div><ul>'+m.inc.map(f=>'<li>'+f+'</li>').join('')+'</ul></div>';mailLines.push('Step '+(i+1)+': '+m.name+' \u2014 price on request');return}
+    let q=1;
+    if(m.per==='product'||m.per==='design')q=n;
+    if(m.per==='market')q=realMkts;
+    const line=m.usd*q;total+=line;if(m.from)anyFrom=true;
+    html+='<div class="qmod"><div class="t"><span>Step '+(i+1)+' — '+m.name+(q>1?' × '+q:'')+'</span><span class="amt">'+(m.from?'from ':'')+money(line,C)+'</span></div><div class="u">'+m.unit+' · unit '+(m.from?'from ':'')+money(m.usd,C)+'</div><ul>'+m.inc.map(f=>'<li>'+f+'</li>').join('')+'</ul></div>';
+    mailLines.push('Step '+(i+1)+': '+m.name+(q>1?' x'+q:'')+' — '+(m.from?'from ':'')+money(line,C));
+  });
+
+  // Tier recommendation
+  let tier='';
+  if(n>=5||realMkts>=3)tier='Recommended tier: <b>Retainer (from '+money(6500,C)+' / month)</b> — your volume fits the retainer: 48-hour priority SLA, standing standards helpdesk, revision watch, and up to three markets covered.';
+  else if(path.length>=3)tier='Recommended tier: <b>Professional ('+money(4900,C)+' / product line)</b> — bundles this path with two review calls, a 7-day turnaround and one revision round, saving roughly 20% vs buying the modules separately.';
+  else tier='Pay per module fits this scope. Upgrade paths: Professional ('+money(4900,C)+') bundles Map + Check + Benchmark; Retainer (from '+money(6500,C)+'/month) adds the 48-hour SLA and standing helpdesk.';
+  if(time==='urgent')tier+=' <b>Urgent timeline noted</b> — priority turnaround is available under the Retainer SLA or by rush arrangement at scoping.';
+
+  // Header data
+  const d=new Date();
+  const ref='TV-'+d.getFullYear()+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0')+'-'+String(Math.floor(100+Math.random()*900));
+  document.getElementById('qref').textContent=ref;
+  document.getElementById('qdate').textContent=d.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+  const nm=document.getElementById('cname').value.trim(),co=document.getElementById('ccomp').value.trim();
+  document.getElementById('qclient').innerHTML='<b>Prepared for:</b> '+(nm||'—')+(co?' · '+co:'');
+  const docs=vals('docs');
+  document.getElementById('qpathtext').textContent='Assessment: you are '+STAGES[stage]+', standards '+(std==='yes'?'known and certificated':std==='partial'?'named but unverified':'not yet identified')+', '+(n===1?'one product':n===3?'two to four products':'five or more products')+', market(s): '+(mkts.length?mkts.join('; '):'to be confirmed')+(docs.length?'. In hand: '+docs.join(', ').toLowerCase():'')+(tsts.length?'. Testing required: '+tsts.join(', ').toLowerCase():'')+'. The path below takes you from where you are to a compliant, market-ready position.';
+  document.getElementById('qmods').innerHTML=html;
+  document.getElementById('qtotqual').textContent=(n>1?'(estimated for '+(n===3?'3':'5')+' products) ':'')+(anyFrom?'· contains "from" items':'')+(anyPOA?' · plus on-request items priced separately':'');
+  document.getElementById('qtotal').textContent=(anyFrom?'from ':'')+money(total,C);
+  document.getElementById('qtier').innerHTML=tier;
+  document.getElementById('quote').style.display='block';
+  document.getElementById('qactions').style.display='block';
+  document.getElementById('mailQuote').href='mailto:'+CONTACT+'?subject='+encodeURIComponent('Quotation '+ref+(co?' — '+co:''))+'&body='+encodeURIComponent('Please confirm this indicative quotation.\n\nRef: '+ref+'\nName: '+nm+'\nCompany: '+co+'\nStage: '+STAGES[stage]+'\nMarkets: '+mkts.join('; ')+'\n\n'+mailLines.join('\n')+'\n\nEstimated total: '+(anyFrom?'from ':'')+money(total,C));
+  document.getElementById('quote').scrollIntoView({behavior:'smooth'});
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>TECHVERIFY — Pricing</title>
+<meta name="description" content="Fixed-price modules for technical compliance evaluation, engineering standards, design evaluation and market readiness — plus Professional and Retainer tiers."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+  :root{--blue:#2540E8;--blue-tint:#E9EDFF;--ink:#232848;--muted:#5A6080;--line:#D8DCF2;--bg:#FFFFFF;--maxw:1040px}
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:"Space Mono",ui-monospace,SFMono-Regular,Menlo,monospace;line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:var(--blue);text-decoration:none}
+  .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  h1,h2,h3{font-family:"Fredoka",system-ui,sans-serif;font-weight:500;color:var(--blue);margin:0}
+  header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:blur(6px);z-index:10}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0}
+  .brand{display:flex;align-items:center;gap:10px;color:var(--blue);font-weight:700;letter-spacing:.26em;font-size:17px}
+  nav.main{display:flex;gap:22px;flex-wrap:wrap}
+  nav.main a{color:var(--ink);font-size:13px;padding:4px 0;border-bottom:2px solid transparent}
+  nav.main a:hover{color:var(--blue)}
+  nav.main a[aria-current="page"]{color:var(--blue);border-bottom-color:var(--blue)}
+  .hero{padding:54px 0 8px;text-align:center}
+  .hero h1{font-size:clamp(38px,7vw,66px);line-height:1.03;margin-bottom:14px}
+  .hero p{max-width:660px;margin:0 auto;color:var(--muted);font-size:14.5px}
+  .curr{margin-top:18px;font-size:12.5px;color:var(--muted)}
+  .curr select{font-family:inherit;font-size:13px;color:var(--blue);border:1.5px solid var(--blue);border-radius:18px;padding:6px 12px;background:#fff;margin-left:8px;cursor:pointer}
+  .mods{display:grid;grid-template-columns:1fr 1fr;gap:26px;padding:38px 0 8px}
+  .mod{border:1.5px solid var(--line);border-top:4px solid var(--blue);padding:22px 24px}
+  .mod .area{font-size:11px;color:var(--muted);margin:0 0 6px}
+  .mod h2{font-size:21px;margin-bottom:2px}
+  .mod .price{font-family:"Fredoka",system-ui,sans-serif;color:var(--ink);font-size:24px;margin:6px 0 2px}
+  .mod .unit{font-size:11.5px;color:var(--muted);margin:0 0 12px}
+  .mod ul{list-style:none;margin:0;padding:0}
+  .mod li{font-size:12.5px;padding:5px 0 5px 16px;position:relative}
+  .mod li::before{content:"";position:absolute;left:0;top:12px;width:6px;height:6px;background:var(--blue)}
+  .tiers{padding:44px 0 8px}
+  .tiers h2{font-size:28px;text-align:center;margin-bottom:6px}
+  .tiers .sub{color:var(--muted);font-size:13px;text-align:center;margin:0 0 26px}
+  table{width:100%;border-collapse:collapse;font-size:12.5px}
+  th,td{border:1px solid var(--line);padding:11px 12px;text-align:left;vertical-align:top}
+  thead th{font-family:"Fredoka",system-ui,sans-serif;font-weight:500;color:var(--blue);font-size:16px}
+  thead th small{display:block;font-family:"Space Mono",monospace;font-size:12px;color:var(--ink);margin-top:2px}
+  tbody th{font-weight:700;color:var(--ink);background:#FAFBFF;width:26%}
+  td.y::before{content:"✓ ";color:var(--blue);font-weight:700}
+  td.hi{background:var(--blue-tint)}
+  .note{font-size:11.5px;color:var(--muted);text-align:center;margin:18px auto 0;max-width:720px}
+  .cta{border-top:1px solid var(--line);margin-top:44px;padding:46px 0 60px;text-align:center}
+  .cta h3{font-size:24px;margin-bottom:8px}
+  .cta p{color:var(--muted);font-size:13.5px;margin:0 auto 22px;max-width:520px}
+  .btn{font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;display:inline-block;padding:12px 26px;border-radius:26px;border:1.5px solid var(--blue);background:var(--blue);color:#fff}
+  .btn:hover,.btn:focus-visible{opacity:.88}
+  footer{border-top:1px solid var(--line);padding:22px 0 30px;text-align:center;color:var(--muted);font-size:12px}
+  @media (max-width:760px){.mods{grid-template-columns:1fr}nav.main{gap:14px}.tierwrap{overflow-x:auto}table{min-width:640px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <div class="brand">
+      <svg width="24" height="24" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="10" fill="none" stroke="#2540E8" stroke-width="1.6"/><circle cx="13" cy="13" r="2" fill="#2540E8"/><line x1="1" y1="13" x2="25" y2="13" stroke="#2540E8" stroke-width="1" stroke-dasharray="5 3"/><line x1="13" y1="1" x2="13" y2="25" stroke="#2540E8" stroke-width="1" stroke-dasharray="5 3"/></svg>
+      TECHVERIFY
+    </div>
+    <nav class="main" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="pricing.html" aria-current="page">Pricing</a>
+      <a href="quote.html">Get a Quote</a>
+      <a href="sectors.html">Sectors &amp; Standards</a>
+      <a href="industries.html">Industries</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1>Pricing</h1>
+      <p>Fixed-price modules you can buy one at a time, and two tiers for teams that need more. Every module ends in a written, evidence-backed deliverable.</p>
+      <div class="curr"><label for="cur">Show prices in</label> <select id="cur"><option value="USD">USD $</option><option value="CAD">CAD C$</option><option value="EUR">EUR €</option><option value="GBP">GBP £</option><option value="SAR">SAR</option><option value="AED">AED</option><option value="PKR">PKR Rs</option></select></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap mods">
+
+      <article class="mod">
+        <p class="area">Engineering safety &amp; standards</p>
+        <h2>Standards Map</h2>
+        <p class="price"><span class="px" data-usd="490">$490</span></p>
+        <p class="unit">per product · one target market · 3–5 days</p>
+        <ul>
+          <li>Governing standards identified (IEC, EN, ISO, UL/CSA)</li>
+          <li>Conformity route for the target market</li>
+          <li>Required marks, certificates and documents list</li>
+          <li>Known safety failure modes for the product family</li>
+        </ul>
+      </article>
+
+      <article class="mod">
+        <p class="area">Technical compliance evaluation</p>
+        <h2>Compliance Check</h2>
+        <p class="price"><span class="px" data-usd="1450">$1,450</span></p>
+        <p class="unit">per product · 5–10 days</p>
+        <ul>
+          <li>Everything in Standards Map</li>
+          <li>Datasheet, test-report and certificate verification</li>
+          <li>Gap list with concrete fixes</li>
+          <li>Pass / fix / fail verdict + supplier question set</li>
+        </ul>
+      </article>
+
+      <article class="mod">
+        <p class="area">Design evaluation</p>
+        <h2>Design Review</h2>
+        <p class="price"><span class="px" data-usd="2400">$2,400</span></p>
+        <p class="unit">per design · 10 days</p>
+        <ul>
+          <li>Design reviewed against the standard (e.g., IEC 61439, IEC 60034)</li>
+          <li>Drawings, calculations and technical file examined</li>
+          <li>Ratings, derating and materials verified</li>
+          <li>Written findings with required changes</li>
+        </ul>
+      </article>
+
+      <article class="mod">
+        <p class="area">Design evaluation</p>
+        <h2>Benchmark</h2>
+        <p class="price"><span class="px" data-usd="2400">$2,400</span></p>
+        <p class="unit">up to 4 products or designs · 10 days</p>
+        <ul>
+          <li>Technical + commercial comparison matrix</li>
+          <li>Alternates and qualified equivalents</li>
+          <li>Price posture vs the market</li>
+          <li>Written recommendation: buy, fix, or walk away</li>
+        </ul>
+      </article>
+
+      <article class="mod">
+        <p class="area">Market readiness</p>
+        <h2>Market Access</h2>
+        <p class="price">from <span class="px" data-usd="3900">$3,900</span></p>
+        <p class="unit">per product family · per market</p>
+        <ul>
+          <li>Conformity program: CE/UKCA, SASO/SABER, G-Mark/GCC, PSQCA</li>
+          <li>Marine class type approval (DNV · ABS · LR · MED) and ATEX/IECEx routes</li>
+          <li>Technical file, declarations, labeling and marking</li>
+          <li>Test-lab and certification coordination (UL, TÜV, SGS, Intertek)</li>
+          <li>Registration and import documentation support</li>
+        </ul>
+      </article>
+
+      <article class="mod">
+        <p class="area">Supporting services</p>
+        <h2>Source &amp; Bid</h2>
+        <p class="price">from <span class="px" data-usd="950">$950</span></p>
+        <p class="unit">sourcing per item · bid support from <span class="px" data-usd="2900">$2,900</span></p>
+        <ul>
+          <li>NSN/NATO sourcing across an 18M-item catalogue</li>
+          <li>Approved and alternate sources, price &amp; award history</li>
+          <li>Tender compliance matrix and Bid/No-Bid with win-probability</li>
+          <li>Technical proposal sections (Shipley/APMP)</li>
+        </ul>
+      </article>
+
+      <article class="mod">
+        <p class="area">Defense &amp; NATO</p>
+        <h2>Defense &amp; NATO Programs</h2>
+        <p class="price">On request</p>
+        <p class="unit">priced separately · not published · NDA available</p>
+        <ul>
+          <li>NCAGE registration and NSN codification</li>
+          <li>MIL-STD / DEF STAN / AQAP conformity positioning</li>
+          <li>QPL / QML entry support</li>
+          <li>Approved-source verification &amp; traceability (counterfeit controls)</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="tiers">
+    <div class="wrap">
+      <h2>Tiers</h2>
+      <p class="sub">Buy modules one at a time, bundle them, or put the practice on call.</p>
+      <div class="tierwrap">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Feature</th>
+            <th scope="col">Pay per module<small>prices above</small></th>
+            <th scope="col">Professional<small><span class="px" data-usd="4900">$4,900</span> / product line</small></th>
+            <th scope="col">Retainer<small>from <span class="px" data-usd="6500">$6,500</span> / month</small></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Written, evidence-backed deliverables</th><td class="y"></td><td class="y"></td><td class="y hi"></td></tr>
+          <tr><th scope="row">Standards Map + Compliance Check + Benchmark bundled</th><td>Bought separately</td><td class="y">Included (~20% saved)</td><td class="y hi">2 Checks + 1 Benchmark monthly</td></tr>
+          <tr><th scope="row">Turnaround</th><td>10 days standard</td><td>7 days</td><td class="hi">48-hour priority SLA</td></tr>
+          <tr><th scope="row">Review calls</th><td>—</td><td class="y">Two per engagement</td><td class="y hi">Direct access to the principal</td></tr>
+          <tr><th scope="row">Revision round</th><td>—</td><td class="y">One included</td><td class="y hi">Included</td></tr>
+          <tr><th scope="row">Standing standards helpdesk (unlimited quick questions)</th><td>—</td><td>—</td><td class="y hi"></td></tr>
+          <tr><th scope="row">Standards-revision watch on your product list</th><td>—</td><td>—</td><td class="y hi"></td></tr>
+          <tr><th scope="row">Factory / site inspection days</th><td>Quoted</td><td>Quoted</td><td class="hi">Preferred rates</td></tr>
+          <tr><th scope="row">Tender-support hours</th><td>—</td><td>—</td><td class="y hi">Included monthly</td></tr>
+          <tr><th scope="row">Multi-market coverage</th><td>One market per module</td><td>One market</td><td class="hi">Up to three markets</td></tr>
+          <tr><th scope="row">White-label reports (for distributors / resellers)</th><td>—</td><td>—</td><td class="y hi">Available</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="note">Prices are starting points, converted at fixed reference rates for convenience — the invoice governs the final amount and currency. Exclusive of taxes, third-party lab fees and travel; complex products and additional markets are quoted before work begins. Every engagement starts with a free 20-minute scoping call.</p>
+      <p class="note"><b>Payment:</b> invoices are payable by international bank transfer (SWIFT), Payoneer, or local PKR transfer for Pakistan-based clients. Account details are provided on the invoice.</p>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <h3>Not sure which module fits?</h3>
+      <p>Describe the product and the market — you'll get the right module, the price, and the timeline in one reply.</p>
+      <a class="btn" href="quote.html">Generate an instant quote</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 TECHVERIFY — technical compliance, design evaluation &amp; market readiness.</div>
+</footer>
+
+<script>
+  const CONTACT = "umersidiqii@gmail.com";
+
+  // Fixed reference rates vs USD (update by editing this table; the invoice governs)
+  const RATES = {
+    USD:{r:1,   s:"$",    step:10},
+    CAD:{r:1.38,s:"C$",   step:10},
+    EUR:{r:0.92,s:"\u20AC", step:10},
+    GBP:{r:0.79,s:"\u00A3", step:10},
+    SAR:{r:3.75,s:"SAR ", step:10},
+    AED:{r:3.67,s:"AED ", step:10},
+    PKR:{r:285, s:"Rs ",  step:1000}
+  };
+  function setCur(c){
+    const k = RATES[c] || RATES.USD;
+    document.querySelectorAll('.px').forEach(el=>{
+      const usd = parseFloat(el.dataset.usd);
+      let v = Math.round(usd*k.r/k.step)*k.step;
+      el.textContent = k.s + v.toLocaleString('en-US');
+    });
+    document.getElementById('cur').value = c;
+  }
+  (function(){
+    let c = "USD";
+    const lang = (navigator.language||"en-us").toLowerCase();
+    if(lang.endsWith("-ca")) c="CAD";
+    else if(lang.endsWith("-gb")) c="GBP";
+    else if(lang.endsWith("-pk")||lang.startsWith("ur")) c="PKR";
+    else if(lang.endsWith("-sa")) c="SAR";
+    else if(lang.endsWith("-ae")) c="AED";
+    else if(/-(de|fr|es|it|nl|be|at|pt|ie|fi)$/.test(lang)) c="EUR";
+    try{
+      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+      if(tz.includes("Karachi")) c="PKR";
+      else if(tz.includes("Riyadh")) c="SAR";
+      else if(tz.includes("Dubai")) c="AED";
+      else if(tz.includes("Toronto")||tz.includes("Vancouver")||tz.includes("Edmonton")||tz.includes("Winnipeg")||tz.includes("Halifax")) c="CAD";
+      else if(tz.includes("London")) c="GBP";
+    }catch(e){}
+    setCur(c);
+    document.getElementById('cur').addEventListener('change', e=>setCur(e.target.value));
+  })();
+</script>
+</body>
+</html>
