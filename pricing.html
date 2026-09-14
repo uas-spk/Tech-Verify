@@ -7,12 +7,12 @@
 <meta name="description" content="Fixed-price modules for technical compliance evaluation, engineering standards, design evaluation and market readiness — plus Professional and Retainer tiers."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
 <style>
   :root{--blue:#2540E8;--blue-tint:#E9EDFF;--ink:#232848;--muted:#5A6080;--line:#D8DCF2;--bg:#FFFFFF;--maxw:1040px}
   *{box-sizing:border-box}
   html,body{margin:0;padding:0}
-  body{background:var(--bg);color:var(--ink);font-family:"Space Mono",ui-monospace,SFMono-Regular,Menlo,monospace;line-height:1.65;-webkit-font-smoothing:antialiased}
+  body{background:var(--bg);color:var(--ink);font-family:"Inter","Segoe UI",system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
   a{color:var(--blue);text-decoration:none}
   .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 28px}
   h1,h2,h3{font-family:"Fredoka",system-ui,sans-serif;font-weight:500;color:var(--blue);margin:0}
@@ -20,40 +20,45 @@
   .bar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0}
   .brand{display:flex;align-items:center;gap:10px;color:var(--blue);font-weight:700;letter-spacing:.26em;font-size:17px}
   nav.main{display:flex;gap:22px;flex-wrap:wrap}
-  nav.main a{color:var(--ink);font-size:13px;padding:4px 0;border-bottom:2px solid transparent}
+  nav.main a{color:var(--ink);font-size:14.5px;padding:4px 0;border-bottom:2px solid transparent}
   nav.main a:hover{color:var(--blue)}
   nav.main a[aria-current="page"]{color:var(--blue);border-bottom-color:var(--blue)}
   .hero{padding:54px 0 8px;text-align:center}
   .hero h1{font-size:clamp(38px,7vw,66px);line-height:1.03;margin-bottom:14px}
-  .hero p{max-width:660px;margin:0 auto;color:var(--muted);font-size:14.5px}
-  .curr{margin-top:18px;font-size:12.5px;color:var(--muted)}
-  .curr select{font-family:inherit;font-size:13px;color:var(--blue);border:1.5px solid var(--blue);border-radius:18px;padding:6px 12px;background:#fff;margin-left:8px;cursor:pointer}
+  .hero p{max-width:660px;margin:0 auto;color:var(--muted);font-size:16px}
+  .curr{margin-top:18px;font-size:14px;color:var(--muted)}
+  .curr select{font-family:inherit;font-size:14.5px;color:var(--blue);border:1.5px solid var(--blue);border-radius:18px;padding:6px 12px;background:#fff;margin-left:8px;cursor:pointer}
   .mods{display:grid;grid-template-columns:1fr 1fr;gap:26px;padding:38px 0 8px}
   .mod{border:1.5px solid var(--line);border-top:4px solid var(--blue);padding:22px 24px}
-  .mod .area{font-size:11px;color:var(--muted);margin:0 0 6px}
+  .mod .area{font-size:12.5px;color:var(--muted);margin:0 0 6px}
   .mod h2{font-size:21px;margin-bottom:2px}
   .mod .price{font-family:"Fredoka",system-ui,sans-serif;color:var(--ink);font-size:24px;margin:6px 0 2px}
-  .mod .unit{font-size:11.5px;color:var(--muted);margin:0 0 12px}
+  .mod .unit{font-size:13px;color:var(--muted);margin:0 0 12px}
   .mod ul{list-style:none;margin:0;padding:0}
-  .mod li{font-size:12.5px;padding:5px 0 5px 16px;position:relative}
+  .mod li{font-size:14px;padding:5px 0 5px 16px;position:relative}
   .mod li::before{content:"";position:absolute;left:0;top:12px;width:6px;height:6px;background:var(--blue)}
   .tiers{padding:44px 0 8px}
   .tiers h2{font-size:28px;text-align:center;margin-bottom:6px}
-  .tiers .sub{color:var(--muted);font-size:13px;text-align:center;margin:0 0 26px}
-  table{width:100%;border-collapse:collapse;font-size:12.5px}
+  .tiers .sub{color:var(--muted);font-size:14.5px;text-align:center;margin:0 0 26px}
+  table{width:100%;border-collapse:collapse;font-size:14px}
   th,td{border:1px solid var(--line);padding:11px 12px;text-align:left;vertical-align:top}
   thead th{font-family:"Fredoka",system-ui,sans-serif;font-weight:500;color:var(--blue);font-size:16px}
-  thead th small{display:block;font-family:"Space Mono",monospace;font-size:12px;color:var(--ink);margin-top:2px}
+  thead th small{display:block;font-family:"Inter","Segoe UI",system-ui,sans-serif;font-size:13.5px;color:var(--ink);margin-top:2px}
   tbody th{font-weight:700;color:var(--ink);background:#FAFBFF;width:26%}
   td.y::before{content:"✓ ";color:var(--blue);font-weight:700}
   td.hi{background:var(--blue-tint)}
-  .note{font-size:11.5px;color:var(--muted);text-align:center;margin:18px auto 0;max-width:720px}
+  .note{font-size:13px;color:var(--muted);text-align:center;margin:18px auto 0;max-width:720px}
+  .faq{padding:44px 0 8px;border-top:1px solid var(--line);margin-top:34px}
+  .faq h2{font-size:26px;text-align:center;margin-bottom:18px}
+  .faq details{border:1.5px solid var(--line);border-radius:12px;padding:0 18px;margin:0 auto 10px;max-width:760px}
+  .faq summary{cursor:pointer;font-size:15px;font-weight:700;padding:14px 0;color:var(--ink)}
+  .faq details div{font-size:14.5px;color:var(--muted);padding:0 0 14px}
   .cta{border-top:1px solid var(--line);margin-top:44px;padding:46px 0 60px;text-align:center}
   .cta h3{font-size:24px;margin-bottom:8px}
-  .cta p{color:var(--muted);font-size:13.5px;margin:0 auto 22px;max-width:520px}
-  .btn{font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;display:inline-block;padding:12px 26px;border-radius:26px;border:1.5px solid var(--blue);background:var(--blue);color:#fff}
+  .cta p{color:var(--muted);font-size:15px;margin:0 auto 22px;max-width:520px}
+  .btn{font-family:inherit;font-size:15.5px;font-weight:700;cursor:pointer;display:inline-block;padding:12px 26px;border-radius:26px;border:1.5px solid var(--blue);background:var(--blue);color:#fff}
   .btn:hover,.btn:focus-visible{opacity:.88}
-  footer{border-top:1px solid var(--line);padding:22px 0 30px;text-align:center;color:var(--muted);font-size:12px}
+  footer{border-top:1px solid var(--line);padding:22px 0 30px;text-align:center;color:var(--muted);font-size:13.5px}
   @media (max-width:760px){.mods{grid-template-columns:1fr}nav.main{gap:14px}.tierwrap{overflow-x:auto}table{min-width:640px}}
 </style>
 </head>
@@ -71,6 +76,7 @@
       <a href="quote.html">Get a Quote</a>
       <a href="sectors.html">Sectors &amp; Standards</a>
       <a href="industries.html">Industries</a>
+      <a href="articles.html">Articles</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -215,6 +221,17 @@
       </div>
       <p class="note">Prices are starting points, converted at fixed reference rates for convenience — the invoice governs the final amount and currency. Exclusive of taxes, third-party lab fees and travel; complex products and additional markets are quoted before work begins. Every engagement starts with a free 20-minute scoping call.</p>
       <p class="note"><b>Payment:</b> invoices are payable by international bank transfer (SWIFT), Payoneer, or local PKR transfer for Pakistan-based clients. Account details are provided on the invoice.</p>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="wrap">
+      <h2>Common questions</h2>
+      <details><summary>Do you certify products yourselves?</summary><div>No — certificates are issued by accredited laboratories, notified bodies and classification societies. The service maps the route, prepares and verifies the file, and manages the program with bodies such as UL, TÜV, SGS, Intertek or a class society. Certificates are issued in your name and belong to you.</div></details>
+      <details><summary>What exactly do I receive?</summary><div>Every module ends in a written, evidence-backed deliverable — the scope listed on each module card is the contract. Anything outside it is quoted separately, in writing, before work begins.</div></details>
+      <details><summary>Why is Defense &amp; NATO pricing not shown?</summary><div>Defense programs vary widely in scope and sensitivity, so they are priced separately and not published. Pricing is provided on request, under NDA where needed.</div></details>
+      <details><summary>How do I pay?</summary><div>By international bank transfer (SWIFT), Payoneer, or local PKR transfer for Pakistan-based clients. Account details come with the invoice — never from a webpage — and the invoice governs the final amount and currency.</div></details>
+      <details><summary>Can you work under NDA, and how fast?</summary><div>Yes — NDAs are routine, documents are handled in confidence, and client names never appear in published work. Standard turnaround is on each module card; urgent work runs under the Retainer 48-hour SLA or by rush arrangement agreed at scoping.</div></details>
     </div>
   </section>
 

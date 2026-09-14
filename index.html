@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>TECHVERIFY — Coming Soon</title>
+<title>TECHVERIFY — Technical Compliance &amp; Product Evaluation</title>
 <meta name="description" content="TECHVERIFY — technical compliance to engineering and safety standards, and independent product evaluation for engineered products and IT hardware."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
 <style>
   :root{
     --blue:#2540E8;
@@ -22,7 +22,7 @@
   body{
     background:var(--bg);
     color:var(--ink);
-    font-family:"Space Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-family:"Inter","Segoe UI",system-ui,sans-serif;
     line-height:1.7;
     -webkit-font-smoothing:antialiased;
     display:flex;flex-direction:column;min-height:100vh;
@@ -35,7 +35,7 @@
   .brand{display:flex;align-items:center;gap:10px;color:var(--blue);font-weight:700;letter-spacing:.28em;font-size:18px}
   .brand svg{display:block}
   nav.main{display:flex;gap:18px;flex-wrap:wrap;justify-content:center}
-  nav.main a{color:var(--ink);font-size:13px;padding:4px 0;border-bottom:2px solid transparent}
+  nav.main a{color:var(--ink);font-size:14.5px;padding:4px 0;border-bottom:2px solid transparent}
   nav.main a:hover{color:var(--blue)}
   nav.main a[aria-current="page"]{color:var(--blue);border-bottom-color:var(--blue)}
   @media (max-width:760px){nav.main{gap:12px}}
@@ -50,49 +50,70 @@
     font-family:"Fredoka",system-ui,sans-serif;
     font-weight:500;
     color:var(--blue);
-    font-size:clamp(46px,9vw,86px);
+    font-size:clamp(36px,6.5vw,60px);
     line-height:1.02;
-    margin:6px 0 14px;
+    margin:6px 0 4px;
     letter-spacing:.01em;
   }
-  .tagline{color:var(--blue);font-size:14px;margin:0 auto 22px;max-width:620px}
-  .lead{color:var(--ink);font-size:14.5px;max-width:640px;margin:0 auto 16px}
+  .hook{font-family:"Fredoka",system-ui,sans-serif;font-weight:500;color:#D9503F;font-size:clamp(34px,7vw,66px);line-height:1.05;margin:0 auto 14px;max-width:900px}
+  .hookby{font-size:15.5px;font-weight:700;color:var(--ink);margin:0 auto 24px;max-width:720px}
+  .hookby b{color:#D9503F}
+  .tagline{color:var(--blue);font-size:15.5px;margin:0 auto 22px;max-width:620px}
+  .covers-h{font-family:"Fredoka",system-ui,sans-serif;font-weight:500;color:var(--blue);font-size:20px;margin:10px 0 2px}
+  .covers-p{font-size:13.5px;color:var(--muted);margin:0 0 18px}
+  .covers{display:grid;grid-template-columns:repeat(auto-fit,minmax(92px,1fr));gap:12px 8px;max-width:960px;margin:0 auto 26px}
+  .cover{display:block;text-align:center;padding:10px 4px;border:1.5px solid transparent;border-radius:12px}
+  .cover:hover,.cover:focus-visible{border-color:var(--blue)}
+  .cover svg{width:46px;height:46px;display:block;margin:0 auto 6px}
+  .cover span{font-size:12.5px;color:var(--muted);display:block;line-height:1.3}
+  .cover:hover span{color:var(--blue)}
+  .lead{color:var(--ink);font-size:16px;max-width:640px;margin:0 auto 16px}
   .lead.two{color:var(--muted)}
 
   .actions{margin:26px auto 6px;display:flex;flex-direction:column;align-items:center;gap:14px}
-  .notify{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
-  .notify input{
-    font-family:inherit;font-size:14px;color:var(--ink);
-    padding:12px 16px;border:1.5px solid var(--blue);border-radius:26px;
-    min-width:260px;background:#fff;
-  }
-  .notify input::placeholder{color:#9aa0bd}
-  .notify input:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+  .ctas{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
   .btn{
-    font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;
+    font-family:inherit;font-size:15.5px;font-weight:700;cursor:pointer;
     padding:12px 26px;border-radius:26px;border:1.5px solid var(--blue);
     background:var(--blue);color:#fff;transition:opacity .15s ease}
   .btn:hover,.btn:focus-visible{opacity:.88}
   .btn.ghost{background:#fff;color:var(--blue)}
-  .direct{font-size:13px;color:var(--muted)}
+  .direct{font-size:14.5px;color:var(--muted)}
   .direct a{border-bottom:1px solid rgba(37,64,232,.35)}
-  .note{font-size:12px;color:#8b90ab;margin-top:2px}
+  .note{font-size:13.5px;color:#8b90ab;margin-top:2px}
 
   .art{margin:30px auto 0;width:100%;max-width:920px}
   .art svg{width:100%;height:auto;display:block}
 
-  footer{padding:22px 0 30px;text-align:center;color:var(--muted);font-size:12px}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);border:1.5px solid var(--line, #D8DCF2);margin:46px auto 0;max-width:860px}
+  .stat{padding:18px 10px;text-align:center;border-left:1px solid #D8DCF2}
+  .stat:first-child{border-left:none}
+  .stat .n{font-family:"Fredoka",system-ui,sans-serif;font-weight:500;color:var(--blue);font-size:26px;line-height:1.1}
+  .stat .l{font-size:12.5px;color:var(--muted);margin-top:4px}
+  .areas{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:960px;margin:34px auto 0;text-align:left}
+  .area{border:1.5px solid #D8DCF2;border-top:4px solid var(--blue);padding:16px 18px}
+  .area h2{font-family:"Fredoka",system-ui,sans-serif;font-weight:500;color:var(--blue);font-size:16px;margin:0}
+  .area p{font-size:13.5px;color:var(--muted);margin:6px 0 10px}
+  .area a{font-size:13.5px;font-weight:700}
+  .homecta{margin:38px 0 8px}
+  @media (max-width:760px){.stats{grid-template-columns:1fr 1fr}.stat:nth-child(3){border-left:none}.areas{grid-template-columns:1fr 1fr}}
+  @media (max-width:480px){.areas{grid-template-columns:1fr}}
+  footer{padding:22px 0 30px;text-align:center;color:var(--muted);font-size:13.5px}
 
   @media (max-width:560px){
     .brand{font-size:16px;letter-spacing:.2em}
-    .notify input{min-width:0;width:100%}
-    .notify{width:100%}
+    .ctas{width:100%}
     .btn{width:100%}
   }
   @media (prefers-reduced-motion:no-preference){
     .art{opacity:0;transform:translateY(10px);animation:rise .7s ease .15s forwards}
     @keyframes rise{to{opacity:1;transform:none}}
   }
+
+  .testis{border:1.5px solid var(--blue);border-radius:16px;padding:20px 24px;margin:26px 0;background:#fff}
+  .testis h2{font-size:21px;margin:0 0 8px}
+  .testis p{font-size:15.5px;margin:0 0 10px;max-width:74ch}
+  .testis .more{font-size:14.5px;font-weight:700}
 </style>
 </head>
 <body>
@@ -114,6 +135,7 @@
       <a href="quote.html">Get a Quote</a>
       <a href="sectors.html">Sectors &amp; Standards</a>
       <a href="industries.html">Industries</a>
+      <a href="articles.html">Articles</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -127,19 +149,39 @@
 
 <main>
   <div class="wrap hero">
-    <h1>Coming Soon</h1>
+    <h1>Get Technically Verified</h1>
+      <p class="hook">…before you get busted.</p>
+      <p class="hookby">by <b>customs</b> at the border · a <b>regulator</b> · an <b>auditor</b> · a <b>class surveyor</b> · your client’s <b>inspector</b></p>
+
+    <h2 class="covers-h">Engineered products we verify</h2>
+    <p class="covers-p">Every category below maps to its governing standards — tap any to see them.</p>
+    <div class="covers">
+      <a class="cover" href="sectors.html"><svg viewBox="0 0 52 52" fill="none" stroke="#2540E8" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="18" width="24" height="18" rx="4" fill="#E9EDFF"/><line x1="32" y1="27" x2="42" y2="27" stroke-width="3"/><rect x="14" y="12" width="12" height="6" fill="#FFFFFF"/></svg><span>Motors</span></a>
+      <a class="cover" href="sectors.html"><svg viewBox="0 0 52 52" fill="none" stroke="#2540E8" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="12" y="12" width="24" height="26" rx="2" fill="#E9EDFF"/><rect x="16" y="16" width="12" height="7" fill="#FFFFFF"/><line x1="39" y1="14" x2="39" y2="36"/><line x1="43" y1="14" x2="43" y2="36"/></svg><span>Drives</span></a>
+      <a class="cover" href="sectors.html"><svg viewBox="0 0 52 52" fill="none" stroke="#2540E8" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="14" y="8" width="24" height="36" fill="#E9EDFF"/><line x1="26" y1="8" x2="26" y2="44"/><line x1="14" y1="22" x2="38" y2="22"/><line x1="14" y1="33" x2="38" y2="33"/></svg><span>Switchgear</span></a>
+      <a class="cover" href="sectors.html"><svg viewBox="0 0 52 52" fill="none" stroke="#2540E8" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="10" y="16" width="32" height="20" rx="2" fill="#FFFFFF"/><rect x="14" y="20" width="24" height="3" fill="#2540E8" stroke="none"/><rect x="14" y="25" width="24" height="3" fill="#2540E8" stroke="none"/><rect x="14" y="30" width="24" height="3" fill="#2540E8" stroke="none"/></svg><span>Busbar</span></a>
+      <a class="cover" href="sectors.html"><svg viewBox="0 0 52 52" fill="none" stroke="#2540E8" stroke-width="2" aria-hidden="true"><circle cx="26" cy="26" r="16" fill="#FFFFFF"/><circle cx="26" cy="26" r="10" stroke-dasharray="3 3"/><circle cx="26" cy="26" r="4" fill="#E9EDFF"/></svg><span>Cables</span></a>
+      <a class="cover" href="sectors.html"><svg viewBox="0 0 52 52" fill="none" stroke="#2540E8" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="26" cy="24" r="15" fill="#FFFFFF"/><line x1="26" y1="24" x2="35" y2="15" stroke-width="2.5"/><circle cx="26" cy="24" r="2.5" fill="#2540E8" stroke="none"/><rect x="22" y="39" width="8" height="6" fill="#E9EDFF"/></svg><span>Instruments</span></a>
+      <a class="cover" href="sectors.html"><svg viewBox="0 0 52 52" fill="none" stroke="#2540E8" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="14" width="36" height="24" rx="3" fill="#E9EDFF"/><line x1="13" y1="20" x2="30" y2="20"/><line x1="13" y1="25" x2="24" y2="25"/><circle cx="35" cy="29" r="5" fill="#FFFFFF"/><circle cx="35" cy="29" r="1.4" fill="#2540E8" stroke="none"/></svg><span>HVAC</span></a>
+      <a class="cover" href="sectors.html"><svg viewBox="0 0 52 52" fill="none" stroke="#2540E8" stroke-width="2" aria-hidden="true"><rect x="12" y="8" width="28" height="36" fill="#FFFFFF"/><line x1="26" y1="8" x2="26" y2="44"/><line x1="12" y1="26" x2="40" y2="26"/><rect x="12" y="8" width="14" height="18" fill="#E9EDFF"/></svg><span>Windows / doors</span></a>
+      <a class="cover" href="sectors.html"><svg viewBox="0 0 52 52" fill="none" stroke="#2540E8" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><polygon points="10,20 10,34 26,27" fill="#E9EDFF"/><polygon points="42,20 42,34 26,27" fill="#E9EDFF"/><line x1="26" y1="27" x2="26" y2="14"/><line x1="20" y1="14" x2="32" y2="14"/></svg><span>Plumbing</span></a>
+      <a class="cover" href="sectors.html"><svg viewBox="0 0 52 52" fill="none" stroke="#2540E8" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="14" y="14" width="24" height="24" fill="#E9EDFF"/><rect x="21" y="21" width="10" height="10" fill="#FFFFFF"/><line x1="9" y1="20" x2="14" y2="20"/><line x1="9" y1="26" x2="14" y2="26"/><line x1="9" y1="32" x2="14" y2="32"/><line x1="38" y1="20" x2="43" y2="20"/><line x1="38" y1="26" x2="43" y2="26"/><line x1="38" y1="32" x2="43" y2="32"/></svg><span>Electronics</span></a>
+      <a class="cover" href="sectors.html"><svg viewBox="0 0 52 52" fill="none" stroke="#2540E8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="26" cy="11" r="4" fill="#E9EDFF"/><line x1="26" y1="15" x2="26" y2="40"/><line x1="16" y1="21" x2="36" y2="21"/><path d="M26 40 C19 40 13 35 11 28"/><path d="M26 40 C33 40 39 35 41 28"/></svg><span>Marine</span></a>
+      <a class="cover" href="sectors.html"><svg viewBox="0 0 52 52" fill="none" stroke="#2540E8" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><circle cx="26" cy="28" r="19" stroke-dasharray="4 4" stroke-width="1.5"/><path d="M26 12 C32 19 35 24 35 29 A9 9 0 1 1 17 29 C17 24 20 19 26 12 Z" fill="#E9EDFF"/></svg><span>Ex / hazardous</span></a>
+      <a class="cover" href="sectors.html"><svg viewBox="0 0 52 52" fill="none" stroke="#2540E8" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M26 8 L42 14 V26 C42 36 34 42 26 46 C18 42 10 36 10 26 V14 Z" fill="#E9EDFF"/><polygon points="26,16 28.2,21.9 34.6,22.2 29.6,26.2 31.3,32.3 26,28.8 20.7,32.3 22.4,26.2 17.4,22.2 23.8,21.9" fill="#FFFFFF"/></svg><span>Defense / NATO</span></a>
+    </div>
+
     <p class="tagline">Technical compliance evaluation · engineering safety &amp; standards · design evaluation · market readiness</p>
 
     <p class="lead">TECHVERIFY is a technical-compliance, design-evaluation and market-readiness practice for engineered products and IT hardware — motors, drives, switchgear, cables, instruments, HVAC, and electronics.</p>
     <p class="lead two">We map products to the engineering and safety standards that govern them (IEC, EN, ISO, UL/CSA), manage conformity and market access (CE/UKCA, UL/CSA, SASO/SABER, GCC), and evaluate and benchmark products so you can specify and buy with confidence.</p>
 
     <div class="actions">
-      <div class="notify">
-        <label for="email" class="sr-only" style="position:absolute;left:-9999px">Your email</label>
-        <input id="email" type="email" inputmode="email" placeholder="you@company.com" autocomplete="email"/>
-        <button class="btn" id="notifyBtn" type="button">Notify me at launch</button>
+      <div class="ctas">
+        <a class="btn" href="quote.html">Get an instant quote</a>
+        <a class="btn ghost" id="requestLink" href="#">Request an evaluation</a>
       </div>
-      <p class="direct">or <a id="requestLink" href="#">request an evaluation</a></p>
+      <p class="direct">Free 20-minute scoping call · written, evidence-backed deliverables · NDA available</p>
     </div>
 
     <div class="art">
@@ -197,8 +239,39 @@
         </g>
       </svg>
     </div>
+
+    <div class="stats" role="list">
+      <div class="stat" role="listitem"><div class="n">18+</div><div class="l">years in technical sales, bids &amp; procurement</div></div>
+      <div class="stat" role="listitem"><div class="n">$300M+</div><div class="l">in contracts &amp; proposals delivered</div></div>
+      <div class="stat" role="listitem"><div class="n">1,200+</div><div class="l">B2B / B2G engagements</div></div>
+      <div class="stat" role="listitem"><div class="n">18M</div><div class="l">NSN-coded items in the sourcing catalogue</div></div>
+    </div>
+
+    <div class="areas">
+      <div class="area"><h2>Technical Compliance Evaluation</h2><p>Certificates, test reports and products verified against the governing standard — before acceptance.</p><a href="services.html">See the service</a></div>
+      <div class="area"><h2>Engineering Safety &amp; Standards</h2><p>The standards landscape per product family — and the failure modes those standards prevent.</p><a href="sectors.html">See sectors &amp; standards</a></div>
+      <div class="area"><h2>Design Evaluation</h2><p>Independent design review and benchmarking against the standard and the alternatives.</p><a href="services.html">See the service</a></div>
+      <div class="area"><h2>Market Readiness</h2><p>CE/UKCA, UL/CSA, SASO/SABER, GCC, marine class and Ex routes — from file to marking.</p><a href="pricing.html">See modules &amp; pricing</a></div>
+    </div>
+
+    <div class="homecta">
+      <a class="btn" href="quote.html">Start your assessment</a>
+      <a class="btn ghost" href="pricing.html">See modules &amp; pricing</a>
+    </div>
   </div>
 </main>
+  <section class="block">
+    <div class="wrap">
+      <div class="testis">
+        <h2>A test is a test</h2>
+        <p>Product families differ; the discipline does not. Find the clause that governs the product, assemble evidence that meets it, and defend the result. I am a mechatronics engineer who has done that in a laboratory &mdash; and, self-represented and without counsel, in front of the Canadian International Trade Tribunal, where three cases went in my favour and none against.</p>
+        <p>A tribunal will not accept an assertion or a certificate that does not cover what it appears to cover. Neither will a certification body, and neither will your buyer&rsquo;s auditor.</p>
+        <p class="more"><a href="about.html">The record, and how to verify it &mdash;</a></p>
+      </div>
+    </div>
+  </section>
+
+
 
 <footer>
   <div class="wrap">© 2026 TECHVERIFY — technical compliance, design evaluation &amp; market readiness.</div>
@@ -212,13 +285,6 @@
   document.getElementById('requestLink').href =
     "mailto:" + CONTACT + "?subject=" + encodeURIComponent("Request an evaluation");
 
-  document.getElementById('notifyBtn').addEventListener('click', function(){
-    const v = (document.getElementById('email').value || "").trim();
-    const body = v ? ("Please notify me at launch. My email: " + v) : "Please notify me at launch.";
-    window.location.href = "mailto:" + CONTACT +
-      "?subject=" + encodeURIComponent("Notify me at launch") +
-      "&body=" + encodeURIComponent(body);
-  });
 </script>
 </body>
 </html>

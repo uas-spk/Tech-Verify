@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TechVerify — message monitor (private)</title>
+<style>
+  :root{--paper:#FCFCFA;--ink:#16181D;--soft:#5A6070;--rule:#E3E2DC;--verify:#0E7C66;--caution:#B45309;--hot:#B02A37}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 Inter,system-ui,Arial,sans-serif}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  header{border-bottom:2px solid var(--ink);padding:22px 0 14px}
+  h1{margin:0;font-size:24px}
+  header p{margin:6px 0 0;color:var(--soft);font-size:14.5px;max-width:70ch}
+
+  .stats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:20px 0}
+  .stat{background:#fff;border:1px solid var(--rule);border-radius:4px;padding:12px 14px}
+  .stat b{display:block;font-size:24px;line-height:1.2}
+  .stat span{font-size:12.5px;color:var(--soft)}
+  .stat.warn b{color:var(--caution)} .stat.hot b{color:var(--hot)}
+
+  .panel{background:#fff;border:1px solid var(--rule);border-left:5px solid var(--verify);border-radius:4px;padding:18px 20px;margin:0 0 24px}
+  .panel h2{margin:0 0 12px;font-size:18px}
+  .row{display:flex;gap:12px;flex-wrap:wrap}
+  .row>div{flex:1 1 170px}
+  label{display:block;font-size:13px;font-weight:600;margin:0 0 4px}
+  input,select,textarea{width:100%;font:inherit;font-size:15px;padding:9px 11px;border:1px solid var(--rule);border-radius:3px;background:var(--paper);color:var(--ink)}
+  textarea{min-height:96px;resize:vertical}
+  .f{margin-bottom:11px}
+  button{font:inherit;font-weight:600;font-size:15px;cursor:pointer;background:var(--ink);color:#fff;border:0;border-radius:3px;padding:10px 16px}
+  button:hover{background:var(--verify)}
+  button.ghost{background:#fff;color:var(--ink);border:1px solid var(--rule);font-weight:500;font-size:14px;padding:8px 12px}
+  button.ghost:hover{background:var(--ink);color:#fff}
+  .bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 14px}
+  .bar .grow{flex:1 1 200px}
+
+  .read{margin:10px 0 0;font-size:14.5px;color:var(--soft);border-left:3px solid var(--rule);padding:8px 12px;background:var(--paper)}
+  .read b{color:var(--ink)}
+
+  table{width:100%;border-collapse:collapse;font-size:14.5px;background:#fff;border:1px solid var(--rule)}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
+  th{font-size:12.5px;color:var(--soft);font-weight:600;background:var(--paper)}
+  tr:last-child td{border-bottom:0}
+  .msg{max-width:400px}
+  .msg .who{font-weight:600}
+  .msg .txt{color:var(--soft);font-size:14px;margin-top:3px}
+  .chip{display:inline-block;font-size:12px;font-weight:600;padding:3px 9px;border-radius:999px;border:1px solid var(--rule);white-space:nowrap}
+  .t-urgent{background:#FDECEE;border-color:#F3C2C7;color:var(--hot)}
+  .t-frustrated{background:#FDF1E3;border-color:#EBCFA6;color:var(--caution)}
+  .t-enquiry{background:#F1F7F5;border-color:#C4E0D8;color:var(--verify)}
+  .t-positive{background:#EEF6EF;border-color:#C6E2C9;color:#256A2E}
+  .t-promo{background:#F2F2F0;border-color:#DCDCD6;color:var(--soft)}
+  .s-new{background:#FDECEE;border-color:#F3C2C7;color:var(--hot)}
+  .s-replied{background:#F1F7F5;border-color:#C4E0D8;color:var(--verify)}
+  .s-closed{background:#F2F2F0;border-color:#DCDCD6;color:var(--soft)}
+  td.acts{white-space:nowrap}
+  td.acts button{padding:5px 9px;font-size:13px;margin:0 4px 4px 0}
+  .empty{padding:26px;text-align:center;color:var(--soft);background:#fff;border:1px dashed var(--rule)}
+  footer{margin:26px 0 50px;font-size:13.5px;color:var(--soft)}
+  @media(max-width:820px){.stats{grid-template-columns:repeat(2,1fr)}.msg{max-width:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <h1>Message monitor — TechVerify</h1>
+  <p>Private working file. Log every question and comment, read its tone, and track whether it was answered. Records stay in this browser only; export to JSON each day so the OneDrive backup holds them.</p>
+</div></header>
+
+<div class="wrap">
+
+  <div class="stats" id="stats"></div>
+
+  <section class="panel">
+    <h2>Log a message</h2>
+    <div class="row">
+      <div class="f"><label for="m-date">Date received</label><input id="m-date" type="date"></div>
+      <div class="f"><label for="m-source">Came in through</label>
+        <select id="m-source">
+          <option>Question box</option><option>Comment thread</option><option>LinkedIn</option>
+          <option>Facebook</option><option>WhatsApp</option><option>Email</option><option>Other</option>
+        </select></div>
+      <div class="f"><label for="m-who">From</label><input id="m-who" type="text"></div>
+      <div class="f"><label for="m-topic">Article or topic</label><input id="m-topic" type="text" placeholder="CE/UKCA, SABER, test labs…"></div>
+    </div>
+    <div class="f"><label for="m-text">What they wrote</label><textarea id="m-text"></textarea></div>
+    <div class="read" id="live">Tone reads as you type.</div>
+    <p style="margin:14px 0 0"><button id="add" type="button">Add to the board</button></p>
+  </section>
+
+  <div class="bar">
+    <input class="grow" id="q" type="search" placeholder="Search name, topic or text">
+    <select id="fs" style="flex:0 0 auto;width:auto"><option value="">All statuses</option><option>New</option><option>Replied</option><option>Closed</option></select>
+    <select id="ft" style="flex:0 0 auto;width:auto"><option value="">All tones</option><option>Urgent</option><option>Frustrated</option><option>Enquiry</option><option>Positive</option><option>Promotional</option></select>
+    <button class="ghost" id="exj" type="button">Export JSON</button>
+    <button class="ghost" id="exc" type="button">Export CSV</button>
+    <button class="ghost" id="imp" type="button">Import JSON</button>
+    <input id="file" type="file" accept="application/json" hidden>
+  </div>
+
+  <div id="board"></div>
+
+  <footer>
+    Tone is read from wording patterns — deadlines and penalties push a message to urgent, complaint words to frustrated, question words to enquiry. It is a sorting aid, not a judgement: read the message before you reply.
+  </footer>
+</div>
+
+<script>
+  var KEY = 'techverify_monitor_v1';
+  var data = [];
+  try { data = JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) { data = []; }
+  var save = function () { try { localStorage.setItem(KEY, JSON.stringify(data)); } catch (e) {} };
+
+  /* ---- tone reading: wording patterns, reported with the words that triggered it ---- */
+  var SIGNALS = [
+    ['Urgent',      /\b(urgent|urgently|asap|immediately|today|tomorrow|deadline|stuck at (the )?port|held|detained|customs|clearance|penalt|fine|shipment|demurrage|expedite|rush)\b/gi],
+    ['Frustrated',  /\b(frustrat|disappoint|unacceptable|no (one|reply|response)|still waiting|third time|again|wrong|failed|reject|complain|escalat|useless|delay)\b/gi],
+    ['Positive',    /\b(thank|thanks|helpful|great|excellent|appreciate|clear|exactly what|brilliant|well explained)\b/gi],
+    ['Promotional', /\b(seo|backlink|guest post|crypto|investment opportunity|dear sir\/madam|we offer our services|increase your traffic|cheap|unsubscribe)\b/gi],
+    ['Enquiry',     /\b(how|what|which|does|do i|can i|should|need|require|advice|clarify|confirm|is it|are there|cost|price|timeline|process|\?)/gi]
+  ];
+  function readTone(text) {
+    var t = text || '', found = [], hits = {};
+    SIGNALS.forEach(function (s) {
+      var m = t.match(s[1]);
+      if (m && m.length) { hits[s[0]] = m.length; found.push([s[0], m.length, m.slice(0, 4)]); }
+    });
+    var order = ['Promotional', 'Urgent', 'Frustrated', 'Positive', 'Enquiry'];
+    var tone = 'Enquiry', words = [];
+    for (var i = 0; i < order.length; i++) {
+      if (hits[order[i]]) { tone = order[i]; words = (found.filter(function (f) { return f[0] === order[i]; })[0] || [])[2] || []; break; }
+    }
+    if (!found.length) tone = 'Enquiry';
+    var qs = (t.match(/\?/g) || []).length;
+    var len = t.trim().split(/\s+/).filter(Boolean).length;
+    return { tone: tone, words: words, questions: qs, words_count: len };
+  }
+  function toneLine(r) {
+    if (!r.words_count) return 'Tone reads as you type.';
+    var s = '<b>' + r.tone + '</b> — ' + r.words_count + ' words, ' + r.questions + ' question mark' + (r.questions === 1 ? '' : 's');
+    if (r.words.length) s += '. Triggered by: ' + r.words.map(function (w) { return '“' + w + '”'; }).join(', ');
+    if (r.tone === 'Urgent') s += '. Answer this one first.';
+    if (r.tone === 'Promotional') s += '. Looks like a pitch, not a question.';
+    return s;
+  }
+
+  var el = function (id) { return document.getElementById(id); };
+  el('m-date').value = new Date().toISOString().slice(0, 10);
+  el('m-text').addEventListener('input', function () { el('live').innerHTML = toneLine(readTone(this.value)); });
+
+  el('add').addEventListener('click', function () {
+    var text = el('m-text').value.trim();
+    if (!text) { el('live').innerHTML = '<b>Nothing to add.</b> Paste the message first.'; return; }
+    var r = readTone(text);
+    data.unshift({
+      id: Date.now(), date: el('m-date').value, source: el('m-source').value,
+      who: el('m-who').value.trim() || 'not given', topic: el('m-topic').value.trim() || '—',
+      text: text, tone: r.tone, signal: r.words.join(', '),
+      status: 'New', replied: '', note: ''
+    });
+    save(); el('m-text').value = ''; el('m-who').value = ''; el('m-topic').value = '';
+    el('live').innerHTML = 'Added. Tone logged as <b>' + r.tone + '</b>.';
+    render();
+  });
+
+  function days(a, b) {
+    if (!a || !b) return null;
+    return Math.round((new Date(b) - new Date(a)) / 86400000);
+  }
+
+  function render() {
+    var q = el('q').value.toLowerCase(), fs = el('fs').value, ft = el('ft').value;
+    var rows = data.filter(function (d) {
+      var hay = (d.who + ' ' + d.topic + ' ' + d.text + ' ' + d.source).toLowerCase();
+      return (!q || hay.indexOf(q) > -1) && (!fs || d.status === fs) && (!ft || d.tone === ft);
+    });
+
+    /* summary */
+    var open = data.filter(function (d) { return d.status === 'New'; });
+    var urgentOpen = open.filter(function (d) { return d.tone === 'Urgent'; }).length;
+    var answered = data.filter(function (d) { return d.replied; });
+    var avg = answered.length
+      ? (answered.reduce(function (s, d) { return s + (days(d.date, d.replied) || 0); }, 0) / answered.length).toFixed(1)
+      : '—';
+    var oldest = open.length ? open.map(function (d) { return days(d.date, new Date().toISOString().slice(0, 10)); })
+      .sort(function (a, b) { return b - a; })[0] : 0;
+    el('stats').innerHTML =
+        '<div class="stat"><b>' + data.length + '</b><span>Messages logged</span></div>'
+      + '<div class="stat' + (open.length ? ' warn' : '') + '"><b>' + open.length + '</b><span>Waiting for a reply</span></div>'
+      + '<div class="stat' + (urgentOpen ? ' hot' : '') + '"><b>' + urgentOpen + '</b><span>Urgent and unanswered</span></div>'
+      + '<div class="stat"><b>' + avg + '</b><span>Avg days to reply</span></div>'
+      + '<div class="stat' + (oldest > 2 ? ' warn' : '') + '"><b>' + (oldest || 0) + '</b><span>Oldest wait, days</span></div>';
+
+    if (!rows.length) {
+      el('board').innerHTML = '<p class="empty">' + (data.length ? 'Nothing matches that filter.' : 'No messages logged yet. Paste the first one above.') + '</p>';
+      return;
+    }
+    var html = '<table><thead><tr><th>Date</th><th>Through</th><th>Message</th><th>Tone</th><th>Status</th><th>Reply</th><th></th></tr></thead><tbody>';
+    rows.forEach(function (d) {
+      var wait = d.status === 'New' ? days(d.date, new Date().toISOString().slice(0, 10)) : days(d.date, d.replied);
+      html += '<tr>'
+        + '<td>' + d.date + (d.status === 'New' && wait > 1 ? '<div class="txt" style="color:#B02A37">waiting ' + wait + 'd</div>' : '') + '</td>'
+        + '<td>' + esc(d.source) + '<div class="msg"><div class="txt">' + esc(d.topic) + '</div></div></td>'
+        + '<td class="msg"><div class="who">' + esc(d.who) + '</div><div class="txt">' + esc(d.text).slice(0, 220) + (d.text.length > 220 ? '…' : '') + '</div>'
+        + (d.note ? '<div class="txt"><b>Note:</b> ' + esc(d.note) + '</div>' : '') + '</td>'
+        + '<td><span class="chip t-' + d.tone.toLowerCase() + '">' + d.tone + '</span>'
+        + (d.signal ? '<div class="txt">' + esc(d.signal) + '</div>' : '') + '</td>'
+        + '<td><span class="chip s-' + d.status.toLowerCase() + '">' + d.status + '</span></td>'
+        + '<td>' + (d.replied ? d.replied + '<div class="txt">' + (days(d.date, d.replied)) + 'd</div>' : '—') + '</td>'
+        + '<td class="acts">'
+        + (d.status === 'New' ? '<button class="ghost" data-a="reply" data-id="' + d.id + '">Mark replied</button>' : '')
+        + (d.status !== 'Closed' ? '<button class="ghost" data-a="close" data-id="' + d.id + '">Close</button>' : '')
+        + '<button class="ghost" data-a="note" data-id="' + d.id + '">Note</button>'
+        + '<button class="ghost" data-a="del" data-id="' + d.id + '">Delete</button>'
+        + '</td></tr>';
+    });
+    el('board').innerHTML = html + '</tbody></table>';
+  }
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]; }); }
+
+  el('board').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-a]'); if (!b) return;
+    var d = data.filter(function (x) { return x.id == b.dataset.id; })[0]; if (!d) return;
+    if (b.dataset.a === 'reply') { d.status = 'Replied'; d.replied = new Date().toISOString().slice(0, 10); }
+    if (b.dataset.a === 'close') { d.status = 'Closed'; if (!d.replied) d.replied = new Date().toISOString().slice(0, 10); }
+    if (b.dataset.a === 'note')  { var n = prompt('Note for this message', d.note || ''); if (n !== null) d.note = n; }
+    if (b.dataset.a === 'del')   { if (!confirm('Delete this record?')) return; data = data.filter(function (x) { return x.id != d.id; }); }
+    save(); render();
+  });
+
+  ['q','fs','ft'].forEach(function (id) { el(id).addEventListener('input', render); });
+
+  function download(name, text, type) {
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([text], { type: type }));
+    a.download = name; a.click(); URL.revokeObjectURL(a.href);
+  }
+  el('exj').addEventListener('click', function () {
+    download('techverify_messages_' + new Date().toISOString().slice(0, 10) + '.json', JSON.stringify(data, null, 2), 'application/json');
+  });
+  el('exc').addEventListener('click', function () {
+    var head = ['date','source','who','topic','tone','signal','status','replied','days_to_reply','note','text'];
+    var lines = [head.join(',')].concat(data.map(function (d) {
+      return head.map(function (k) {
+        var v = k === 'days_to_reply' ? (d.replied ? days(d.date, d.replied) : '') : d[k];
+        return '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"';
+      }).join(',');
+    }));
+    download('techverify_messages_' + new Date().toISOString().slice(0, 10) + '.csv', lines.join('\n'), 'text/csv');
+  });
+  el('imp').addEventListener('click', function () { el('file').click(); });
+  el('file').addEventListener('change', function () {
+    var f = this.files[0]; if (!f) return;
+    var fr = new FileReader();
+    fr.onload = function () {
+      try {
+        var incoming = JSON.parse(fr.result);
+        if (!Array.isArray(incoming)) throw 0;
+        var have = {}; data.forEach(function (d) { have[d.id] = 1; });
+        incoming.forEach(function (d) { if (!have[d.id]) data.push(d); });
+        data.sort(function (a, b) { return b.id - a.id; });
+        save(); render();
+        alert('Imported. The board now holds ' + data.length + ' messages.');
+      } catch (e) { alert('That file is not a monitor export.'); }
+    };
+    fr.readAsText(f);
+  });
+
+  render();
+</script>
+</body>
+</html>

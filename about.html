@@ -7,12 +7,12 @@
 <meta name="description" content="TECHVERIFY is led by a mechatronics engineer with 18+ years across Siemens, Gulf oil and gas, and North American government supply — a numbers-first practice for compliance and product evaluation."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
 <style>
   :root{--blue:#2540E8;--blue-tint:#E9EDFF;--ink:#232848;--muted:#5A6080;--line:#D8DCF2;--bg:#FFFFFF;--maxw:1040px}
   *{box-sizing:border-box}
   html,body{margin:0;padding:0}
-  body{background:var(--bg);color:var(--ink);font-family:"Space Mono",ui-monospace,SFMono-Regular,Menlo,monospace;line-height:1.7;-webkit-font-smoothing:antialiased}
+  body{background:var(--bg);color:var(--ink);font-family:"Inter","Segoe UI",system-ui,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
   a{color:var(--blue);text-decoration:none}
   .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 28px}
   h1,h2,h3{font-family:"Fredoka",system-ui,sans-serif;font-weight:500;color:var(--blue);margin:0}
@@ -20,38 +20,51 @@
   .bar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0}
   .brand{display:flex;align-items:center;gap:10px;color:var(--blue);font-weight:700;letter-spacing:.26em;font-size:17px}
   nav.main{display:flex;gap:22px;flex-wrap:wrap}
-  nav.main a{color:var(--ink);font-size:13px;padding:4px 0;border-bottom:2px solid transparent}
+  nav.main a{color:var(--ink);font-size:14.5px;padding:4px 0;border-bottom:2px solid transparent}
   nav.main a:hover{color:var(--blue)}
   nav.main a[aria-current="page"]{color:var(--blue);border-bottom-color:var(--blue)}
   .hero{padding:54px 0 20px;text-align:center}
   .hero h1{font-size:clamp(34px,6vw,58px);line-height:1.05;margin-bottom:14px}
-  .hero p{max-width:680px;margin:0 auto;color:var(--muted);font-size:14.5px}
+  .hero p{max-width:680px;margin:0 auto;color:var(--muted);font-size:16px}
   .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);margin:34px 0 0}
   .stat{padding:22px 16px;text-align:center;border-left:1px solid var(--line)}
   .stat:first-child{border-left:none}
   .stat .n{font-family:"Fredoka",system-ui,sans-serif;font-weight:500;color:var(--blue);font-size:30px;line-height:1.1}
-  .stat .l{font-size:11.5px;color:var(--muted);margin-top:4px}
+  .stat .l{font-size:13px;color:var(--muted);margin-top:4px}
   section.block{padding:44px 0 6px}
   .block h2{font-size:26px;margin-bottom:14px}
-  .block p{font-size:14px;color:var(--ink);max-width:720px;margin:0 0 14px}
+  .block p{font-size:15.5px;color:var(--ink);max-width:720px;margin:0 0 14px}
   .block p.dim{color:var(--muted)}
   .method{list-style:none;counter-reset:step;margin:18px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-  .method li{counter-increment:step;border-top:3px solid var(--blue);padding-top:12px;font-size:12.5px;color:var(--muted)}
+  .method li{counter-increment:step;border-top:3px solid var(--blue);padding-top:12px;font-size:14px;color:var(--muted)}
   .method li::before{content:counter(step) ". ";color:var(--blue);font-weight:700}
-  .method b{display:block;color:var(--ink);font-size:13.5px;margin-bottom:4px}
+  .method b{display:block;color:var(--ink);font-size:15px;margin-bottom:4px}
   .eng{list-style:none;margin:14px 0 0;padding:0}
-  .eng li{font-size:13px;padding:12px 0 12px 18px;border-bottom:1px solid var(--line);position:relative}
+  .eng li{font-size:14.5px;padding:12px 0 12px 18px;border-bottom:1px solid var(--line);position:relative}
   .eng li::before{content:"";position:absolute;left:0;top:20px;width:7px;height:7px;background:var(--blue)}
   .eng b{color:var(--blue)}
-  .cred{font-size:12.5px;color:var(--muted);margin-top:18px}
+  .cred{font-size:14px;color:var(--muted);margin-top:18px}
   .cta{border-top:1px solid var(--line);margin-top:48px;padding:46px 0 60px;text-align:center}
   .cta h3{font-size:24px;margin-bottom:8px}
-  .cta p{color:var(--muted);font-size:13.5px;margin:0 auto 22px;max-width:520px}
-  .btn{font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;display:inline-block;padding:12px 26px;border-radius:26px;border:1.5px solid var(--blue);background:var(--blue);color:#fff}
+  .cta p{color:var(--muted);font-size:15px;margin:0 auto 22px;max-width:520px}
+  .btn{font-family:inherit;font-size:15.5px;font-weight:700;cursor:pointer;display:inline-block;padding:12px 26px;border-radius:26px;border:1.5px solid var(--blue);background:var(--blue);color:#fff}
   .btn:hover,.btn:focus-visible{opacity:.88}
-  footer{border-top:1px solid var(--line);padding:22px 0 30px;text-align:center;color:var(--muted);font-size:12px}
+  footer{border-top:1px solid var(--line);padding:22px 0 30px;text-align:center;color:var(--muted);font-size:13.5px}
   @media (max-width:760px){.stats{grid-template-columns:1fr 1fr}.stat:nth-child(3){border-left:none}.method{grid-template-columns:1fr 1fr}nav.main{gap:14px}}
   @media (max-width:480px){.method{grid-template-columns:1fr}}
+
+  .proof{border:1.5px solid var(--blue);border-radius:16px;padding:22px 26px;margin:22px 0 0;background:#fff}
+  .proof h3{font-size:19px;margin:0 0 8px}
+  .proof p{font-size:15.5px;margin:0 0 12px;max-width:74ch}
+  .proof .two{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:16px 0 4px}
+  .proof .leg{border-top:3px solid var(--blue);padding-top:10px}
+  .proof .leg b{display:block;font-size:15px;margin-bottom:4px}
+  .proof .leg p{font-size:14.5px;color:var(--muted);margin:0}
+  .proof .verify{background:var(--blue-tint);border-left:4px solid var(--blue);padding:12px 16px;font-size:14px;margin:16px 0 0}
+  .record{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:8px}
+  .record li{font-size:14.5px;padding:10px 14px;border:1px solid var(--line);border-left:4px solid var(--blue)}
+  .record li b{color:var(--blue)}
+  @media (max-width:700px){.proof .two{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -68,6 +81,7 @@
       <a href="quote.html">Get a Quote</a>
       <a href="sectors.html">Sectors &amp; Standards</a>
       <a href="industries.html">Industries</a>
+      <a href="articles.html">Articles</a>
       <a href="about.html" aria-current="page">About</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -125,7 +139,48 @@
     </div>
   </section>
 
-  <section class="cta">
+    <section class="block">
+    <div class="wrap">
+      <div class="lead">
+        <h2>A test is a test</h2>
+        <p>Product families differ. The discipline does not. Whether the subject is a busbar, a luminaire, a pump or a polymer, the work is the same three moves: find the clause that governs it, assemble evidence that meets that clause, and argue the result against anyone who says otherwise. I have done all three in a laboratory and in front of a federal tribunal.</p>
+      </div>
+
+      <div class="proof">
+        <h3>Why a tribunal record belongs on a product-testing page</h3>
+        <p>I have taken procurement complaints to the Canadian International Trade Tribunal &mdash; the federal body that hears challenges against Canadian contracting authorities &mdash; and argued them <b>self-represented, without counsel</b>. Three cases decided in my favour. None lost.</p>
+        <p>That is not a claim about being a lawyer. It is a claim about evidence. A tribunal will not accept an assertion, a supplier&rsquo;s word, or a certificate that does not cover what it appears to cover. It reads the governing rule, asks what the record actually proves, and rules on the gap between the two. That is precisely what a certification body does to a technical file, and precisely what a buyer&rsquo;s auditor does to a test report.</p>
+
+        <div class="two">
+          <div class="leg">
+            <b>The engineering half</b>
+            <p>Mechatronics engineer by degree. I have specified, built and had tested the hardware I write about &mdash; LV power distribution, motor control centres, busbar, drives and automation &mdash; and run a manufacturing facility where the test result decided whether we were paid.</p>
+          </div>
+          <div class="leg">
+            <b>The evidence half</b>
+            <p>Three tribunal cases won on the record: undisclosed evaluation criteria, unequal treatment of identical evidence, and a mandatory process the authority skipped. Same skill that finds the clause a test report quietly fails to satisfy.</p>
+          </div>
+        </div>
+
+        <ul class="record">
+          <li><b>Won</b> &mdash; evaluation applied a distinction that appeared nowhere in the solicitation.</li>
+          <li><b>Won</b> &mdash; identical evidence accepted from one party and refused from another.</li>
+          <li><b>Won</b> &mdash; a mandatory cure step in the solicitation was never invoked before the bid was set aside.</li>
+        </ul>
+
+        <div class="verify">
+          <b>Verify it rather than take my word for it.</b> Tribunal determinations are public. The cases are published on the
+          <a href="https://www.citt-tcce.gc.ca" target="_blank" rel="noopener">Canadian International Trade Tribunal</a>
+          site under its procurement determinations, and I will give you the case references on request so you can read the
+          reasoning yourself. Redacted copies of the filings are available as writing samples.
+          <!-- When you have them to hand, paste the PR case numbers here so readers can go straight to them:
+               e.g. "Case references: PR-XXXX-XXX, PR-XXXX-XXX, PR-XXXX-XXX." -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="cta">
     <div class="wrap">
       <h3>Put a measurement under your next decision</h3>
       <p>One product or a whole package — start with what you're buying and where it has to comply.</p>

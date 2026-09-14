@@ -7,12 +7,12 @@
 <meta name="description" content="Technical compliance evaluation, engineering safety and standards, design evaluation, and market readiness for engineered products and IT hardware."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
 <style>
   :root{--blue:#2540E8;--blue-tint:#E9EDFF;--ink:#232848;--muted:#5A6080;--line:#D8DCF2;--bg:#FFFFFF;--maxw:1040px}
   *{box-sizing:border-box}
   html,body{margin:0;padding:0}
-  body{background:var(--bg);color:var(--ink);font-family:"Space Mono",ui-monospace,SFMono-Regular,Menlo,monospace;line-height:1.7;-webkit-font-smoothing:antialiased}
+  body{background:var(--bg);color:var(--ink);font-family:"Inter","Segoe UI",system-ui,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
   a{color:var(--blue);text-decoration:none}
   .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 28px}
   h1,h2,h3{font-family:"Fredoka",system-ui,sans-serif;font-weight:500;color:var(--blue);margin:0}
@@ -20,31 +20,37 @@
   .bar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0}
   .brand{display:flex;align-items:center;gap:10px;color:var(--blue);font-weight:700;letter-spacing:.26em;font-size:17px}
   nav.main{display:flex;gap:22px;flex-wrap:wrap}
-  nav.main a{color:var(--ink);font-size:13px;padding:4px 0;border-bottom:2px solid transparent}
+  nav.main a{color:var(--ink);font-size:14.5px;padding:4px 0;border-bottom:2px solid transparent}
   nav.main a:hover{color:var(--blue)}
   nav.main a[aria-current="page"]{color:var(--blue);border-bottom-color:var(--blue)}
   .hero{padding:54px 0 10px;text-align:center}
   .hero h1{font-size:clamp(38px,7vw,66px);line-height:1.03;margin-bottom:14px}
-  .hero p{max-width:700px;margin:0 auto;color:var(--muted);font-size:14.5px}
+  .hero p{max-width:700px;margin:0 auto;color:var(--muted);font-size:16px}
   .svc{display:grid;grid-template-columns:120px 1fr;gap:30px;padding:40px 0;border-top:1px solid var(--line);align-items:start}
   .svc:first-of-type{border-top:none}
   .svc .icon{width:104px;height:104px}
   .svc .icon svg{width:100%;height:100%;display:block}
   .svc h2{font-size:26px;margin-bottom:8px}
-  .svc .desc{color:var(--muted);font-size:14px;max-width:580px;margin:0 0 18px}
+  .svc .desc{color:var(--muted);font-size:15.5px;max-width:580px;margin:0 0 18px}
   .subs{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px 30px}
-  .subs li{font-size:13px;padding-left:16px;position:relative;color:var(--ink)}
+  .subs li{font-size:14.5px;padding-left:16px;position:relative;color:var(--ink)}
   .subs li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;background:var(--blue)}
   .subs b{color:var(--blue);font-weight:700}
   .subs span{color:var(--muted)}
-  .support{border-top:1px solid var(--line);padding:26px 0 6px;font-size:12.5px;color:var(--muted);text-align:center}
+  .why{border-top:1px solid var(--line);padding:44px 0 8px}
+  .why h2{font-size:26px;margin-bottom:14px}
+  .why p{font-size:15.5px;color:var(--ink);max-width:760px;margin:0 0 14px}
+  .why p.dim{color:var(--muted)}
+  .ex{background:var(--blue-tint);border-left:3px solid var(--blue);padding:14px 18px;font-size:14.5px;max-width:760px;margin:0 0 14px}
+  .ex .lbl{display:block;font-size:12.5px;color:var(--muted);margin-bottom:6px}
+  .support{border-top:1px solid var(--line);padding:26px 0 6px;font-size:14px;color:var(--muted);text-align:center}
   .cta{border-top:1px solid var(--line);margin-top:22px;padding:46px 0 60px;text-align:center}
   .cta h3{font-size:24px;margin-bottom:8px}
-  .cta p{color:var(--muted);font-size:13.5px;margin:0 auto 22px;max-width:520px}
-  .btn{font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;display:inline-block;padding:12px 26px;border-radius:26px;border:1.5px solid var(--blue);background:var(--blue);color:#fff}
+  .cta p{color:var(--muted);font-size:15px;margin:0 auto 22px;max-width:520px}
+  .btn{font-family:inherit;font-size:15.5px;font-weight:700;cursor:pointer;display:inline-block;padding:12px 26px;border-radius:26px;border:1.5px solid var(--blue);background:var(--blue);color:#fff}
   .btn:hover,.btn:focus-visible{opacity:.88}
   .btn.ghost{background:#fff;color:var(--blue);margin-left:10px}
-  footer{border-top:1px solid var(--line);padding:22px 0 30px;text-align:center;color:var(--muted);font-size:12px}
+  footer{border-top:1px solid var(--line);padding:22px 0 30px;text-align:center;color:var(--muted);font-size:13.5px}
   @media (max-width:720px){nav.main{gap:14px}.svc{grid-template-columns:1fr;gap:16px;padding:32px 0}.svc .icon{width:80px;height:80px}.subs{grid-template-columns:1fr}.btn.ghost{margin-left:0;margin-top:10px}}
 </style>
 </head>
@@ -62,6 +68,7 @@
       <a href="quote.html">Get a Quote</a>
       <a href="sectors.html">Sectors &amp; Standards</a>
       <a href="industries.html">Industries</a>
+      <a href="articles.html">Articles</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -149,6 +156,17 @@
     </div>
   </section>
 
+  <section class="why">
+    <div class="wrap">
+      <h2>Why test before commissioning</h2>
+      <p>Defects are cheapest at the factory and most expensive at site. A loose busbar joint, a winding weakness, a mis-set relay found at FAT costs a technician-day; found at energization it costs mobilized crews standing idle, delay damages and backcharges — routinely 10× the FAT cost, and past 100× offshore. Energizing unverified switchgear is how arc-flash incidents happen; installing unverified equipment in a classified area puts an ignition source inside a gas cloud.</p>
+      <p class="dim">The commercial wound is quieter than blacklisting: one commissioning failure reclassifies a supplier from partner to risk. RFQs simply stop, the engineer who championed the product absorbs the damage and carries the memory to every future employer, and the failure becomes the story competitors tell in tenders. Insurers can also decline claims where required certification was missing — and without a factory test baseline, every site failure becomes an unwinnable blame contest.</p>
+      <p>This is why third-party evidence is survival, not decoration: an accredited lab or body (ISO/IEC 17025, UL, TÜV, SGS, Intertek, a class society) has no conflict of interest, so its report is portable across clients, borders and disputes. One type test protects a whole product line for years — and on the bad day, the independent test file is what separates “isolated incident, root cause found” from “uncertified product — who else did they sell to?”</p>
+      <div class="ex"><span class="lbl">Illustrative worked example — typical figures for the product class, not a client claim</span><b>Pre-FAT review, LV busbar trunking:</b> a 6,300&nbsp;A busbar heading to a Gulf EPC needs IEC 61439-6 design-verification evidence — temperature rise, short-circuit withstand, joint torque records, conductor conductivity in % IACS. A document-and-design review run before the client’s inspector mobilizes surfaces gaps while they cost days and materials; discovered at a witnessed FAT, the same gaps cost re-tests, re-mobilization and liquidated-damages exposure — typically 10–20× the review.</div>
+      <div class="ex"><span class="lbl">Illustrative worked example — typical figures for the product class, not a client claim</span><b>Special thimble / termination qualification:</b> acceptance turns on testing to the <i>right</i> document — EN 13411-3 for a wire-rope thimble, IEC 61238-1 for an electrical compression termination. A Standards Map plus a test plan before samples ship avoids the classic failure: paying for a full campaign against the wrong standard and being rejected at incoming QA anyway.</div>
+    </div>
+  </section>
+
   <section class="cta">
     <div class="wrap">
       <h3>Have a product or a design in question?</h3>
@@ -172,7 +190,7 @@
 .tag{position:relative}
 a.tag{text-decoration:none;cursor:pointer}
 a.tag:hover,a.tag:focus-visible{background:var(--blue);color:#fff}
-.tag[data-tip]:hover::after,.tag[data-tip]:focus-visible::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:#232848;color:#fff;font-size:11px;line-height:1.5;padding:9px 12px;border-radius:8px;width:max-content;max-width:280px;white-space:pre-line;text-align:left;z-index:30;pointer-events:none;box-shadow:0 4px 14px rgba(35,40,72,.25)}
+.tag[data-tip]:hover::after,.tag[data-tip]:focus-visible::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:#232848;color:#fff;font-size:12.5px;line-height:1.5;padding:9px 12px;border-radius:8px;width:max-content;max-width:280px;white-space:pre-line;text-align:left;z-index:30;pointer-events:none;box-shadow:0 4px 14px rgba(35,40,72,.25)}
 </style>
 <script>
 (function(){

@@ -2,17 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>TECHVERIFY — Get a Quote</title>
-<meta name="description" content="Answer a few questions about your product and stage — get an instant, signed indicative quotation with the recommended modules and their scope."/>
+<meta name="description" content="Answer the intake questions and get a proposed scope of work for getting your product approved — the modules your job actually needs, which you can adjust before a fixed quotation is issued."/>
+<link rel="canonical" href="https://uas-spk.github.io/techverify/quote.html"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Space+Mono:wght@400;700&family=Caveat:wght@600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
 <style>
   :root{--blue:#2540E8;--blue-tint:#E9EDFF;--ink:#232848;--muted:#5A6080;--line:#D8DCF2;--bg:#FFFFFF;--maxw:900px}
   *{box-sizing:border-box}
   html,body{margin:0;padding:0}
-  body{background:var(--bg);color:var(--ink);font-family:"Space Mono",ui-monospace,SFMono-Regular,Menlo,monospace;line-height:1.65;-webkit-font-smoothing:antialiased}
+  body{background:var(--bg);color:var(--ink);font-family:"Inter","Segoe UI",system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
   a{color:var(--blue);text-decoration:none}
   .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 28px}
   h1,h2,h3{font-family:"Fredoka",system-ui,sans-serif;font-weight:500;color:var(--blue);margin:0}
@@ -20,64 +21,112 @@
   .bar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0}
   .brand{display:flex;align-items:center;gap:10px;color:var(--blue);font-weight:700;letter-spacing:.26em;font-size:17px}
   nav.main{display:flex;gap:18px;flex-wrap:wrap}
-  nav.main a{color:var(--ink);font-size:13px;padding:4px 0;border-bottom:2px solid transparent}
+  nav.main a{color:var(--ink);font-size:14.5px;padding:4px 0;border-bottom:2px solid transparent}
   nav.main a:hover{color:var(--blue)}
   nav.main a[aria-current="page"]{color:var(--blue);border-bottom-color:var(--blue)}
   .hero{padding:48px 0 6px;text-align:center}
   .hero h1{font-size:clamp(34px,6vw,56px);line-height:1.05;margin-bottom:12px}
-  .hero p{max-width:640px;margin:0 auto;color:var(--muted);font-size:14px}
+  .hero p{max-width:640px;margin:0 auto;color:var(--muted);font-size:15.5px}
   .phase{border:1.5px solid var(--line);border-top:4px solid var(--blue);padding:22px 26px;margin:26px 0}
   .phase h2{font-size:18px;margin-bottom:4px}
-  .phase .ph{font-size:11px;color:var(--muted);margin:0 0 14px}
+  .phase .ph{font-size:12.5px;color:var(--muted);margin:0 0 14px}
   .q{margin:0 0 16px}
-  .q p{font-size:13px;font-weight:700;margin:0 0 8px}
-  .opt{display:block;font-size:13px;margin:6px 0;cursor:pointer}
+  .q p{font-size:14.5px;font-weight:700;margin:0 0 8px}
+  .opt{display:block;font-size:14.5px;margin:6px 0;cursor:pointer}
   .opt input{accent-color:var(--blue);margin-right:8px}
   .row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
-  .row label{display:block;font-size:12px;color:var(--muted);margin-bottom:4px}
-  .row input{width:100%;font-family:inherit;font-size:13px;padding:10px 12px;border:1.5px solid var(--blue);border-radius:12px}
+  .row label{display:block;font-size:13.5px;color:var(--muted);margin-bottom:4px}
+  .row input{width:100%;font-family:inherit;font-size:14.5px;padding:10px 12px;border:1.5px solid var(--blue);border-radius:12px}
   .genbar{text-align:center;margin:8px 0 40px}
-  .btn{font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;display:inline-block;padding:12px 26px;border-radius:26px;border:1.5px solid var(--blue);background:var(--blue);color:#fff}
+  .btn{font-family:inherit;font-size:15.5px;font-weight:700;cursor:pointer;display:inline-block;padding:12px 26px;border-radius:26px;border:1.5px solid var(--blue);background:var(--blue);color:#fff}
   .btn:hover,.btn:focus-visible{opacity:.88}
   .btn.ghost{background:#fff;color:var(--blue);margin-left:10px}
-  .err{color:#D9503F;font-size:12.5px;text-align:center;margin:8px 0;display:none}
+  .err{color:#D9503F;font-size:14px;text-align:center;margin:8px 0;display:none}
 
   /* quote document */
   #quote{display:none;border:2px solid var(--ink);margin:10px 0 50px;padding:34px 38px;background:#fff}
   .qhead{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:2px solid var(--ink);padding-bottom:14px;margin-bottom:16px}
   .qhead .brand{letter-spacing:.26em}
-  .qmeta{text-align:right;font-size:11.5px;color:var(--muted)}
+  .qmeta{text-align:right;font-size:13px;color:var(--muted)}
   .qmeta b{color:var(--ink)}
-  .qclient{font-size:12.5px;margin:0 0 6px}
-  .qpath{font-size:12.5px;color:var(--muted);margin:0 0 18px}
+  .qclient{font-size:14px;margin:0 0 6px}
+  .qpath{font-size:14px;color:var(--muted);margin:0 0 18px}
   .qmod{border:1px solid var(--line);border-left:4px solid var(--blue);padding:14px 18px;margin:0 0 14px}
-  .qmod .t{display:flex;justify-content:space-between;gap:12px;font-size:13.5px;font-weight:700}
+  .qmod .t{display:flex;justify-content:space-between;gap:12px;font-size:15px;font-weight:700}
   .qmod .t .amt{color:var(--blue);white-space:nowrap}
-  .qmod .u{font-size:11px;color:var(--muted);margin:2px 0 8px}
+  .qmod .u{font-size:12.5px;color:var(--muted);margin:2px 0 8px}
   .qmod ul{list-style:none;margin:0;padding:0}
-  .qmod li{font-size:12px;padding:3px 0 3px 16px;position:relative}
+  .qmod li{font-size:13.5px;padding:3px 0 3px 16px;position:relative}
   .qmod li::before{content:"";position:absolute;left:0;top:10px;width:5px;height:5px;background:var(--blue)}
   .qtotal{display:flex;justify-content:space-between;border-top:2px solid var(--ink);padding-top:12px;font-size:15px;font-weight:700}
   .qtotal .amt{color:var(--blue)}
-  .qnote{font-size:11px;color:var(--muted);margin:10px 0 0}
-  .tier{background:var(--blue-tint);border-left:4px solid var(--blue);padding:12px 16px;font-size:12px;margin:16px 0 0}
+  .qnote{font-size:12.5px;color:var(--muted);margin:10px 0 0}
+  .tier{background:var(--blue-tint);border-left:4px solid var(--blue);padding:12px 16px;font-size:13.5px;margin:16px 0 0}
   .sig{display:flex;justify-content:space-between;align-items:flex-end;margin-top:30px;gap:20px}
-  .sig .scope{font-size:11px;color:var(--muted);max-width:420px}
+  .sig .scope{font-size:12.5px;color:var(--muted);max-width:420px}
   .sig .block{text-align:center;min-width:220px}
   .sig .hand{font-family:"Caveat",cursive;font-size:38px;color:var(--blue);line-height:1;transform:rotate(-3deg)}
   .sig .rule{border-top:1.5px solid var(--ink);margin:6px 0 4px}
-  .sig .who{font-size:11.5px}
+  .sig .who{font-size:13px}
   .qactions{text-align:center;margin:22px 0 60px}
-  footer{border-top:1px solid var(--line);padding:22px 0 30px;text-align:center;color:var(--muted);font-size:12px}
+  footer{border-top:1px solid var(--line);padding:22px 0 30px;text-align:center;color:var(--muted);font-size:13.5px}
   @media (max-width:680px){.row{grid-template-columns:1fr}.sig{flex-direction:column;align-items:flex-start}nav.main{gap:12px}}
   @media print{
     header,.hero,form,.genbar,.qactions,footer,.err{display:none !important}
     #quote{display:block !important;border:none;margin:0;padding:0}
-    body{font-size:12px}
+    body{font-size:13.5px}
   }
+
+  /* intake additions */
+  .prog{position:sticky;top:72px;z-index:9;background:rgba(255,255,255,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding:10px 0;font-size:13px;color:var(--muted)}
+  .prog .bar{height:5px;background:var(--line);border-radius:3px;overflow:hidden;margin-top:6px}
+  .prog .fill{height:100%;width:0;background:var(--blue);transition:width .25s}
+  .q .hint{font-size:12.5px;color:var(--muted);font-weight:400;margin:0 0 8px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px}
+  .fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .fields.three{grid-template-columns:1fr 1fr 1fr}
+  .fields label{display:block;font-size:13.5px;color:var(--muted);margin-bottom:4px}
+  .fields input,.fields select,.fields textarea{width:100%;font-family:inherit;font-size:14.5px;padding:10px 12px;border:1.5px solid var(--blue);border-radius:12px;background:#fff;color:var(--ink)}
+  .fields textarea{min-height:92px;resize:vertical;border-radius:14px}
+  .span2{grid-column:1 / -1}
+  /* proposed scope */
+  #scope{display:none;border:2px solid var(--ink);margin:10px 0 50px;padding:32px 36px;background:#fff}
+  #scope h2{font-size:22px;margin:0 0 4px}
+  .slead{font-size:14px;color:var(--muted);margin:0 0 18px}
+  .sblock{border-top:2px solid var(--ink);margin-top:22px;padding-top:14px}
+  .sblock h3{font-size:16px;margin:0 0 10px}
+  .mod{border:1px solid var(--line);border-left:4px solid var(--blue);padding:14px 18px;margin:0 0 12px;display:grid;grid-template-columns:26px 1fr;gap:12px}
+  .mod.off{border-left-color:var(--line);opacity:.55}
+  .mod input{accent-color:var(--blue);margin-top:4px}
+  .mod .t{font-size:15px;font-weight:700}
+  .mod .u{font-size:12.5px;color:var(--muted);margin:2px 0 8px}
+  .mod ul{list-style:none;margin:0;padding:0}
+  .mod li{font-size:13.5px;padding:3px 0 3px 16px;position:relative}
+  .mod li::before{content:"";position:absolute;left:0;top:10px;width:5px;height:5px;background:var(--blue)}
+  .mod .why{font-size:12.5px;color:var(--blue);margin:8px 0 0}
+  .answers{font-size:13.5px}
+  .answers div{padding:6px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:230px 1fr;gap:14px}
+  .answers div:last-child{border-bottom:none}
+  .answers b{color:var(--muted);font-weight:600}
+  .drivers li{font-size:13.5px;margin:5px 0}
+  .noprice{background:var(--blue-tint);border-left:4px solid var(--blue);padding:14px 18px;font-size:14px;margin:18px 0 0}
+  .sendbar{margin:22px 0 0;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .sendbar .note{font-size:12.5px;color:var(--muted)}
+
+  .bandbar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;border:1.5px solid var(--blue);border-radius:14px;padding:14px 18px;margin:0 0 12px}
+  .bandtot{display:flex;gap:14px;align-items:baseline;font-size:15px;font-weight:700}
+  .bandtot .amt{color:var(--blue);font-size:20px;white-space:nowrap}
+  .curpick{font-size:13px;color:var(--muted)}
+  .curpick select{font-family:inherit;font-size:13.5px;padding:6px 10px;border:1.5px solid var(--line);border-radius:10px;margin-left:6px;background:#fff;color:var(--ink)}
+  .bandnote{font-size:13px;color:var(--muted);margin:0 0 14px}
+  .mod .t{display:flex;justify-content:space-between;gap:12px}
+  .mod .t .amt{color:var(--blue);white-space:nowrap;font-size:14px}
+  .mod.off .t .amt{color:var(--muted)}
+  @media (max-width:760px){.grid2,.fields,.fields.three{grid-template-columns:1fr}.answers div{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
+
 <header>
   <div class="wrap bar">
     <div class="brand">
@@ -91,6 +140,7 @@
       <a href="quote.html" aria-current="page">Get a Quote</a>
       <a href="sectors.html">Sectors &amp; Standards</a>
       <a href="industries.html">Industries</a>
+      <a href="articles.html">Articles</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -101,125 +151,334 @@
   <section class="hero">
     <div class="wrap">
       <h1>Get a Quote</h1>
-      <p>Four short phases. Your answers place you on the path, pick the right modules, and generate a signed indicative quotation — instantly, nothing stored.</p>
+      <p>No rate card, because the answer depends on your answers. Fill in as much as you can and the page assembles a proposed scope — the modules your job actually needs, why each one is there, and an indicative band that moves with the models, markets, urgency and how much you want carried. Adjust it, send it, and a fixed price follows against that exact scope.</p>
     </div>
   </section>
+
+  <div class="prog"><div class="wrap"><span id="ptext"></span><div class="bar"><div class="fill" id="pfill"></div></div></div></div>
 
   <div class="wrap">
   <form id="assess" onsubmit="return false">
 
     <section class="phase">
-      <h2>Where you are</h2>
-      <p class="ph">Phase 1 of 4 — your stage decides the path</p>
+      <h2>The situation</h2>
+      <p class="ph">Step 1 of 7 — What is driving this, and who is asking</p>
       <div class="q">
-        <p>Which best describes your situation right now?</p>
-        <label class="opt"><input type="radio" name="stage" value="designing"> We are designing or specifying the product</label>
-        <label class="opt"><input type="radio" name="stage" value="buying"> We are selecting or buying — offers or products are in hand</label>
-        <label class="opt"><input type="radio" name="stage" value="selling"> We make or import it and want to sell in a new market</label>
-        <label class="opt"><input type="radio" name="stage" value="bidding"> We are bidding a tender</label>
-        <label class="opt"><input type="radio" name="stage" value="issue"> A delivered product has a compliance problem</label>
+        <p>Which best describes your situation?</p>
+        <div class="grid2">
+          <label class="opt"><input type="radio" name="stage" value="We are designing or specifying the product"> We are designing or specifying the product</label>
+          <label class="opt"><input type="radio" name="stage" value="We make it and want to sell in a new market"> We make it and want to sell in a new market</label>
+          <label class="opt"><input type="radio" name="stage" value="We import or distribute it"> We import or distribute it</label>
+          <label class="opt"><input type="radio" name="stage" value="We are buying and need the offer verified"> We are buying and need the offer verified</label>
+          <label class="opt"><input type="radio" name="stage" value="We are bidding a tender that demands certification"> We are bidding a tender that demands certification</label>
+          <label class="opt"><input type="radio" name="stage" value="A delivered product has a compliance problem"> A delivered product has a compliance problem</label>
+        </div>
+      </div>
+      <div class="q">
+        <p>What is your role in the supply chain?</p>
+        <div class="grid2">
+          <label class="opt"><input type="radio" name="role" value="Manufacturer"> Manufacturer</label>
+          <label class="opt"><input type="radio" name="role" value="Importer or agent"> Importer or agent</label>
+          <label class="opt"><input type="radio" name="role" value="Distributor or reseller"> Distributor or reseller</label>
+          <label class="opt"><input type="radio" name="role" value="EPC or contractor"> EPC or contractor</label>
+          <label class="opt"><input type="radio" name="role" value="End buyer or operator"> End buyer or operator</label>
+          <label class="opt"><input type="radio" name="role" value="Consultant acting for a client"> Consultant acting for a client</label>
+        </div>
+      </div>
+      <div class="q">
+        <p>Who is demanding the approval?</p>
+        <p class="hint">More than one usually applies, and they can ask for different evidence.</p>
+        <div class="grid2">
+          <label class="opt"><input type="checkbox" name="driver" value="A buyer or customer specification"> A buyer or customer specification</label>
+          <label class="opt"><input type="checkbox" name="driver" value="A tender or framework requirement"> A tender or framework requirement</label>
+          <label class="opt"><input type="checkbox" name="driver" value="Customs or a border authority"> Customs or a border authority</label>
+          <label class="opt"><input type="checkbox" name="driver" value="A regulator or authority having jurisdiction"> A regulator or authority having jurisdiction</label>
+          <label class="opt"><input type="checkbox" name="driver" value="An insurer or certifier"> An insurer or certifier</label>
+          <label class="opt"><input type="checkbox" name="driver" value="Our own decision, ahead of demand"> Our own decision, ahead of demand</label>
+        </div>
       </div>
     </section>
 
     <section class="phase">
-      <h2>Standards &amp; evidence</h2>
-      <p class="ph">Phase 2 of 4 — what is known and what is documented</p>
+      <h2>The product</h2>
+      <p class="ph">Step 2 of 7 — What it is, and what it carries with it</p>
       <div class="q">
-        <p>Do you know which standards govern the product?</p>
-        <label class="opt"><input type="radio" name="std" value="yes"> Yes — and we hold certificates / test reports</label>
-        <label class="opt"><input type="radio" name="std" value="partial"> Partly — named in the spec but never verified</label>
-        <label class="opt"><input type="radio" name="std" value="no"> No — we need the standards identified</label>
+        <p>What is the product?</p>
+        <p class="hint">Model designation and a one-line description are enough to start.</p>
+        <div class="fields">
+          <div><label for="pname">Product / model</label><input id="pname" type="text"></div>
+          <div><label for="pfam">Product family</label><input id="pfam" type="text" placeholder="e.g. LED luminaire, MCC, PE pipe"></div>
+          <div class="span2"><label for="pdesc">What it does, briefly</label><textarea id="pdesc"></textarea></div>
+        </div>
       </div>
       <div class="q">
-        <p>What documents do you have? (tick all that apply)</p>
-        <label class="opt"><input type="checkbox" name="docs" value="Datasheets"> Datasheets</label>
-        <label class="opt"><input type="checkbox" name="docs" value="Test reports / certificates"> Test reports / certificates</label>
-        <label class="opt"><input type="checkbox" name="docs" value="Drawings / calculations"> Drawings / calculations</label>
-        <label class="opt"><input type="checkbox" name="docs" value="Samples"> Samples</label>
-        <label class="opt"><input type="checkbox" name="docs" value="Nothing yet"> Nothing yet</label>
+        <p>Which describes it best?</p>
+        <div class="grid2">
+          <label class="opt"><input type="radio" name="ptype" value="Electrical or electronic equipment"> Electrical or electronic equipment</label>
+          <label class="opt"><input type="radio" name="ptype" value="Machinery or an assembly"> Machinery or an assembly</label>
+          <label class="opt"><input type="radio" name="ptype" value="A material, compound or chemical"> A material, compound or chemical</label>
+          <label class="opt"><input type="radio" name="ptype" value="A component or sub-assembly"> A component or sub-assembly</label>
+          <label class="opt"><input type="radio" name="ptype" value="A system installed on site"> A system installed on site</label>
+          <label class="opt"><input type="radio" name="ptype" value="Software or a connected device"> Software or a connected device</label>
+        </div>
       </div>
       <div class="q">
-        <p>Do you need testing or acceptance services? (tick all that apply)</p>
-        <label class="opt"><input type="checkbox" name="tst" value="FAT witnessing"> FAT witnessing (factory acceptance test)</label>
-        <label class="opt"><input type="checkbox" name="tst" value="Burn-in program"> Burn-in test program</label>
-        <label class="opt"><input type="checkbox" name="tst" value="Type testing"> Type testing</label>
-        <label class="opt"><input type="checkbox" name="tst" value="Explosion-proof (Ex) testing"> Explosion-proof (Ex) testing</label>
-        <label class="opt"><input type="checkbox" name="tst" value="Routine / sample tests"> Routine / sample tests</label>
-        <label class="opt"><input type="checkbox" name="tst" value="Third-party lab coordination"> Third-party lab coordination (UL / TÜV / SGS / Intertek)</label>
+        <p>Does the product involve any of these?</p>
+        <p class="hint">Each one of these pulls in its own standard, and it is the usual source of surprise cost.</p>
+        <div class="grid2">
+          <label class="opt"><input type="checkbox" name="attr" value="A battery or cell"> A battery or cell</label>
+          <label class="opt"><input type="checkbox" name="attr" value="Radio, wireless or cellular"> Radio, wireless or cellular</label>
+          <label class="opt"><input type="checkbox" name="attr" value="A laser or optical source"> A laser or optical source</label>
+          <label class="opt"><input type="checkbox" name="attr" value="Mains voltage above 1000 V"> Mains voltage above 1000 V</label>
+          <label class="opt"><input type="checkbox" name="attr" value="A pressure vessel or pipework"> A pressure vessel or pipework</label>
+          <label class="opt"><input type="checkbox" name="attr" value="Moving or cutting parts"> Moving or cutting parts</label>
+          <label class="opt"><input type="checkbox" name="attr" value="Food or drinking-water contact"> Food or drinking-water contact</label>
+          <label class="opt"><input type="checkbox" name="attr" value="A polymer or plastic part"> A polymer or plastic part</label>
+          <label class="opt"><input type="checkbox" name="attr" value="Hazardous or classified substances"> Hazardous or classified substances</label>
+          <label class="opt"><input type="checkbox" name="attr" value="Use in an explosive atmosphere (Ex)"> Use in an explosive atmosphere (Ex)</label>
+          <label class="opt"><input type="checkbox" name="attr" value="Medical or clinical use"> Medical or clinical use</label>
+          <label class="opt"><input type="checkbox" name="attr" value="None of these"> None of these</label>
+        </div>
+      </div>
+      <div class="q">
+        <p>Where does it operate?</p>
+        <div class="grid2">
+          <label class="opt"><input type="checkbox" name="env" value="Indoor, controlled"> Indoor, controlled</label>
+          <label class="opt"><input type="checkbox" name="env" value="Outdoor or exposed"> Outdoor or exposed</label>
+          <label class="opt"><input type="checkbox" name="env" value="Marine or offshore"> Marine or offshore</label>
+          <label class="opt"><input type="checkbox" name="env" value="High ambient temperature"> High ambient temperature</label>
+          <label class="opt"><input type="checkbox" name="env" value="Washdown or hygienic"> Washdown or hygienic</label>
+          <label class="opt"><input type="checkbox" name="env" value="Classified hazardous zone"> Classified hazardous zone</label>
+          <label class="opt"><input type="checkbox" name="env" value="Buried or submerged"> Buried or submerged</label>
+        </div>
       </div>
     </section>
 
     <section class="phase">
-      <h2>Market &amp; scale</h2>
-      <p class="ph">Phase 3 of 4 — where it must comply, and how much of it</p>
+      <h2>Markets and scale</h2>
+      <p class="ph">Step 3 of 7 — Where it must comply, and how much of it</p>
       <div class="q">
-        <p>Target market(s)?</p>
-        <label class="opt"><input type="checkbox" name="mkt" value="North America (UL/CSA)"> North America (UL/CSA)</label>
-        <label class="opt"><input type="checkbox" name="mkt" value="EU / UK (CE/UKCA)"> EU / UK (CE/UKCA)</label>
-        <label class="opt"><input type="checkbox" name="mkt" value="Gulf (SASO/SABER · G-Mark · GCC)"> Gulf (SASO/SABER · G-Mark · GCC)</label>
-        <label class="opt"><input type="checkbox" name="mkt" value="Pakistan (PSQCA)"> Pakistan (PSQCA)</label>
-        <label class="opt"><input type="checkbox" name="mkt" value="Marine / offshore (DNV · ABS · LR · MED)"> Marine / offshore (class type approval · MED wheelmark)</label>
-        <label class="opt"><input type="checkbox" name="mkt" value="Defense / NATO (NSN · MIL-STD)"> Defense / NATO procurement (NSN · MIL-STD · AQAP)</label>
-        <label class="opt"><input type="checkbox" name="mkt" value="Other"> Other / not sure</label>
+        <p>Which markets must it be approved for?</p>
+        <div class="grid2">
+          <label class="opt"><input type="checkbox" name="mkt" value="European Union (CE)"> European Union (CE)</label>
+          <label class="opt"><input type="checkbox" name="mkt" value="Great Britain (UKCA)"> Great Britain (UKCA)</label>
+          <label class="opt"><input type="checkbox" name="mkt" value="Saudi Arabia (SASO / SABER)"> Saudi Arabia (SASO / SABER)</label>
+          <label class="opt"><input type="checkbox" name="mkt" value="Other GCC (G-Mark / GCoC)"> Other GCC (G-Mark / GCoC)</label>
+          <label class="opt"><input type="checkbox" name="mkt" value="United States"> United States</label>
+          <label class="opt"><input type="checkbox" name="mkt" value="Canada"> Canada</label>
+          <label class="opt"><input type="checkbox" name="mkt" value="Australia / New Zealand (RCM)"> Australia / New Zealand (RCM)</label>
+          <label class="opt"><input type="checkbox" name="mkt" value="India (BIS)"> India (BIS)</label>
+          <label class="opt"><input type="checkbox" name="mkt" value="China (CCC)"> China (CCC)</label>
+          <label class="opt"><input type="checkbox" name="mkt" value="Japan (PSE)"> Japan (PSE)</label>
+          <label class="opt"><input type="checkbox" name="mkt" value="South Korea (KC)"> South Korea (KC)</label>
+          <label class="opt"><input type="checkbox" name="mkt" value="Brazil (INMETRO)"> Brazil (INMETRO)</label>
+          <label class="opt"><input type="checkbox" name="mkt" value="Africa (SONCAP / KEBS / PVoC)"> Africa (SONCAP / KEBS / PVoC)</label>
+          <label class="opt"><input type="checkbox" name="mkt" value="Marine class or MED wheelmark"> Marine class or MED wheelmark</label>
+          <label class="opt"><input type="checkbox" name="mkt" value="Defense / NATO (NSN · MIL-STD)"> Defense / NATO (NSN · MIL-STD)</label>
+          <label class="opt"><input type="checkbox" name="mkt" value="Not sure — we need the route identified"> Not sure — we need the route identified</label>
+        </div>
       </div>
       <div class="q">
-        <p>How many products or designs?</p>
-        <label class="opt"><input type="radio" name="qty" value="1"> One</label>
-        <label class="opt"><input type="radio" name="qty" value="3"> Two to four</label>
-        <label class="opt"><input type="radio" name="qty" value="5"> Five or more</label>
+        <p>Is this the first time for this product in that market?</p>
+        <div class="">
+          <label class="opt"><input type="radio" name="firstmkt" value="Yes, first entry"> Yes, first entry</label>
+          <label class="opt"><input type="radio" name="firstmkt" value="No, we hold approvals already but they need extending"> No, we hold approvals already but they need extending</label>
+          <label class="opt"><input type="radio" name="firstmkt" value="No, an approval lapsed or was withdrawn"> No, an approval lapsed or was withdrawn</label>
+        </div>
+      </div>
+      <div class="q">
+        <p>Is there an importer or authorised representative in the market?</p>
+        <div class="">
+          <label class="opt"><input type="radio" name="ior" value="Yes, appointed"> Yes, appointed</label>
+          <label class="opt"><input type="radio" name="ior" value="No, and we know we need one"> No, and we know we need one</label>
+          <label class="opt"><input type="radio" name="ior" value="No, and we need advice on it"> No, and we need advice on it</label>
+          <label class="opt"><input type="radio" name="ior" value="Not applicable"> Not applicable</label>
+        </div>
+      </div>
+      <div class="q">
+        <p>Scale of the job</p>
+        <div class="fields three">
+          <div><label for="nmodels">Number of models</label><input id="nmodels" type="text" placeholder="e.g. 3"></div>
+          <div><label for="nvariants">Variants per model</label><input id="nvariants" type="text" placeholder="e.g. voltages, sizes"></div>
+          <div><label for="vol">Annual volume, roughly</label><input id="vol" type="text" placeholder="e.g. 500 units"></div>
+        </div>
       </div>
     </section>
 
     <section class="phase">
-      <h2>Timeline &amp; details</h2>
-      <p class="ph">Phase 4 of 4 — for the quotation header</p>
+      <h2>Evidence on hand</h2>
+      <p class="ph">Step 4 of 7 — What is documented, and what has changed</p>
       <div class="q">
-        <p>How soon do you need the result?</p>
-        <label class="opt"><input type="radio" name="time" value="urgent"> Urgent — under two weeks</label>
-        <label class="opt"><input type="radio" name="time" value="month"> Within a month</label>
-        <label class="opt"><input type="radio" name="time" value="planning"> Planning ahead</label>
+        <p>Do you know which standards govern it?</p>
+        <div class="">
+          <label class="opt"><input type="radio" name="std" value="Yes, and we hold reports against them"> Yes, and we hold reports against them</label>
+          <label class="opt"><input type="radio" name="std" value="Named in a specification but never verified"> Named in a specification but never verified</label>
+          <label class="opt"><input type="radio" name="std" value="We have a guess"> We have a guess</label>
+          <label class="opt"><input type="radio" name="std" value="No, we need them identified"> No, we need them identified</label>
+        </div>
       </div>
-      <div class="row">
-        <div><label for="cname">Your name</label><input id="cname" type="text" autocomplete="name"></div>
-        <div><label for="ccomp">Company</label><input id="ccomp" type="text" autocomplete="organization"></div>
-        <div><label for="ccur">Currency</label><input id="ccur" list="curs" value="USD"><datalist id="curs"><option>USD</option><option>CAD</option><option>EUR</option><option>GBP</option><option>SAR</option><option>AED</option><option>PKR</option></datalist></div>
+      <div class="q">
+        <p>What do you hold today?</p>
+        <div class="grid2">
+          <label class="opt"><input type="checkbox" name="docs" value="Datasheets"> Datasheets</label>
+          <label class="opt"><input type="checkbox" name="docs" value="Drawings and calculations"> Drawings and calculations</label>
+          <label class="opt"><input type="checkbox" name="docs" value="Bill of materials with component certificates"> Bill of materials with component certificates</label>
+          <label class="opt"><input type="checkbox" name="docs" value="Test reports"> Test reports</label>
+          <label class="opt"><input type="checkbox" name="docs" value="Certificates from a certification body"> Certificates from a certification body</label>
+          <label class="opt"><input type="checkbox" name="docs" value="A technical file"> A technical file</label>
+          <label class="opt"><input type="checkbox" name="docs" value="A declaration of conformity"> A declaration of conformity</label>
+          <label class="opt"><input type="checkbox" name="docs" value="Risk assessment"> Risk assessment</label>
+          <label class="opt"><input type="checkbox" name="docs" value="Labels and marking artwork"> Labels and marking artwork</label>
+          <label class="opt"><input type="checkbox" name="docs" value="User instructions"> User instructions</label>
+          <label class="opt"><input type="checkbox" name="docs" value="Nothing yet"> Nothing yet</label>
+        </div>
+      </div>
+      <div class="q">
+        <p>Has the product been tested before?</p>
+        <div class="">
+          <label class="opt"><input type="radio" name="hist" value="Yes, and it passed"> Yes, and it passed</label>
+          <label class="opt"><input type="radio" name="hist" value="Yes, and it failed"> Yes, and it failed</label>
+          <label class="opt"><input type="radio" name="hist" value="Partially tested"> Partially tested</label>
+          <label class="opt"><input type="radio" name="hist" value="Never tested"> Never tested</label>
+          <label class="opt"><input type="radio" name="hist" value="Not sure"> Not sure</label>
+        </div>
+      </div>
+      <div class="q">
+        <p>Has anything changed since the last approval?</p>
+        <p class="hint">This is the question that decides whether an existing certificate still covers you.</p>
+        <div class="grid2">
+          <label class="opt"><input type="checkbox" name="change" value="A component was substituted"> A component was substituted</label>
+          <label class="opt"><input type="checkbox" name="change" value="The power supply changed"> The power supply changed</label>
+          <label class="opt"><input type="checkbox" name="change" value="The enclosure or materials changed"> The enclosure or materials changed</label>
+          <label class="opt"><input type="checkbox" name="change" value="The factory changed"> The factory changed</label>
+          <label class="opt"><input type="checkbox" name="change" value="The software or firmware changed"> The software or firmware changed</label>
+          <label class="opt"><input type="checkbox" name="change" value="Nothing has changed"> Nothing has changed</label>
+          <label class="opt"><input type="checkbox" name="change" value="No previous approval"> No previous approval</label>
+        </div>
       </div>
     </section>
 
-    <p class="err" id="err">Answer the questions in Phases 1–4 (stage, standards, quantity, timeline) to generate the quotation.</p>
+    <section class="phase">
+      <h2>Manufacturing</h2>
+      <p class="ph">Step 5 of 7 — Where it is made, and whether the factory can carry the scheme</p>
+      <div class="q">
+        <p>Where is it manufactured?</p>
+        <div class="fields">
+          <div><label for="factory">Country of manufacture</label><input id="factory" type="text"></div>
+          <div><label for="nsites">Number of production sites</label><input id="nsites" type="text" placeholder="e.g. 1"></div>
+        </div>
+      </div>
+      <div class="q">
+        <p>What quality system is in place at the factory?</p>
+        <div class="grid2">
+          <label class="opt"><input type="radio" name="qms" value="ISO 9001 certified"> ISO 9001 certified</label>
+          <label class="opt"><input type="radio" name="qms" value="ISO 13485 certified"> ISO 13485 certified</label>
+          <label class="opt"><input type="radio" name="qms" value="IATF 16949 certified"> IATF 16949 certified</label>
+          <label class="opt"><input type="radio" name="qms" value="A documented system, not certified"> A documented system, not certified</label>
+          <label class="opt"><input type="radio" name="qms" value="None yet"> None yet</label>
+          <label class="opt"><input type="radio" name="qms" value="Not known"> Not known</label>
+        </div>
+      </div>
+      <div class="q">
+        <p>Can samples be made available for testing?</p>
+        <div class="">
+          <label class="opt"><input type="radio" name="samples" value="Yes, available now"> Yes, available now</label>
+          <label class="opt"><input type="radio" name="samples" value="Yes, within a few weeks"> Yes, within a few weeks</label>
+          <label class="opt"><input type="radio" name="samples" value="Only pre-production units"> Only pre-production units</label>
+          <label class="opt"><input type="radio" name="samples" value="No, production has not started"> No, production has not started</label>
+          <label class="opt"><input type="radio" name="samples" value="Not sure"> Not sure</label>
+        </div>
+      </div>
+      <div class="q">
+        <p>Is the factory prepared for an inspection or surveillance visit?</p>
+        <div class="">
+          <label class="opt"><input type="radio" name="audit" value="Yes, it has been audited before"> Yes, it has been audited before</label>
+          <label class="opt"><input type="radio" name="audit" value="Yes, but never for this scheme"> Yes, but never for this scheme</label>
+          <label class="opt"><input type="radio" name="audit" value="No, and this worries us"> No, and this worries us</label>
+          <label class="opt"><input type="radio" name="audit" value="Not applicable to our route"> Not applicable to our route</label>
+        </div>
+      </div>
+    </section>
+
+    <section class="phase">
+      <h2>Timing and handling</h2>
+      <p class="ph">Step 6 of 7 — What is at stake, and how much you want carried</p>
+      <div class="q">
+        <p>When does the approval have to be in hand?</p>
+        <div class="">
+          <label class="opt"><input type="radio" name="time" value="Immediately — goods are already held or shipping"> Immediately — goods are already held or shipping</label>
+          <label class="opt"><input type="radio" name="time" value="Within a month"> Within a month</label>
+          <label class="opt"><input type="radio" name="time" value="Within a quarter"> Within a quarter</label>
+          <label class="opt"><input type="radio" name="time" value="Planning for next year"> Planning for next year</label>
+          <label class="opt"><input type="radio" name="time" value="No fixed date"> No fixed date</label>
+        </div>
+      </div>
+      <div class="q">
+        <p>Is there anything at risk right now?</p>
+        <div class="grid2">
+          <label class="opt"><input type="checkbox" name="cons" value="A shipment is held or waiting"> A shipment is held or waiting</label>
+          <label class="opt"><input type="checkbox" name="cons" value="A tender deadline"> A tender deadline</label>
+          <label class="opt"><input type="checkbox" name="cons" value="A customer order"> A customer order</label>
+          <label class="opt"><input type="checkbox" name="cons" value="A launch date"> A launch date</label>
+          <label class="opt"><input type="checkbox" name="cons" value="A penalty or contractual date"> A penalty or contractual date</label>
+          <label class="opt"><input type="checkbox" name="cons" value="Nothing immediate"> Nothing immediate</label>
+        </div>
+      </div>
+      <div class="q">
+        <p>How much of it do you want handled for you?</p>
+        <div class="">
+          <label class="opt"><input type="radio" name="want" value="All of it — deliver the certificate"> All of it — deliver the certificate</label>
+          <label class="opt"><input type="radio" name="want" value="Most of it, we will supply samples and factory access"> Most of it, we will supply samples and factory access</label>
+          <label class="opt"><input type="radio" name="want" value="The route and the plan, we will run the testing"> The route and the plan, we will run the testing</label>
+          <label class="opt"><input type="radio" name="want" value="Advice only, we have our own team"> Advice only, we have our own team</label>
+        </div>
+      </div>
+      <div class="q">
+        <p>What has held this up so far?</p>
+        <div class="grid2">
+          <label class="opt"><input type="checkbox" name="barrier" value="We did not know where to start"> We did not know where to start</label>
+          <label class="opt"><input type="checkbox" name="barrier" value="Conflicting advice"> Conflicting advice</label>
+          <label class="opt"><input type="checkbox" name="barrier" value="A quote we could not judge"> A quote we could not judge</label>
+          <label class="opt"><input type="checkbox" name="barrier" value="A failed test"> A failed test</label>
+          <label class="opt"><input type="checkbox" name="barrier" value="A supplier who will not provide documents"> A supplier who will not provide documents</label>
+          <label class="opt"><input type="checkbox" name="barrier" value="Budget approval"> Budget approval</label>
+          <label class="opt"><input type="checkbox" name="barrier" value="Nothing, this is the start"> Nothing, this is the start</label>
+        </div>
+      </div>
+    </section>
+
+    <section class="phase">
+      <h2>Where to send it</h2>
+      <p class="ph">Step 7 of 7 — So the scope reaches the right person</p>
+      <div class="q">
+        <p>Who should the scope go to?</p>
+        <p class="hint">Nothing is stored on this site. The scope is written in your browser and only leaves it when you send it.</p>
+        <div class="fields">
+          <div><label for="cname">Your name</label><input id="cname" type="text" autocomplete="name"></div>
+          <div><label for="ccomp">Company</label><input id="ccomp" type="text" autocomplete="organization"></div>
+          <div><label for="cmail">Email</label><input id="cmail" type="email" autocomplete="email"></div>
+          <div><label for="cphone">Phone or WhatsApp</label><input id="cphone" type="text" autocomplete="tel"></div>
+          <div class="span2"><label for="cnotes">Anything else worth knowing</label><textarea id="cnotes"></textarea></div>
+        </div>
+      </div>
+      <div class="q">
+        <p>Do you need an NDA before details are shared?</p>
+        <div class="">
+          <label class="opt"><input type="radio" name="nda" value="Yes, please send one"> Yes, please send one</label>
+          <label class="opt"><input type="radio" name="nda" value="Yes, we will send ours"> Yes, we will send ours</label>
+          <label class="opt"><input type="radio" name="nda" value="Not needed at this stage"> Not needed at this stage</label>
+        </div>
+      </div>
+    </section>
+
+
+    <p class="err" id="err">Before a scope can be assembled: your situation, at least one market, and how much you want handled.</p>
     <div class="genbar">
-      <button class="btn" id="gen" type="button">Generate my quotation</button>
+      <button class="btn" id="build" type="button">Assemble my scope</button>
     </div>
   </form>
 
-  <article id="quote" aria-label="Quotation">
-    <div class="qhead">
-      <div class="brand">
-        <svg width="24" height="24" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="10" fill="none" stroke="#2540E8" stroke-width="1.6"/><circle cx="13" cy="13" r="2" fill="#2540E8"/><line x1="1" y1="13" x2="25" y2="13" stroke="#2540E8" stroke-width="1" stroke-dasharray="5 3"/><line x1="13" y1="1" x2="13" y2="25" stroke="#2540E8" stroke-width="1" stroke-dasharray="5 3"/></svg>
-        TECHVERIFY
-      </div>
-      <div class="qmeta"><b>Quotation</b> <span id="qref"></span><br>Date: <span id="qdate"></span><br>Valid: 30 days · Indicative</div>
-    </div>
-    <p class="qclient" id="qclient"></p>
-    <p class="qpath" id="qpathtext"></p>
-    <div id="qmods"></div>
-    <div class="qtotal"><span>Estimated total <span id="qtotqual"></span></span><span class="amt" id="qtotal"></span></div>
-    <p class="qnote">Prices converted at fixed reference rates; the invoice governs the final amount and currency. Excludes taxes, third-party laboratory fees and travel. "From" prices are confirmed after the free 20-minute scoping call. Defense &amp; NATO program pricing is not published — it is provided separately, under NDA on request.</p>
-    <div class="tier" id="qtier"></div>
-    <div class="sig">
-      <p class="scope"><b>Scope of this quotation:</b> only the features listed under each module above are included as the service. Anything outside the listed scope is quoted separately, in writing, before work begins. This quotation is generated automatically under the authority of the principal and is confirmed at the scoping call.</p>
-      <div class="block">
-        <div class="hand">Umer Siddiqui</div>
-        <div class="rule"></div>
-        <div class="who">Umer Siddiqui — Principal, TECHVERIFY<br>umersidiqii@gmail.com</div>
-      </div>
-    </div>
-  </article>
-
-  <div class="qactions" id="qactions" style="display:none">
-    <button class="btn" onclick="window.print()">Print / save as PDF</button>
-    <a class="btn ghost" id="mailQuote" href="#">Email this quotation to me</a>
-  </div>
+  <article id="scope" aria-label="Proposed scope of work"></article>
   </div>
 </main>
 
@@ -228,83 +487,375 @@
 </footer>
 
 <script>
-const CONTACT="umersidiqii@gmail.com";
-const RATES={USD:{r:1,s:"$",step:10},CAD:{r:1.38,s:"C$",step:10},EUR:{r:0.92,s:"\u20AC",step:10},GBP:{r:0.79,s:"\u00A3",step:10},SAR:{r:3.75,s:"SAR ",step:10},AED:{r:3.67,s:"AED ",step:10},PKR:{r:285,s:"Rs ",step:1000}};
-const MODULES={
- map:{name:"Standards Map",usd:490,per:"product",unit:"per product · one target market · 3–5 days",inc:["Governing standards identified (IEC, EN, ISO, UL/CSA)","Conformity route for the target market","Required marks, certificates and documents list","Known safety failure modes for the product family"]},
- check:{name:"Compliance Check",usd:1450,per:"product",unit:"per product · 5–10 days",inc:["Datasheet, test-report and certificate verification","Compliance gap list with concrete fixes","Pass / fix / fail verdict","Supplier question set"]},
- design:{name:"Design Review",usd:2400,per:"design",unit:"per design · 10 days",inc:["Design reviewed against the governing standard","Drawings, calculations and technical file examined","Ratings, derating and materials verified","Written findings with required changes"]},
- bench:{name:"Benchmark",usd:2400,per:"evaluation",unit:"up to 4 products or designs · 10 days",inc:["Technical + commercial comparison matrix","Alternates and qualified equivalents","Price posture vs the market","Written recommendation: buy, fix, or walk away"]},
- access:{name:"Market Access",usd:3900,from:true,per:"market",unit:"per product family · per market",inc:["Conformity program for the selected market(s)","Technical file, declarations, labeling and marking","Test-lab and certification coordination (UL, TÜV, SGS, Intertek)","Registration and import documentation support"]},
- bid:{name:"Source & Bid",usd:2900,from:true,per:"bid",unit:"per bid",inc:["Tender compliance matrix, clause by clause","Bid/No-Bid with win-probability scoring","Technical proposal sections (Shipley/APMP)","Price & award history for the buying agency where available"]},
- test:{name:"Testing & FAT Management",poa:true,per:"program",unit:"quoted per test program \u00b7 scope, location and witness days set the price",inc:["Test plan aligned to the governing standard","Witnessed FAT, burn-in, type or Ex testing as selected","Factory and third-party laboratory coordination","Witness report with pass / fix / fail findings"]},
- def:{name:"Defense & NATO Program",poa:true,per:"program",unit:"priced separately \u00b7 not published \u00b7 NDA available",inc:["NCAGE registration and NSN codification","MIL-STD / DEF STAN / AQAP conformity positioning","QPL / QML entry support","Approved-source verification and traceability (counterfeit controls)"]}
-};
-const STAGES={designing:"designing / specifying",buying:"selecting / buying",selling:"entering a new market",bidding:"bidding a tender",issue:"resolving a compliance problem"};
 
-function val(n){const e=document.querySelector('input[name="'+n+'"]:checked');return e?e.value:null}
-function vals(n){return [...document.querySelectorAll('input[name="'+n+'"]:checked')].map(e=>e.value)}
-function money(usd,cur){const k=RATES[cur]||RATES.USD;const v=Math.round(usd*k.r/k.step)*k.step;return k.s+v.toLocaleString('en-US')}
+const CONTACT = "umersidiqii@gmail.com";
 
-document.getElementById('gen').addEventListener('click',function(){
-  const stage=val('stage'),std=val('std'),qty=val('qty'),time=val('time');
-  const err=document.getElementById('err');
-  if(!stage||!std||!qty||!time){err.style.display='block';return}
-  err.style.display='none';
-  const cur=(document.getElementById('ccur').value||'USD').toUpperCase().trim();
-  const C=RATES[cur]?cur:'USD';
-  const n=parseInt(qty,10);
-  const mkts=vals('mkt');const defense=mkts.some(m=>m.indexOf("Defense")===0);const realMkts=mkts.filter(m=>m!=="Other"&&m.indexOf("Defense")!==0).length||1;
+/* Modules are stages of one job: getting the product approved.
+   Which ones you need is set by the answers, not by a price list. */
+const MODULES = [
+ {id:'route', lo:490, hi:900, scale:'markets', name:'Route assessment', unit:'always the first step',
+  inc:['The approval actually required in each target market',
+       'The governing standard and edition, named',
+       'Which body or platform can issue it',
+       'What the evidence package has to contain',
+       'Whether the product can be approved as designed'],
+  when:()=>true, why:'Every engagement starts here — nothing downstream can be priced or planned without it.'},
 
-  // Build the path
-  const path=[];
-  if(std!=='yes')path.push('map');
-  if(stage==='designing')path.push('design');
-  if(stage==='buying'){path.push('check');if(n>1)path.push('bench')}
-  if(stage==='selling')path.push('access');
-  if(stage==='bidding'){path.push('check','bid')}
-  if(stage==='issue')path.push('check');
-  const tsts=vals('tst');if(tsts.length)path.push('test');
-  if(defense)path.push('def');
+ {id:'gap', lo:1450, hi:2400, scale:'models', name:'Evidence and gap review', unit:'per product family',
+  inc:['Existing reports and certificates checked against the standard',
+       'Scope check on the issuing laboratory or body',
+       'Component and material certificates verified',
+       'Gap list with what each gap costs to close'],
+  when:a=>a.docs.length && !a.docs.includes('Nothing yet'),
+  why:'You already hold documents, so the first saving is finding which of them the certifier will accept.'},
 
-  // Render modules + total
-  let total=0,anyFrom=false,anyPOA=false,html='',mailLines=[];
-  path.forEach((k,i)=>{
-    const m=MODULES[k];
-    if(m.poa){anyPOA=true;html+='<div class="qmod"><div class="t"><span>Step '+(i+1)+' \u2014 '+m.name+'</span><span class="amt">Price on request</span></div><div class="u">'+m.unit+'</div><ul>'+m.inc.map(f=>'<li>'+f+'</li>').join('')+'</ul></div>';mailLines.push('Step '+(i+1)+': '+m.name+' \u2014 price on request');return}
-    let q=1;
-    if(m.per==='product'||m.per==='design')q=n;
-    if(m.per==='market')q=realMkts;
-    const line=m.usd*q;total+=line;if(m.from)anyFrom=true;
-    html+='<div class="qmod"><div class="t"><span>Step '+(i+1)+' — '+m.name+(q>1?' × '+q:'')+'</span><span class="amt">'+(m.from?'from ':'')+money(line,C)+'</span></div><div class="u">'+m.unit+' · unit '+(m.from?'from ':'')+money(m.usd,C)+'</div><ul>'+m.inc.map(f=>'<li>'+f+'</li>').join('')+'</ul></div>';
-    mailLines.push('Step '+(i+1)+': '+m.name+(q>1?' x'+q:'')+' — '+(m.from?'from ':'')+money(line,C));
+ {id:'variant', lo:900, hi:1800, scale:'models', name:'Variant and change assessment', unit:'per change',
+  inc:['What the change does to the existing certificate',
+       'Whether a delta test or a full retest is needed',
+       'Certificate amendment or extension route',
+       'A defensible record of the decision'],
+  when:a=>a.change.some(c=>c!=='Nothing has changed'&&c!=='No previous approval')||a.firstmkt==='No, we hold approvals already but they need extending',
+  why:'Something changed since the last approval, and that is where certificates quietly stop covering the product.'},
+
+ {id:'design', lo:2400, hi:3600, scale:'models', name:'Design and construction review',unit:'per design',
+  inc:['Design assessed against the clauses that fail products',
+       'Ratings, spacings, materials and derating checked',
+       'Component selection reviewed for certifiability',
+       'Written changes to make before samples are built'],
+  when:a=>a.stage==='We are designing or specifying the product'||a.hist==='Yes, and it failed'||a.hist==='Never tested',
+  why:'Cheaper to change on a drawing than after a failed test — this is where the money is saved or lost.'},
+
+ {id:'plan', lo:950, hi:1900, scale:'models', name:'Test plan and laboratory selection', unit:'per product family',
+  inc:['Test plan mapped clause by clause',
+       'Laboratories shortlisted on accredited scope, not price',
+       'Quotes compared on what the report will actually say',
+       'Sample quantity, configuration and logistics defined'],
+  when:a=>a.want!=='Advice only, we have our own team',
+  why:'The wrong laboratory produces a report the buyer refuses, which is the most expensive saving in this field.'},
+
+ {id:'testing', lo:2400, hi:6000, scale:'models', name:'Testing management', unit:'per test programme',
+  inc:['Testing booked and driven to completion',
+       'Laboratory queries answered on your behalf',
+       'Failures worked through: measured values, the clause missed, the fix',
+       'Partial retest negotiated where the standard allows it'],
+  when:a=>['All of it — deliver the certificate','Most of it, we will supply samples and factory access'].includes(a.want),
+  why:'You asked for it delivered rather than advised, so the testing is run rather than handed over.'},
+
+ {id:'ex', lo:2400, hi:5000, scale:'models', name:'Hazardous-area (Ex) certification', unit:'per equipment group',
+  inc:['Zone, group and temperature class established',
+       'Protection concept and Ex marking string',
+       'ATEX or IECEx route with the appropriate body',
+       'Ex-specific quality requirements at the factory'],
+  when:a=>a.attr.includes('Use in an explosive atmosphere (Ex)')||a.env.includes('Classified hazardous zone'),
+  why:'Ex is a separate certification regime with its own factory obligations; it never rides along on a safety certificate.'},
+
+ {id:'radio', lo:1800, hi:4000, scale:'markets', name:'Radio and RF approval', unit:'per radio variant, per country',
+  inc:['Radio, EMC and RF-exposure test scope',
+       'National type approval per destination country',
+       'Module reuse assessed against host-product rules',
+       'Marking and identifier requirements'],
+  when:a=>a.attr.includes('Radio, wireless or cellular'),
+  why:'Radio approval is granted country by country, so one certificate will not clear every market you named.'},
+
+ {id:'battery', lo:1200, hi:2800, scale:'models', name:'Battery and transport compliance', unit:'per cell or pack',
+  inc:['Cell and pack safety testing route',
+       'UN 38.3 transport testing and summary',
+       'Shipping classification and documentation',
+       'Where the pack design blocks certification'],
+  when:a=>a.attr.includes('A battery or cell'),
+  why:'A battery brings a second, separate approval for transport — shipments are refused without it.'},
+
+ {id:'material', lo:1450, hi:3200, scale:'models', name:'Material and substance compliance', unit:'per material or formulation',
+  inc:['Restricted-substance position (REACH, RoHS and equivalents)',
+       'Flammability and mechanical characterisation',
+       'Migration testing where there is food or water contact',
+       'Safety data sheet and hazard classification review'],
+  when:a=>a.ptype==='A material, compound or chemical'||a.attr.includes('A polymer or plastic part')||a.attr.includes('Food or drinking-water contact')||a.attr.includes('Hazardous or classified substances'),
+  why:'With a material the product is its composition, so conformity rests on what can be measured and what migrates.'},
+
+ {id:'med', lo:3900, hi:9000, scale:'markets', name:'Medical device route', unit:'per device',
+  inc:['Classification and the applicable regime per market',
+       'Quality-system requirement (ISO 13485) and gaps',
+       'Safety and essential-performance testing scope',
+       'Submission or licensing pathway'],
+  when:a=>a.attr.includes('Medical or clinical use'),
+  why:'Medical is licensing rather than marking, and the quality system is assessed alongside the product.'},
+
+ {id:'file', lo:1900, hi:3900, scale:'models', name:'Technical file and declaration', unit:'per product family',
+  inc:['Technical file assembled to the structure the authority expects',
+       'Risk assessment and standards list',
+       'Declaration of conformity or performance drafted for your signature',
+       'Labelling, marking and instruction review, including language'],
+  when:a=>!a.docs.includes('A technical file')||!a.docs.includes('A declaration of conformity'),
+  why:'The mark is the easy part; the file behind it is what an audit or a buyer actually asks to see.'},
+
+ {id:'cert', lo:1450, hi:3400, scale:'markets', name:'Certification submission and follow-through', unit:'per certificate',
+  inc:['Submission to the body or platform',
+       'Factory information where surveillance applies',
+       'Queries answered until the certificate issues',
+       'Certificate scope checked against your model range'],
+  when:a=>a.want!=='Advice only, we have our own team',
+  why:'Submissions stall on queries; this is the stage that turns a passed test into a certificate.'},
+
+ {id:'saber', lo:950, hi:2400, scale:'models', name:'SABER product and shipment certificates', unit:'per model, then per consignment',
+  inc:['Correct category and technical regulation on the platform',
+       'Product Certificate of Conformity through an approved body',
+       'Shipment certificates for each consignment',
+       'Arabic marking, labelling and energy requirements'],
+  when:a=>a.mkt.includes('Saudi Arabia (SASO / SABER)'),
+  why:'Saudi Arabia is two certificates, not one — the shipment stage is what strands containers at the port.'},
+
+ {id:'factory', lo:1200, hi:2800, scale:'sites', name:'Factory readiness for surveillance', unit:'per site',
+  inc:['What the scheme will require of the production site',
+       'Records, control plan and traceability expectations',
+       'Pre-visit gap check',
+       'Corrective actions before the auditor arrives'],
+  when:a=>a.audit==='Yes, but never for this scheme'||a.audit==='No, and this worries us'||a.qms==='None yet'||a.qms==='Not known',
+  why:'The certificate depends on the factory passing too, and that is the part clients are least ready for.'},
+
+ {id:'urgent', lo:950, hi:2400, scale:'none', name:'Held-shipment intervention', unit:'per incident',
+  inc:['What the authority or buyer will accept to release the goods',
+       'Fastest defensible route, with the trade-offs stated',
+       'Direct handling with the body or platform',
+       'What to fix so it does not recur'],
+  when:a=>a.time==='Immediately — goods are already held or shipping'||a.cons.includes('A shipment is held or waiting'),
+  why:'Something is held right now, so sequencing changes: release first, tidy the file second.'},
+
+ {id:'tender', lo:2900, hi:5400, scale:'none', name:'Tender compliance support', unit:'per bid',
+  inc:['Compliance matrix against the certification clauses',
+       'Evidence pack assembled to the tender format',
+       'Equivalence argued where your mark differs from the one named',
+       'Clarification questions drafted for the buyer'],
+  when:a=>a.stage==='We are bidding a tender that demands certification'||a.driver.includes('A tender or framework requirement')||a.cons.includes('A tender deadline'),
+  why:'A tender judges the paperwork before it judges the product, and equivalence has to be argued rather than assumed.'},
+
+ {id:'handover', lo:490, hi:950, scale:'none', name:'Handover and renewal schedule', unit:'once, at close',
+  inc:['Certificates, reports, file and declaration in one indexed set',
+       'What renews and when, with the lead time to start',
+       'What triggers a re-assessment',
+       'A short brief for your team'],
+  when:()=>true,
+  why:'Closes the job properly so the next audit, buyer question or renewal is answered from the folder.'}
+];
+
+const DRIVERS = [
+ ['Number of models and variants','each variant that differs in a safety-relevant way is assessed on its own'],
+ ['How many markets','a second market is a second submission, rarely a copy of the first'],
+ ['Third-party laboratory and body fees','billed by them, passed through at cost, and the largest single line'],
+ ['Condition of the existing evidence','a clean file shortens the job; a thin one lengthens it'],
+ ['Whether testing is run or advised','managing a programme is more work than writing a plan'],
+ ['Factory readiness','an unprepared site adds a cycle before surveillance'],
+ ['Urgency','expedited laboratory slots and out-of-hours work carry premiums']
+];
+
+
+const CUR = {USD:{r:1,s:'$'},CAD:{r:1.38,s:'C$'},EUR:{r:0.92,s:'\u20AC'},GBP:{r:0.79,s:'\u00A3'},
+             SAR:{r:3.75,s:'SAR '},AED:{r:3.67,s:'AED '},PKR:{r:285,s:'Rs '}};
+let CURKEY = 'USD';
+
+function money(usd){
+  const c = CUR[CURKEY], v = usd * c.r;
+  const step = CURKEY === 'PKR' ? 5000 : 50;
+  const r = Math.round(v / step) * step;
+  return c.s + r.toLocaleString('en-US');
+}
+
+/* how the drivers move a band */
+function factors(a){
+  const num = s => { const n = parseInt((s||'').replace(/\D/g,''),10); return isNaN(n)?1:Math.max(1,n); };
+  const models  = Math.min(num(a.nmodels), 12);
+  const markets = Math.max(1, a.mkt.filter(m=>m!=='Not sure — we need the route identified').length);
+  const sites   = Math.min(num(a.nsites), 6);
+  let urgency = 1;
+  if(a.time === 'Immediately — goods are already held or shipping') urgency = 1.30;
+  else if(a.time === 'Within a month') urgency = 1.12;
+  let carry = 1;
+  if(a.want === 'Advice only, we have our own team') carry = 0.55;
+  else if(a.want === 'The route and the plan, we will run the testing') carry = 0.75;
+  else if(a.want === 'Most of it, we will supply samples and factory access') carry = 0.92;
+  return {
+    models:  1 + 0.6 * (models  - 1),
+    markets: 1 + 0.45 * (markets - 1),
+    sites:   1 + 0.5 * (sites   - 1),
+    none:    1,
+    urgency: urgency,
+    carry:   carry
+  };
+}
+
+function bandFor(m, f){
+  const k = f[m.scale] || 1;
+  return [m.lo * k * f.urgency * f.carry, m.hi * k * f.urgency * f.carry];
+}
+
+function readForm(){
+  const val = n => { const e=document.querySelector('input[name="'+n+'"]:checked'); return e?e.value:''; };
+  const all = n => [...document.querySelectorAll('input[name="'+n+'"]:checked')].map(e=>e.value);
+  const txt = id => (document.getElementById(id).value||'').trim();
+  return {
+    stage:val('stage'), role:val('role'), driver:all('driver'),
+    pname:txt('pname'), pfam:txt('pfam'), pdesc:txt('pdesc'),
+    ptype:val('ptype'), attr:all('attr'), env:all('env'),
+    mkt:all('mkt'), firstmkt:val('firstmkt'), ior:val('ior'),
+    nmodels:txt('nmodels'), nvariants:txt('nvariants'), vol:txt('vol'),
+    std:val('std'), docs:all('docs'), hist:val('hist'), change:all('change'),
+    factory:txt('factory'), nsites:txt('nsites'), qms:val('qms'), samples:val('samples'), audit:val('audit'),
+    time:val('time'), cons:all('cons'), want:val('want'), barrier:all('barrier'),
+    cname:txt('cname'), ccomp:txt('ccomp'), cmail:txt('cmail'), cphone:txt('cphone'), cnotes:txt('cnotes'),
+    nda:val('nda')
+  };
+}
+
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+
+function progress(){
+  const named = ['stage','role','ptype','firstmkt','ior','std','hist','qms','samples','audit','time','want','nda'];
+  const groups = ['driver','attr','env','mkt','docs','change','cons','barrier'];
+  let done = named.filter(n=>document.querySelector('input[name="'+n+'"]:checked')).length
+           + groups.filter(n=>document.querySelectorAll('input[name="'+n+'"]:checked').length).length;
+  const total = named.length + groups.length;
+  const pct = Math.round(done/total*100);
+  document.getElementById('pfill').style.width = pct + '%';
+  document.getElementById('ptext').textContent = done + ' of ' + total + ' questions answered — the more you answer, the tighter the scope';
+}
+
+function build(){
+  const a = readForm();
+  if(!a.stage || !a.mkt.length || !a.want){
+    document.getElementById('err').style.display='block';
+    document.getElementById('err').scrollIntoView({block:'center'});
+    return;
+  }
+  document.getElementById('err').style.display='none';
+
+  const F = factors(a);
+  const picked = MODULES.filter(m=>{try{return m.when(a);}catch(e){return false;}});
+  const rest   = MODULES.filter(m=>picked.indexOf(m)<0);
+
+  let html = '<h2>Proposed scope of work</h2>'
+    + '<p class="slead">Assembled from your answers on ' + new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})
+    + '. Nothing here is priced yet — untick anything you do not want, then send it and you get a fixed quotation against exactly this scope.</p>';
+
+  html += '<div class="sblock"><h3>What you told me</h3><div class="answers">';
+  const rows = [
+    ['Situation', a.stage], ['Role', a.role], ['Requested by', a.driver.join(', ')],
+    ['Product', [a.pname,a.pfam].filter(Boolean).join(' — ') || a.ptype],
+    ['Description', a.pdesc], ['Type', a.ptype],
+    ['Carries', a.attr.filter(x=>x!=='None of these').join(', ')],
+    ['Operating environment', a.env.join(', ')],
+    ['Markets', a.mkt.join(', ')], ['Market history', a.firstmkt],
+    ['Representative in market', a.ior],
+    ['Scale', [a.nmodels&&a.nmodels+' model(s)', a.nvariants&&a.nvariants+' variant(s)', a.vol&&a.vol+' per year'].filter(Boolean).join(' · ')],
+    ['Standards known', a.std], ['Documents held', a.docs.join(', ')],
+    ['Test history', a.hist], ['Changes since approval', a.change.join(', ')],
+    ['Manufacture', [a.factory, a.nsites&&a.nsites+' site(s)'].filter(Boolean).join(' · ')],
+    ['Quality system', a.qms], ['Samples', a.samples], ['Factory inspection readiness', a.audit],
+    ['Deadline', a.time], ['At risk now', a.cons.filter(x=>x!=='Nothing immediate').join(', ')],
+    ['How much to carry', a.want], ['What has held it up', a.barrier.join(', ')],
+    ['NDA', a.nda]
+  ].filter(r=>r[1]);
+  rows.forEach(r=>{html += '<div><b>'+esc(r[0])+'</b><span>'+esc(r[1])+'</span></div>';});
+  html += '</div></div>';
+
+  html += '<div class="sblock"><h3>Modules proposed for this job</h3>';
+  picked.forEach((m,i)=>{
+    const bd = bandFor(m, F);
+    html += '<div class="mod" data-id="'+m.id+'"><input type="checkbox" class="pick" id="m_'+m.id+'" checked aria-label="Include '+esc(m.name)+'">'
+      + '<div><div class="t"><span>'+(i+1)+'. '+esc(m.name)+'</span><span class="amt">'+money(bd[0])+' \u2013 '+money(bd[1])+'</span></div>'
+      + '<div class="u">'+esc(m.unit)+'</div><ul>'
+      + m.inc.map(x=>'<li>'+esc(x)+'</li>').join('')
+      + '</ul><p class="why">Proposed because: '+esc(m.why)+'</p></div></div>';
   });
+  html += '</div>';
 
-  // Tier recommendation
-  let tier='';
-  if(n>=5||realMkts>=3)tier='Recommended tier: <b>Retainer (from '+money(6500,C)+' / month)</b> — your volume fits the retainer: 48-hour priority SLA, standing standards helpdesk, revision watch, and up to three markets covered.';
-  else if(path.length>=3)tier='Recommended tier: <b>Professional ('+money(4900,C)+' / product line)</b> — bundles this path with two review calls, a 7-day turnaround and one revision round, saving roughly 20% vs buying the modules separately.';
-  else tier='Pay per module fits this scope. Upgrade paths: Professional ('+money(4900,C)+') bundles Map + Check + Benchmark; Retainer (from '+money(6500,C)+'/month) adds the 48-hour SLA and standing helpdesk.';
-  if(time==='urgent')tier+=' <b>Urgent timeline noted</b> — priority turnaround is available under the Retainer SLA or by rush arrangement at scoping.';
+  if(rest.length){
+    html += '<div class="sblock"><h3>Available but not proposed</h3>'
+      + '<p class="slead">Your answers do not point to these. Tick one if you know better than the form does.</p>';
+    rest.forEach(m=>{
+      const bo = bandFor(m, F);
+      html += '<div class="mod off" data-id="'+m.id+'"><input type="checkbox" class="pick" id="m_'+m.id+'" aria-label="Add '+esc(m.name)+'">'
+        + '<div><div class="t"><span>'+esc(m.name)+'</span><span class="amt">'+money(bo[0])+' \u2013 '+money(bo[1])+'</span></div>'
+        + '<div class="u">'+esc(m.unit)+'</div></div></div>';
+    });
+    html += '</div>';
+  }
 
-  // Header data
-  const d=new Date();
-  const ref='TV-'+d.getFullYear()+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0')+'-'+String(Math.floor(100+Math.random()*900));
-  document.getElementById('qref').textContent=ref;
-  document.getElementById('qdate').textContent=d.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
-  const nm=document.getElementById('cname').value.trim(),co=document.getElementById('ccomp').value.trim();
-  document.getElementById('qclient').innerHTML='<b>Prepared for:</b> '+(nm||'—')+(co?' · '+co:'');
-  const docs=vals('docs');
-  document.getElementById('qpathtext').textContent='Assessment: you are '+STAGES[stage]+', standards '+(std==='yes'?'known and certificated':std==='partial'?'named but unverified':'not yet identified')+', '+(n===1?'one product':n===3?'two to four products':'five or more products')+', market(s): '+(mkts.length?mkts.join('; '):'to be confirmed')+(docs.length?'. In hand: '+docs.join(', ').toLowerCase():'')+(tsts.length?'. Testing required: '+tsts.join(', ').toLowerCase():'')+'. The path below takes you from where you are to a compliant, market-ready position.';
-  document.getElementById('qmods').innerHTML=html;
-  document.getElementById('qtotqual').textContent=(n>1?'(estimated for '+(n===3?'3':'5')+' products) ':'')+(anyFrom?'· contains "from" items':'')+(anyPOA?' · plus on-request items priced separately':'');
-  document.getElementById('qtotal').textContent=(anyFrom?'from ':'')+money(total,C);
-  document.getElementById('qtier').innerHTML=tier;
-  document.getElementById('quote').style.display='block';
-  document.getElementById('qactions').style.display='block';
-  document.getElementById('mailQuote').href='mailto:'+CONTACT+'?subject='+encodeURIComponent('Quotation '+ref+(co?' — '+co:''))+'&body='+encodeURIComponent('Please confirm this indicative quotation.\n\nRef: '+ref+'\nName: '+nm+'\nCompany: '+co+'\nStage: '+STAGES[stage]+'\nMarkets: '+mkts.join('; ')+'\n\n'+mailLines.join('\n')+'\n\nEstimated total: '+(anyFrom?'from ':'')+money(total,C));
-  document.getElementById('quote').scrollIntoView({behavior:'smooth'});
-});
+  html += '<div class="sblock"><h3>Indicative band for this scope</h3>'
+    + '<div class="bandbar"><div class="bandtot"><span>Selected modules <span id="bcount"></span></span>'
+    + '<span class="amt" id="btotal"></span></div>'
+    + '<label class="curpick">Show in <select id="curs">'
+    + Object.keys(CUR).map(k=>'<option'+(k===CURKEY?' selected':'')+'>'+k+'</option>').join('')
+    + '</select></label></div>'
+    + '<p class="bandnote">A band, not a rate card. It moves with the number of models, the number of markets, '
+    + 'how much you want carried and how fast \u2014 which is why it can only appear after the questions, not before them. '
+    + '<b>Excludes</b> third-party laboratory and certification-body fees, which are passed through at cost and are usually the largest single line, plus taxes, travel and sample shipping.</p>'
+    + '<ul class="drivers">'
+    + DRIVERS.map(d=>'<li><b>'+esc(d[0])+'</b> \u2014 '+esc(d[1])+'</li>').join('')
+    + '</ul><div class="noprice"><b>The fixed price comes after this.</b> Send the scope and you get a firm figure per module inside the band, '
+    + 'laboratory and body fees quoted separately at cost, and a written timeline \u2014 normally within one working day. '
+    + 'If the scope turns out lighter than your answers suggested, the quote comes in lower; the band is not a floor.</div></div>';
+
+  html += '<div class="sendbar"><button class="btn" id="send" type="button">Send this scope</button>'
+    + '<button class="btn ghost" id="copy" type="button">Copy as text</button>'
+    + '<span class="note">Sends from your own mail app — nothing is stored on this site.</span></div>';
+
+  const s = document.getElementById('scope');
+  s.innerHTML = html;
+  s.style.display = 'block';
+  s.scrollIntoView({behavior:'smooth',block:'start'});
+
+  const asText = () => {
+    const chosen = MODULES.filter(m=>{const el=document.getElementById('m_'+m.id);return el&&el.checked;});
+    let t = 'PROPOSED SCOPE — product approval\n\n';
+    rows.forEach(r=>{t += r[0] + ': ' + r[1] + '\n';});
+    t += '\nMODULES REQUESTED\n';
+    chosen.forEach((m,i)=>{t += (i+1)+'. '+m.name+' ('+m.unit+')\n';});
+    t += '\nIndicative band: ' + (window.__band||'') + '\n';
+    t += '\nContact: ' + [a.cname,a.ccomp,a.cmail,a.cphone].filter(Boolean).join(' · ');
+    if(a.cnotes) t += '\nNotes: ' + a.cnotes;
+    t += '\nNDA: ' + (a.nda||'not stated') + '\n';
+    return t;
+  };
+
+  function recalc(){
+    let lo=0, hi=0, n=0;
+    MODULES.forEach(m=>{
+      const el=document.getElementById('m_'+m.id);
+      if(el&&el.checked){const bd=bandFor(m,F);lo+=bd[0];hi+=bd[1];n++;}
+      const card=document.querySelector('.mod[data-id="'+m.id+'"]');
+      if(card&&el) card.classList.toggle('off', !el.checked);
+    });
+    document.getElementById('bcount').textContent='('+n+')';
+    document.getElementById('btotal').textContent = n ? (money(lo)+' \u2013 '+money(hi)) : '\u2014';
+    window.__band = n ? (money(lo)+' - '+money(hi)+' '+CURKEY) : 'no modules selected';
+    document.querySelectorAll('.mod[data-id]').forEach(card=>{
+      const m=MODULES.filter(x=>x.id===card.dataset.id)[0];
+      if(!m) return;
+      const amt=card.querySelector('.amt');
+      if(amt){const bd=bandFor(m,F);amt.textContent=money(bd[0])+' \u2013 '+money(bd[1]);}
+    });
+  }
+  document.querySelectorAll('.pick').forEach(el=>el.addEventListener('change',recalc));
+  document.getElementById('curs').addEventListener('change',e=>{CURKEY=e.target.value;recalc();});
+  recalc();
+
+  document.getElementById('send').addEventListener('click',()=>{
+    window.location.href = 'mailto:' + CONTACT
+      + '?subject=' + encodeURIComponent('Proposed scope — ' + (a.pname||a.pfam||'product approval') + (a.ccomp?(' — '+a.ccomp):''))
+      + '&body=' + encodeURIComponent(asText());
+  });
+  document.getElementById('copy').addEventListener('click',e=>{
+    navigator.clipboard.writeText(asText()).then(()=>{
+      const b=e.currentTarget, was=b.textContent; b.textContent='Copied';
+      setTimeout(()=>{b.textContent=was;},2000);
+    });
+  });
+}
+
+document.getElementById('build').addEventListener('click',build);
+document.querySelectorAll('#assess input').forEach(el=>el.addEventListener('change',progress));
+progress();
+
 </script>
 </body>
 </html>
