@@ -2,117 +2,70 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>TECHVERIFY — Articles</title>
-<meta name="description" content="Plain-language notes on product testing, certification and market approval: CE and UKCA, SASO/SABER for Saudi Arabia, and how to judge a test laboratory. Written by a mechatronics engineer who runs the programmes."/>
-<link rel="canonical" href="https://uas-spk.github.io/Tech-Verify/articles.html"/>
-<meta name="robots" content="index,follow"/>
-<meta property="og:type" content="website"/>
-<meta property="og:site_name" content="TECHVERIFY"/>
-<meta property="og:title" content="TECHVERIFY — Articles"/>
-<meta property="og:description" content="Notes on testing, certification and market approval — and the traps that cost money."/>
-<meta property="og:url" content="https://uas-spk.github.io/Tech-Verify/articles.html"/>
+<meta name="description" content="Practical notes on engineering and safety standards, factory acceptance testing, type testing and market readiness for engineered products."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
 <style>
-  :root{--blue:#2540E8;--blue-tint:#E9EDFF;--ink:#232848;--muted:#5A6080;--line:#D8DCF2;--bg:#FFFFFF;--maxw:1040px}
+  :root{--blue:#2540E8;--blue-tint:#E9EDFF;--ink:#232848;--muted:#5A6080;--line:#D8DCF2;--warn:#D9503F;--bg:#FFFFFF;--maxw:840px}
   *{box-sizing:border-box}
   html,body{margin:0;padding:0}
-  body{background:var(--bg);color:var(--ink);font-family:"Inter","Segoe UI",system-ui,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+  body{background:var(--bg);color:var(--ink);font-family:"Inter","Segoe UI",system-ui,sans-serif;font-size:16.5px;line-height:1.8;-webkit-font-smoothing:antialiased}
   a{color:var(--blue);text-decoration:none}
   .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 28px}
-  h1,h2,h3{font-family:"Fredoka",system-ui,sans-serif;font-weight:500;color:var(--blue);margin:0}
+  h1,h2{font-family:"Fredoka",system-ui,sans-serif;font-weight:500;color:var(--blue);margin:0}
   header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:blur(6px);z-index:10}
   .bar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0}
   .brand{display:flex;align-items:center;gap:10px;color:var(--blue);font-weight:700;letter-spacing:.26em;font-size:17px}
-  nav.main{display:flex;gap:22px;flex-wrap:wrap}
+  nav.main{display:flex;gap:18px;flex-wrap:wrap}
   nav.main a{color:var(--ink);font-size:14.5px;padding:4px 0;border-bottom:2px solid transparent}
   nav.main a:hover{color:var(--blue)}
   nav.main a[aria-current="page"]{color:var(--blue);border-bottom-color:var(--blue)}
-  .hero{padding:54px 0 20px;text-align:center}
-  .hero h1{font-size:clamp(34px,6vw,58px);line-height:1.05;margin-bottom:14px}
-  .hero p{max-width:680px;margin:0 auto;color:var(--muted);font-size:16px}
-  section.block{padding:44px 0 6px}
-  .block h2{font-size:26px;margin-bottom:14px}
-  .cta{border-top:1px solid var(--line);margin-top:48px;padding:46px 0 60px;text-align:center}
-  .cta h3{font-size:24px;margin-bottom:8px}
-  .cta p{color:var(--muted);font-size:15px;margin:0 auto 22px;max-width:520px}
-  .btn{font-family:inherit;font-size:15.5px;font-weight:700;cursor:pointer;display:inline-block;padding:12px 26px;border-radius:26px;border:1.5px solid var(--blue);background:var(--blue);color:#fff}
-  .btn:hover,.btn:focus-visible{opacity:.88}
+  .hero{padding:54px 0 6px;text-align:center}
+  .hero h1{font-size:clamp(32px,5.5vw,50px)}
+  .hero p{color:var(--muted);font-size:15.5px;max-width:600px;margin:12px auto 0}
+  article{border:1.5px solid var(--line);border-top:5px solid var(--blue);padding:30px 34px;margin:34px 0}
+  article h2{font-size:27px;line-height:1.22}
+  .meta{font-size:13.5px;color:var(--muted);margin:8px 0 18px}
+  article p{margin:0 0 15px}
+  article ul{margin:0 0 15px;padding-left:22px}
+  article li{margin:5px 0}
+  .pull{color:var(--warn);font-weight:700;font-size:18px;line-height:1.45;margin:18px 0;padding-left:16px;border-left:4px solid var(--warn)}
+  .takeaway{background:var(--blue-tint);border-left:4px solid var(--blue);padding:14px 18px;font-size:15.5px;margin:18px 0 0}
+  .cta{border-top:1px solid var(--line);margin-top:20px;padding:40px 0 60px;text-align:center}
+  .btn{display:inline-block;font-weight:700;font-size:15px;padding:12px 26px;border-radius:26px;border:1.5px solid var(--blue);background:var(--blue);color:#fff}
+  .btn:hover{opacity:.88}
   footer{border-top:1px solid var(--line);padding:22px 0 30px;text-align:center;color:var(--muted);font-size:13.5px}
-
-  /* ---- articles ---- */
-  .index{border:1px solid var(--line);margin:30px 0 0}
-  .index a{display:flex;gap:14px;align-items:baseline;padding:14px 18px;border-bottom:1px solid var(--line);color:var(--ink);font-size:15px}
-  .index a:last-child{border-bottom:none}
-  .index a:hover{background:var(--blue-tint);color:var(--blue)}
-  .index .d{color:var(--muted);font-size:13px;flex:0 0 112px;font-variant-numeric:tabular-nums}
-  article{padding:40px 0 34px;border-bottom:1px solid var(--line)}
-  article:last-of-type{border-bottom:none}
-  article .when{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
-  article h2{font-size:clamp(24px,3.4vw,32px);line-height:1.18;margin:8px 0 14px;max-width:36ch}
-  article p{font-size:15.5px;margin:0 0 14px;max-width:72ch}
-  article h3{font-family:"Inter",system-ui,sans-serif;color:var(--ink);font-size:16px;font-weight:600;margin:24px 0 8px}
-  article ul,article ol{margin:0 0 14px;padding-left:22px;font-size:15.5px;max-width:70ch}
-  article li{margin:7px 0}
-  .note{border-left:3px solid var(--blue);background:var(--blue-tint);padding:14px 18px;margin:20px 0;font-size:15px;max-width:72ch}
-  .note b{color:var(--blue)}
-  .next{border:1px solid var(--line);padding:14px 18px;margin:20px 0 0;font-size:15px;max-width:72ch}
-  .next b{color:var(--blue)}
-  .tags{margin:16px 0 0;font-size:13px;color:var(--muted)}
-  .tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:18px 0 0;padding-top:14px;border-top:1px dashed var(--line)}
-  .tools .lead{font-size:13.5px;color:var(--muted);margin-right:2px}
-  .tools a,.tools button{
-    display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:13.5px;font-weight:600;line-height:1;
-    color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:22px;padding:8px 13px;cursor:pointer;
-  }
-  .tools svg{width:15px;height:15px;flex:0 0 15px;fill:currentColor}
-  .tools a:hover,.tools button:hover{color:#fff;border-color:transparent}
-  .tools a.s-fb:hover{background:#1877F2}
-  .tools a.s-li:hover{background:#0A66C2}
-  .tools a.s-x:hover{background:#000}
-  .tools a.s-wa:hover{background:#25D366}
-  .tools a.s-tg:hover{background:#229ED9}
-  .tools a.s-rd:hover{background:#FF4500}
-  .tools a.s-em:hover{background:var(--muted)}
-  .tools button:hover{background:var(--blue)}
-  .thread{margin:18px 0 0}
-  .thread .setup{font-size:14.5px;color:var(--muted);border-left:3px solid var(--line);padding:10px 16px;background:#FBFBFE}
-  .thread #cusdis_thread{margin:0}
-  .thread iframe{width:100%;border:0}
-  a:focus-visible,button:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
-  @media (max-width:760px){nav.main{gap:14px}.index .d{flex:0 0 92px}}
-  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+  .share{display:flex;align-items:center;gap:9px;margin:22px 0 0;padding-top:16px;border-top:1px solid var(--line)}
+  .shlbl{font-size:13px;color:var(--muted);margin-right:2px}
+  .sh{display:inline-flex;width:36px;height:36px;align-items:center;justify-content:center;border:1.5px solid var(--blue);border-radius:50%;color:var(--blue);transition:.15s}
+  .sh:hover,.sh.copied{background:var(--blue);color:#fff}
+  .sh svg{width:16px;height:16px}
+  .engage{border:1.5px solid var(--line);border-top:5px solid var(--blue);padding:26px 30px;margin:34px 0}
+  .engage h2{font-size:22px;margin-bottom:6px}
+  .engage p{font-size:15px;color:var(--muted);margin:0 0 14px}
+  .sub{display:flex;gap:10px;flex-wrap:wrap}
+  .sub input{font-family:inherit;font-size:15px;padding:12px 15px;border:1.5px solid var(--blue);border-radius:26px;min-width:250px}
+  .sub button{font-family:inherit;font-weight:700;font-size:15px;padding:12px 24px;border-radius:26px;border:1.5px solid var(--blue);background:var(--blue);color:#fff;cursor:pointer}
+  .sub button:hover{opacity:.88}
+  .cform{margin:6px 0 0}
+  .crow{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 10px}
+  .crow input{flex:1;min-width:210px;font-family:inherit;font-size:15px;padding:11px 14px;border:1.5px solid var(--blue);border-radius:12px}
+  .cform textarea{width:100%;min-height:110px;resize:vertical;font-family:inherit;font-size:15px;padding:12px 14px;border:1.5px solid var(--blue);border-radius:12px}
+  .cbtn{margin-top:10px;font-family:inherit;font-weight:700;font-size:15px;padding:12px 26px;border-radius:26px;border:1.5px solid var(--blue);background:var(--blue);color:#fff;cursor:pointer}
+  .cbtn:hover{opacity:.88}
+  .cnote{font-size:12.5px;color:var(--muted);margin:10px 0 0}
+  #disqus_thread{margin:14px 0 0}
+  @media (max-width:700px){article{padding:24px 22px}nav.main{gap:12px}.sub input{width:100%;min-width:0}.sub{width:100%}.sub button{width:100%}}
 </style>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[
- {"@type":"Blog","@id":"https://uas-spk.github.io/Tech-Verify/articles.html#blog","name":"TECHVERIFY Articles","url":"https://uas-spk.github.io/Tech-Verify/articles.html","author":{"@id":"https://uas-spk.github.io/Tech-Verify/#umer"}},
- {"@type":"Person","@id":"https://uas-spk.github.io/Tech-Verify/#umer","name":"Umer Siddiqui","jobTitle":"Mechatronics engineer — technical compliance and product approval","url":"https://uas-spk.github.io/Tech-Verify/"},
- {"@type":"BlogPosting","@id":"https://uas-spk.github.io/Tech-Verify/articles.html#a-ce-ukca","headline":"CE or UKCA: which mark does your product actually need now?","description":"How CE and UKCA differ in practice, where CE is still accepted in Great Britain, and why the technical file matters more than the mark.","datePublished":"2026-09-12","dateModified":"2026-09-12","author":{"@id":"https://uas-spk.github.io/Tech-Verify/#umer"},"keywords":"CE marking, UKCA, UKNI, technical file, declaration of conformity"},
- {"@type":"BlogPosting","@id":"https://uas-spk.github.io/Tech-Verify/articles.html#a-saber","headline":"Saudi Arabia: how SABER really works, step by step","description":"The two-stage SABER process and what delays each stage.","datePublished":"2026-09-08","dateModified":"2026-09-08","author":{"@id":"https://uas-spk.github.io/Tech-Verify/#umer"},"keywords":"SABER, SASO, Saudi Arabia, PCoC, SCoC, import"},
- {"@type":"BlogPosting","@id":"https://uas-spk.github.io/Tech-Verify/articles.html#a-test-lab","headline":"How to tell whether a test lab is the right one","description":"Accreditation, scope, the right mark for the destination, and what a usable report must contain.","datePublished":"2026-09-03","dateModified":"2026-09-03","author":{"@id":"https://uas-spk.github.io/Tech-Verify/#umer"},"keywords":"ISO/IEC 17025, NRTL, accreditation scope, certification"},
- {"@type":"FAQPage","@id":"https://uas-spk.github.io/Tech-Verify/articles.html#faq","mainEntity":[
-  {"@type":"Question","name":"Does a CE mark mean an independent laboratory tested the product?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily. For many product groups the manufacturer assesses conformity themselves against harmonised standards and signs the declaration. A notified body is only required for higher-risk categories such as most toys, PPE and medical devices."}},
-  {"@type":"Question","name":"Is a test report the same as product certification?","acceptedAnswer":{"@type":"Answer","text":"No. A test report records the result for one sample at one time. Certification adds ongoing surveillance such as factory inspection and retesting."}},
-  {"@type":"Question","name":"Once I hold a Saudi Product Certificate of Conformity, do shipments clear on their own?","acceptedAnswer":{"@type":"Answer","text":"No. The Product Certificate of Conformity covers the model, typically for a year, but every consignment still needs its own Shipment Certificate of Conformity issued on the SABER platform."}},
-  {"@type":"Question","name":"If a laboratory is ISO/IEC 17025 accredited, can it test to any standard?","acceptedAnswer":{"@type":"Answer","text":"No. Accreditation is granted for a defined scope of tests and standards, so an accredited laboratory can still be outside scope for a particular standard."}},
-  {"@type":"Question","name":"Who signs the declaration of conformity?","acceptedAnswer":{"@type":"Answer","text":"The manufacturer or their authorised representative, who takes legal responsibility. A laboratory issues reports and certificates but does not declare conformity on the manufacturer's behalf."}}
- ]}
-]}
-</script>
 </head>
 <body>
-
 <header>
   <div class="wrap bar">
     <div class="brand">
-      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
-        <circle cx="13" cy="13" r="10" fill="none" stroke="#2540E8" stroke-width="1.6"/>
-        <circle cx="13" cy="13" r="2" fill="#2540E8"/>
-        <line x1="1" y1="13" x2="25" y2="13" stroke="#2540E8" stroke-width="1" stroke-dasharray="5 3"/>
-        <line x1="13" y1="1" x2="13" y2="25" stroke="#2540E8" stroke-width="1" stroke-dasharray="5 3"/>
-      </svg>
+      <svg width="24" height="24" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="10" fill="none" stroke="#2540E8" stroke-width="1.6"/><circle cx="13" cy="13" r="2" fill="#2540E8"/><line x1="1" y1="13" x2="25" y2="13" stroke="#2540E8" stroke-width="1" stroke-dasharray="5 3"/><line x1="13" y1="1" x2="13" y2="25" stroke="#2540E8" stroke-width="1" stroke-dasharray="5 3"/></svg>
       TECHVERIFY
     </div>
     <nav class="main" aria-label="Primary">
@@ -120,278 +73,212 @@
       <a href="services.html">Services</a>
       <a href="pricing.html">Pricing</a>
       <a href="quote.html">Get a Quote</a>
+      <a href="articles.html" aria-current="page">Articles</a>
       <a href="sectors.html">Sectors &amp; Standards</a>
       <a href="industries.html">Industries</a>
-      <a href="articles.html" aria-current="page">Articles</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
   </div>
 </header>
 
-<section class="hero">
+<main>
   <div class="wrap">
-    <h1>Articles</h1>
-    <p>Notes on getting a product tested, certified and approved for market — written plainly, and aimed at the decisions that cost money if they go the wrong way.</p>
+    <div class="hero">
+      <h1>Articles</h1>
+      <p>Notes from the test bench and the tender desk — standards, acceptance testing and market access, written for people who have to sign for the equipment.</p>
+    </div>
+
+<!-- ============================================================
+     HOW TO PUBLISH A NEW ARTICLE (about 2 minutes):
+     1. Open: github.com/uas-spk/techverify/edit/main/articles.html
+     2. Copy the TEMPLATE block below (between COPY-START and COPY-END)
+     3. Paste it directly UNDER the line marked NEW-ARTICLES-GO-HERE
+        (newest article always sits on top)
+     4. Replace the title, date and text. Change nothing else.
+     5. Scroll down, Commit changes. Live in about a minute.
+
+     Optional extras you can use inside an article:
+       <p class="pull">A short line you want to hit hard, in red.</p>
+       <div class="takeaway"><b>Takeaway:</b> one sentence to remember.</div>
+
+     TEMPLATE  == COPY-START ==
+    <article>
+      <h2>Your headline here</h2>
+      <p class="meta">DD Month YYYY · Umer Siddiqui</p>
+      <p>Opening paragraph.</p>
+      <p>Second paragraph.</p>
+      <div class="takeaway"><b>Takeaway:</b> one sentence the reader keeps.</div>
+      <div class="share" aria-label="Share this article">
+        <span class="shlbl">Share</span>
+        <a class="sh sh-li" href="#" target="_blank" rel="noopener" aria-label="Share on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.4 8.2h4.2V24H.4zM8.3 8.2h4v2.2h.1c.56-1 1.9-2.2 3.9-2.2 4.2 0 5 2.7 5 6.3V24h-4.2v-6.9c0-1.6 0-3.7-2.3-3.7s-2.6 1.8-2.6 3.6V24H8.3z"/></svg></a>
+        <a class="sh sh-x" href="#" target="_blank" rel="noopener" aria-label="Share on X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.4 8.5L23.3 22h-6.8l-5.3-6.9L5.1 22H2l7.9-9.1L1 2h7l4.8 6.3zM17.7 20h1.7L7.4 3.9H5.6z"/></svg></a>
+        <a class="sh sh-wa" href="#" target="_blank" rel="noopener" aria-label="Share on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.7-.1-1-.3-2.6-1-4.1-2.5-1.4-1.4-2.1-2.9-2.4-3.9-.2-.7-.2-1.3 0-1.8.2-.5.8-1.4 1.4-1.5.3 0 .6 0 .8.4l.9 1.6c.1.2.1.4 0 .6l-.5.7c-.1.2-.2.4 0 .7.3.5.8 1.2 1.5 1.8.7.6 1.3.9 1.8 1.1.3.1.5 0 .7-.1l.7-.6c.2-.1.4-.2.6-.1l1.6.8c.3.2.4.5.4.8-.1.2-.2.5-.3.9z"/></svg></a>
+        <a class="sh sh-em" href="#" aria-label="Share by email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3 6l9 6 9-6"/></svg></a>
+        <a class="sh sh-cp" href="#" aria-label="Copy link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M15 5H5a2 2 0 0 0-2 2v10"/></svg></a>
+      </div>
+    </article>
+     == COPY-END ==
+============================================================ -->
+
+<!-- ==================== NEW-ARTICLES-GO-HERE ==================== -->
+
+    <article id="busbar-conductivity">
+      <h2>45% was the requirement. We delivered 61.63% — and that number is why the busbar was accepted.</h2>
+      <p class="meta">14 September 2026 · Umer Siddiqui</p>
+      <p>An EPC ordered 6000&nbsp;A aluminium busbar trunking with one unusual condition written into the award: the conductor had to demonstrate a minimum conductivity, expressed as a percentage of the International Annealed Copper Standard. Not "aluminium busbar to standard". A number, verified, before acceptance.</p>
+      <p>That condition exists because aluminium is not one material. EC-grade 1350 alloy runs around 61% IACS; common structural extrusion alloys in the 6000 series land in the low-to-mid fifties, and an off-spec or recycled billet can fall further. The bar looks identical in all three cases. Painted, bolted and enclosed, nobody on site can tell them apart — but the temperature rise, the losses and the long-term joint behaviour are decided at the billet, months before anyone energizes anything.</p>
+      <p class="pull">Two busbars can carry the same nameplate rating and be separated by 15% conductivity. One passes the type test. The other cooks.</p>
+      <p>So the sequence was: specify the alloy and temper, confirm the mill certificate, inspect the extrusion plant, and test the delivered conductor — ASTM B193 resistivity, converted to % IACS — before the assembly went to its IEC 61439 verification. The result came back at 61.63% against a 45% requirement. Comfortably clear, on paper, with the report attached to the acceptance file.</p>
+      <p>Three things that number bought, in order of how much they mattered:</p>
+      <ul>
+        <li><b>Acceptance without argument.</b> The condition was met in evidence, not in assurance. No site debate, no conditional sign-off, no retention held back pending "clarification".</li>
+        <li><b>A defensible temperature-rise case.</b> Conductivity feeds directly into I²R losses, which feed the temperature-rise verification. Meeting the conductivity floor with margin is what makes the thermal result reproducible rather than lucky.</li>
+        <li><b>A file that survives the bad day.</b> If a joint ever runs hot in service, the question becomes "was the conductor compliant?" With a dated third-party number on record, that question closes in one email instead of one investigation.</li>
+      </ul>
+      <p>The wider point has nothing to do with busbar. When a buyer writes a number into a specification, they are telling you exactly where they have been burned before. Treat it as the acceptance gate it is: verify it upstream, in the factory, on the material — not downstream, on site, on the schedule.</p>
+      <div class="takeaway"><b>Takeaway:</b> a specified number is not a target to approach — it is a gate to clear with margin, evidenced before shipment. Conductivity, temperature rise, ingress rating, refrigerant type: the cheapest place to prove any of them is the factory floor.</div>
+      <div class="share" aria-label="Share this article">
+        <span class="shlbl">Share</span>
+        <a class="sh sh-li" href="#" target="_blank" rel="noopener" aria-label="Share on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.4 8.2h4.2V24H.4zM8.3 8.2h4v2.2h.1c.56-1 1.9-2.2 3.9-2.2 4.2 0 5 2.7 5 6.3V24h-4.2v-6.9c0-1.6 0-3.7-2.3-3.7s-2.6 1.8-2.6 3.6V24H8.3z"/></svg></a>
+        <a class="sh sh-x" href="#" target="_blank" rel="noopener" aria-label="Share on X" title="X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-7.4 8.5L23.3 22h-6.8l-5.3-6.9L5.1 22H2l7.9-9.1L1 2h7l4.8 6.3zM17.7 20h1.7L7.4 3.9H5.6z"/></svg></a>
+        <a class="sh sh-wa" href="#" target="_blank" rel="noopener" aria-label="Share on WhatsApp" title="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.7-.1-1-.3-2.6-1-4.1-2.5-1.4-1.4-2.1-2.9-2.4-3.9-.2-.7-.2-1.3 0-1.8.2-.5.8-1.4 1.4-1.5.3 0 .6 0 .8.4l.9 1.6c.1.2.1.4 0 .6l-.5.7c-.1.2-.2.4 0 .7.3.5.8 1.2 1.5 1.8.7.6 1.3.9 1.8 1.1.3.1.5 0 .7-.1l.7-.6c.2-.1.4-.2.6-.1l1.6.8c.3.2.4.5.4.8-.1.2-.2.5-.3.9z"/></svg></a>
+        <a class="sh sh-em" href="#" aria-label="Share by email" title="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3 6l9 6 9-6"/></svg></a>
+        <a class="sh sh-cp" href="#" aria-label="Copy link" title="Copy link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M15 5H5a2 2 0 0 0-2 2v10"/></svg></a>
+      </div>
+    </article>
+
+    <article id="witnessed-fat-motors">
+      <h2>Five motors, one week in Germany: what a witnessed FAT actually catches</h2>
+      <p class="meta">12 September 2026 · Umer Siddiqui</p>
+      <p>Three high-voltage and two medium-voltage machines, tested at the manufacturer's works before release. Heat runs, no-load and locked-rotor characteristics, vibration, insulation, and the paperwork that has to travel with each serial number. A week of standing on a test floor — and a week that is routinely the first thing cut when a schedule slips.</p>
+      <p>Here is what witnessing catches that a stamped certificate never will:</p>
+      <ul>
+        <li><b>The machine tested is the machine shipped.</b> Serial numbers and nameplates are checked against the test report in front of you. A type-test certificate for a family member is not a routine test for your unit.</li>
+        <li><b>Deviation handling in real time.</b> A vibration reading slightly outside the ISO band, a temperature-rise class judged by extrapolation, a bearing re-greased "just before" the run. On the floor, these get explained, repeated or corrected. In a report, they get rounded.</li>
+        <li><b>Accessories that quietly differ.</b> Winding and bearing RTDs, space heaters, terminal box orientation, cable-entry size, mounting and shaft details — the bits that do not stop a motor from spinning on a test bed but do stop it from being installable.</li>
+        <li><b>Hazardous-area detail.</b> Where the machine is Ex-rated, the marking string, gas group, temperature class and certificate scope must match the zone it is going to. A mismatch here is not a paperwork issue; it is an ignition source.</li>
+        <li><b>What "burn-in" is really for.</b> Electronics and control assemblies fail early or fail late, rarely in between. Running them hot and powered for an extended, documented period is how infant mortality surfaces in a factory rather than in a live process.</li>
+      </ul>
+      <p class="pull">A failure found on the test floor costs a technician and a day. The same failure found at commissioning costs a mobilized crew, a delayed handover, and your place on the next bid list.</p>
+      <p>And this is the part buyers underestimate: the value is not only technical. A witnessed test creates a dated, independent baseline. Months later, when something misbehaves in service, that baseline is what turns a blame contest — site conditions versus product defect — into a ten-minute comparison. Without it, every argument is opinion against opinion, and the supplier usually loses on reputation even when they are right on engineering.</p>
+      <div class="takeaway"><b>Takeaway:</b> the test week is not a formality bolted to the end of manufacturing. It is the cheapest insurance the product line will ever buy — and the only version of the truth that both parties will accept later.</div>
+      <div class="share" aria-label="Share this article">
+        <span class="shlbl">Share</span>
+        <a class="sh sh-li" href="#" target="_blank" rel="noopener" aria-label="Share on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.4 8.2h4.2V24H.4zM8.3 8.2h4v2.2h.1c.56-1 1.9-2.2 3.9-2.2 4.2 0 5 2.7 5 6.3V24h-4.2v-6.9c0-1.6 0-3.7-2.3-3.7s-2.6 1.8-2.6 3.6V24H8.3z"/></svg></a>
+        <a class="sh sh-x" href="#" target="_blank" rel="noopener" aria-label="Share on X" title="X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-7.4 8.5L23.3 22h-6.8l-5.3-6.9L5.1 22H2l7.9-9.1L1 2h7l4.8 6.3zM17.7 20h1.7L7.4 3.9H5.6z"/></svg></a>
+        <a class="sh sh-wa" href="#" target="_blank" rel="noopener" aria-label="Share on WhatsApp" title="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.7-.1-1-.3-2.6-1-4.1-2.5-1.4-1.4-2.1-2.9-2.4-3.9-.2-.7-.2-1.3 0-1.8.2-.5.8-1.4 1.4-1.5.3 0 .6 0 .8.4l.9 1.6c.1.2.1.4 0 .6l-.5.7c-.1.2-.2.4 0 .7.3.5.8 1.2 1.5 1.8.7.6 1.3.9 1.8 1.1.3.1.5 0 .7-.1l.7-.6c.2-.1.4-.2.6-.1l1.6.8c.3.2.4.5.4.8-.1.2-.2.5-.3.9z"/></svg></a>
+        <a class="sh sh-em" href="#" aria-label="Share by email" title="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3 6l9 6 9-6"/></svg></a>
+        <a class="sh sh-cp" href="#" aria-label="Copy link" title="Copy link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M15 5H5a2 2 0 0 0-2 2v10"/></svg></a>
+      </div>
+    </article>
+
+    <div class="engage">
+      <h2>Get new articles by email</h2>
+      <p>Standards changes, test-floor notes and market-access updates. No spam, unsubscribe any time.</p>
+      <form class="sub" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="email" name="email" placeholder="you@company.com" required aria-label="Your email"/>
+        <input type="hidden" name="_subject" value="New article subscriber — TECHVERIFY"/>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+
+    <div class="engage" id="comments">
+      <h2>Comments &amp; replies</h2>
+      <p>Questions, disagreements and war stories all welcome. Comments are reviewed before they appear, and I reply to every one.</p>
+      <div class="cform">
+        <div class="crow">
+          <input id="cname" type="text" placeholder="Your name" aria-label="Your name"/>
+          <input id="cmail" type="email" placeholder="Your email (not published)" aria-label="Your email"/>
+        </div>
+        <textarea id="cbody" placeholder="Your comment or question&hellip;" aria-label="Your comment"></textarea>
+        <button class="cbtn" id="csend" type="button">Post comment</button>
+        <p class="cnote">Opens your email app with the comment ready to send — nothing is stored on this site. Published comments show your name only, never your email.</p>
+      </div>
+      <div id="disqus_thread"></div>
+    </div>
   </div>
-</section>
 
-<div class="wrap">
-  <nav class="index" aria-label="Articles on this page">
-    <a href="#a-ce-ukca"><span class="d">12 Sep 2026</span><span>CE or UKCA: which mark does your product actually need now?</span></a>
-    <a href="#a-saber"><span class="d">8 Sep 2026</span><span>Saudi Arabia: how SABER really works, step by step</span></a>
-    <a href="#a-test-lab"><span class="d">3 Sep 2026</span><span>How to tell whether a test lab is the right one</span></a>
-  </nav>
-</div>
-
-<!-- ==========================================================
-     TO PUBLISH A NEW ARTICLE
-     1. Copy the block between NEW ARTICLE TEMPLATE markers
-     2. Paste it directly below this comment so the newest sits on top
-     3. Edit the id, date, heading and text
-     4. Add a matching line to the .index list above
-     Everything stays in this one file.
-     ========================================================== -->
-
-<!-- ===== NEW ARTICLE TEMPLATE (copy from here) =====
-<section class="block"><div class="wrap">
-  <article id="a-slug">
-    <p class="when">14 September 2026</p>
-    <h2>Headline of the article</h2>
-    <p>Opening paragraph.</p>
-    <h3>A sub-heading</h3>
-    <p>More text.</p>
-    <ul><li>A point</li><li>Another point</li></ul>
-    <div class="note"><b>Worth checking:</b> a caveat or a trap to avoid.</div>
-    <p class="next"><b>Need this done rather than explained?</b> Send the product and market — <a href="quote.html">get a quote</a>.</p>
-    <p class="tags">Filed under: topic, topic</p>
-    <div class="tools" data-term="slug"></div>
-    <div class="thread" hidden></div>
-  </article>
-</div></section>
-===== to here ===== -->
-
-<section class="block"><div class="wrap">
-  <article id="a-ce-ukca">
-    <p class="when">12 September 2026</p>
-    <h2>CE or UKCA: which mark does your product actually need now?</h2>
-    <p>Since Brexit, Great Britain runs its own conformity mark, UKCA, alongside the EU's CE. The two are separate systems with largely mirrored technical requirements, and the practical question for most manufacturers is not which is stricter but which route the buyer will accept.</p>
-    <h3>The short version</h3>
-    <ul>
-      <li>Selling into the EU: CE marking, based on the applicable EU directives or regulations for your product.</li>
-      <li>Selling into Great Britain: UKCA is the domestic mark. For a large group of product regulations the UK government has extended recognition of CE marking indefinitely, so CE-marked goods can still be placed on the GB market.</li>
-      <li>Northern Ireland follows the EU rules, with the UKNI marking used in specific cases where a UK body has done the conformity assessment.</li>
-    </ul>
-    <h3>Where people get caught</h3>
-    <p>The extension of CE recognition is not universal. It covers a defined list of regulations, and some sectors — construction products and medical devices being the usual examples — follow their own timelines. Before you decide to skip UKCA, confirm the position for your specific regulation rather than for "the UK" in general.</p>
-    <p>The second trap is documentation rather than marking. Whichever mark you apply, you still need a technical file, a declaration of conformity naming the right legislation, and a responsible person or importer established in the relevant market. A correct mark on a product with a thin technical file fails the first serious audit.</p>
-    <div class="note"><b>Worth checking:</b> scopes and deadlines here have moved several times and can change again. Verify the current position on the UK government and EU Commission pages for your product's regulation before committing to a route.</div>
-    <p class="next"><b>Not sure which regulation covers your product?</b> Send what it is and where it is going — <a href="quote.html">get a quote</a> and you will get the route named before any testing is booked.</p>
-    <p class="tags">Filed under: CE, UKCA, market access</p>
-    <div class="tools" data-term="ce-ukca"></div>
-    <div class="thread" hidden></div>
-  </article>
-</div></section>
-
-<section class="block"><div class="wrap">
-  <article id="a-saber">
-    <p class="when">8 September 2026</p>
-    <h2>Saudi Arabia: how SABER really works, step by step</h2>
-    <p>Nearly every product shipped into Saudi Arabia passes through SABER, the online conformity platform operated by SASO. Importers who treat it as a customs formality discover at the port that it is a two-stage certification process, and that the first stage should have started weeks earlier.</p>
-    <h3>The two certificates</h3>
-    <ol>
-      <li><b>Product Certificate of Conformity (PCoC)</b> — issued once per product model against the applicable Saudi technical regulation, by a conformity assessment body approved on the platform. Valid for a year, and this is the stage that needs test reports.</li>
-      <li><b>Shipment Certificate of Conformity (SCoC)</b> — issued per consignment, referencing the PCoC and the shipping documents. Without it, the shipment does not clear.</li>
-    </ol>
-    <h3>What slows it down</h3>
-    <ul>
-      <li>Test reports that do not match the regulation cited on the platform, or come from a laboratory whose scope does not cover that standard.</li>
-      <li>Product classification — the HS code and category drive which technical regulation applies. Get this wrong and you certify against the wrong requirements.</li>
-      <li>Energy-efficiency and labelling requirements for appliances and lighting, which sit on top of the safety regulation.</li>
-      <li>Arabic labelling and marking details, which are checked in practice and not only on paper.</li>
-    </ul>
-    <p>Plan the product certificate around the lead time of whichever test is slowest, not around the shipping date. For electrical goods that is usually safety and EMC testing; for building products it is often a physical performance test that cannot be rushed.</p>
-    <div class="note"><b>Worth checking:</b> the list of regulated products, approved bodies and fees on SABER is updated regularly. Confirm your product's current category on the platform before booking tests.</div>
-    <p class="next"><b>Shipping to Jeddah or Dammam?</b> Send the HS code and the product — <a href="quote.html">get a quote</a> covering the category, the certificates and a realistic timeline.</p>
-    <p class="tags">Filed under: SASO, SABER, Saudi Arabia, import</p>
-    <div class="tools" data-term="saber"></div>
-    <div class="thread" hidden></div>
-  </article>
-</div></section>
-
-<section class="block"><div class="wrap">
-  <article id="a-test-lab">
-    <p class="when">3 September 2026</p>
-    <h2>How to tell whether a test lab is the right one</h2>
-    <p>Two laboratories can quote the same test at the same price, and only one of the reports will be accepted by your customer. The difference is rarely the equipment. It is accreditation, scope, and whether the report says what the buyer's specification asks for.</p>
-    <h3>Four things to confirm before you book</h3>
-    <ol>
-      <li><b>Accreditation to ISO/IEC 17025.</b> This is the competence standard for testing and calibration laboratories. Ask for the certificate, and note the accreditation body.</li>
-      <li><b>The scope, not just the certificate.</b> Accreditation is granted for specific tests and standards. A laboratory can be genuinely accredited and still be outside scope for the clause you need — ask them to point to your standard in their scope document.</li>
-      <li><b>The right kind of mark for the destination.</b> For equipment used in US workplaces, buyers often require certification by an OSHA-recognised NRTL; in Canada, a body accredited by the Standards Council of Canada. A test report is not the same thing as product certification.</li>
-      <li><b>What the report will contain.</b> Ask for a sample report for a similar product, and check it states the standard edition, sample identification, conditions and a clear result.</li>
-    </ol>
-    <h3>On failed tests</h3>
-    <p>A failure found in a laboratory is cheap; the same failure found by a customer is not. When a test fails, get the measured values and the clause that was not met, fix the design against that clause, and retest only the affected part where the standard allows it. Ask about partial retest cost before you start — it varies widely and it is negotiable.</p>
-    <div class="note"><b>Worth checking:</b> if your buyer names a specific certification body or mark in their specification, that requirement overrides any equivalent you consider technically sufficient.</div>
-    <p class="next"><b>Comparing two laboratory quotes?</b> Send both — <a href="quote.html">get a quote</a> and you will get a straight read on what differs beyond the price.</p>
-    <p class="tags">Filed under: laboratories, ISO 17025, NRTL, testing</p>
-    <div class="tools" data-term="test-lab"></div>
-    <div class="thread" hidden></div>
-  </article>
-</div></section>
-
-<section class="cta">
-  <div class="wrap">
-    <h3>Getting a product approved, start to finish</h3>
-    <p>Work out the route, prepare the evidence, run the testing, get it certified, hand over the file. Send the product and the destination market to begin.</p>
-    <a class="btn" href="quote.html">Get a quote</a>
-  </div>
-</section>
+  <section class="cta">
+    <div class="wrap">
+      <a class="btn" href="quote.html">Get an instant quote</a>
+    </div>
+  </section>
+</main>
 
 <footer>
   <div class="wrap">© 2026 TECHVERIFY — technical compliance, design evaluation &amp; market readiness.</div>
 </footer>
 
 <script>
-  /* ---------------------------------------------------------------
-     COMMENT THREADS — pick ONE, both free and ad-free.
-
-     A) CUSDIS — anyone can comment, no account needed
-        cusdis.com -> sign up free -> add a website -> copy the App ID
-        into CUSDIS.appId below. In the Cusdis site settings, turn on
-        automatic approval if you want comments to appear immediately.
-
-     B) GISCUS — comments appear instantly with no approval from you,
-        because the commenter signs in with GitHub (that login is what
-        keeps spam out).
-        1. Repo Settings -> General -> Features -> tick Discussions
-        2. Install github.com/apps/giscus for this repo
-        3. giscus.app -> enter uas-spk/techverify -> copy the two ids
-        4. Paste them into GISCUS below
-
-     If both are filled in, Cusdis is used.
-     --------------------------------------------------------------- */
-  var CUSDIS = { host: 'https://cusdis.com', appId: '' };
-  var GISCUS = { repo: 'uas-spk/techverify', repoId: '', category: 'Announcements', categoryId: '' };
-  var CONTACT = 'contact.html';
-
-  var cusdisLoaded = false;
-  function loadCusdis(cb) {
-    if (cusdisLoaded) { cb(); return; }
-    var s = document.createElement('script');
-    s.src = CUSDIS.host + '/js/cusdis.es.js';
-    s.async = true; s.defer = true;
-    s.onload  = function () { cusdisLoaded = true; cb(); };
-    s.onerror = function () { cb(new Error('blocked')); };
-    document.body.appendChild(s);
-  }
-
-  var ICON = {
-    fb: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.6-1.5H16.6V4.4A22 22 0 0014.5 4.3c-2.2 0-3.7 1.3-3.7 3.8v2.4H8.2v3h2.6V21z"/></svg>',
-    li: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5A1.9 1.9 0 113.1 5.4 1.9 1.9 0 015 3.5zM3.4 8.6h3.3V21H3.4zM9.2 8.6h3.1v1.7h.1a3.5 3.5 0 013.1-1.8c3.3 0 3.9 2.1 3.9 4.9V21h-3.3v-6c0-1.4 0-3.2-2-3.2s-2.2 1.5-2.2 3.1V21H9.2z"/></svg>',
-    x:  '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.7 3h3.3l-7.2 8.2L22 21h-6.3l-4.4-5.8L5.8 21H2.5l7.5-8.6L2 3h6.4l4.1 5.4zm-1.2 16h1.8L7.6 4.9H5.7z"/></svg>',
-    wa: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 00-7.7 13.6L3 21.5l5-1.3A9 9 0 1012 3zm0 1.8a7.2 7.2 0 11-3.7 13.4l-.3-.2-2.7.7.7-2.6-.2-.3A7.2 7.2 0 0112 4.8zm-3 3.4c-.2 0-.5.1-.7.4-.2.3-.6.8-.6 1.6 0 .9.6 1.7.7 1.9.1.2 1.2 2.1 3.1 2.9 1.6.6 2 .5 2.4.5.5 0 1.3-.6 1.5-1.1.2-.5.2-1 .1-1.1l-1.3-.6c-.2-.1-.4-.1-.5.1l-.6.8c-.1.1-.3.2-.5.1a5 5 0 01-2.4-2.1c-.1-.2 0-.3.1-.4l.4-.5c.1-.2.1-.3 0-.5l-.6-1.4c-.2-.4-.3-.4-.5-.4z"/></svg>',
-    tg: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 4.3L2.9 11.4c-.9.3-.9.9-.1 1.1l4.6 1.4 1.7 5.3c.2.6.5.7 1 .3l2.6-2.1 4.4 3.2c.7.4 1.2.2 1.4-.6l3-13.7c.2-.9-.3-1.3-.9-1zM8.9 14.2l8.6-5.4c.4-.2.7-.1.4.2l-7 6.3-.3 3z"/></svg>',
-    rd: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 11.6a2 2 0 00-3.4-1.4 9.9 9.9 0 00-4.8-1.5l1-3.1 2.6.6a1.5 1.5 0 101.5-1.6 1.5 1.5 0 00-1.4.9l-3.1-.7a.5.5 0 00-.6.3l-1.3 3.6a9.9 9.9 0 00-4.8 1.5A2 2 0 002 11.6a2 2 0 001.1 1.8v.5c0 3.2 3.9 5.8 8.9 5.8s8.9-2.6 8.9-5.8v-.5a2 2 0 001.1-1.8zM8.4 13.2a1.3 1.3 0 111.3-1.3 1.3 1.3 0 01-1.3 1.3zm7.3 3.6a5.9 5.9 0 01-3.7 1 5.9 5.9 0 01-3.7-1 .4.4 0 01.5-.6 5.1 5.1 0 003.2.8 5.1 5.1 0 003.2-.8.4.4 0 01.5.6zm-.1-3.6a1.3 1.3 0 111.3-1.3 1.3 1.3 0 01-1.3 1.3z"/></svg>',
-    em: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 011 1v12a1 1 0 01-1 1H3a1 1 0 01-1-1V6a1 1 0 011-1zm1.6 2L12 12.2 19.4 7zM4 8.6V17h16V8.6l-7.4 5.2a1 1 0 01-1.2 0z"/></svg>',
-    lk: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.6 13.4a1 1 0 01-1.4 0 3 3 0 010-4.2l2.8-2.8a3 3 0 014.2 4.2l-1.2 1.2a1 1 0 01-1.4-1.4l1.2-1.2a1 1 0 00-1.4-1.4l-2.8 2.8a1 1 0 000 1.4 1 1 0 010 1.4zm2.8-2.8a1 1 0 011.4 0 3 3 0 010 4.2l-2.8 2.8a3 3 0 01-4.2-4.2l1.2-1.2a1 1 0 011.4 1.4l-1.2 1.2a1 1 0 001.4 1.4l2.8-2.8a1 1 0 000-1.4 1 1 0 010-1.4z"/></svg>',
-    cm: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a1 1 0 011 1v11a1 1 0 01-1 1H9l-5 4V5a1 1 0 011-1zm2 4h12v2H6zm0 4h8v2H6z"/></svg>'
-  };
-
-  document.querySelectorAll('.tools').forEach(function (tools) {
-    var art    = tools.closest('article');
-    var term   = tools.dataset.term;
-    var title  = art.querySelector('h2').textContent.trim();
-    var url    = location.origin + location.pathname + '#' + art.id;
-    var thread = tools.nextElementSibling;
-    var U = encodeURIComponent(url), T = encodeURIComponent(title);
-
-    var html = '<button type="button" class="c-toggle" aria-expanded="false">' + ICON.cm + '<span>Comments</span></button>'
-             + '<span class="lead">Share:</span>';
-    [['s-fb','Facebook','https://www.facebook.com/sharer/sharer.php?u=' + U, ICON.fb],
-     ['s-li','LinkedIn','https://www.linkedin.com/sharing/share-offsite/?url=' + U, ICON.li],
-     ['s-x','X','https://twitter.com/intent/tweet?text=' + T + '&url=' + U, ICON.x],
-     ['s-wa','WhatsApp','https://api.whatsapp.com/send?text=' + T + '%20' + U, ICON.wa],
-     ['s-tg','Telegram','https://t.me/share/url?url=' + U + '&text=' + T, ICON.tg],
-     ['s-rd','Reddit','https://www.reddit.com/submit?url=' + U + '&title=' + T, ICON.rd],
-     ['s-em','Email','mailto:?subject=' + T + '&body=' + U, ICON.em]
-    ].forEach(function (l) {
-      var tgt = l[0] === 's-em' ? '' : ' target="_blank" rel="noopener"';
-      html += '<a class="' + l[0] + '" href="' + l[2] + '"' + tgt + ' aria-label="Share on ' + l[1] + '">' + l[3] + '<span>' + l[1] + '</span></a>';
-    });
-    html += '<button type="button" class="c-copy" aria-label="Copy link to this article">' + ICON.lk + '<span>Copy link</span></button>';
-    tools.innerHTML = html;
-
-    tools.querySelector('.c-copy').addEventListener('click', function (e) {
-      var btn = e.currentTarget, lbl = btn.querySelector('span'), was = lbl.textContent;
-      navigator.clipboard.writeText(url).then(function () {
-        lbl.textContent = 'Link copied';
-        setTimeout(function () { lbl.textContent = was; }, 2000);
+/* ---- Share buttons: fills every .share row on the page ---- */
+(function(){
+  document.querySelectorAll('.share').forEach(function(box){
+    var art = box.closest('article');
+    var id  = art ? art.id : '';
+    var url = location.origin + location.pathname + (id ? '#'+id : '');
+    var ttl = box.dataset.title || (art && art.querySelector('h2') ? art.querySelector('h2').textContent : document.title);
+    var U = encodeURIComponent(url), T = encodeURIComponent(ttl);
+    box.querySelector('.sh-li').href = 'https://www.linkedin.com/sharing/share-offsite/?url='+U;
+    box.querySelector('.sh-x').href  = 'https://twitter.com/intent/tweet?url='+U+'&text='+T;
+    box.querySelector('.sh-wa').href = 'https://wa.me/?text='+T+'%20'+U;
+    box.querySelector('.sh-em').href = 'mailto:?subject='+T+'&body='+U;
+    box.querySelector('.sh-cp').addEventListener('click',function(e){
+      e.preventDefault();
+      navigator.clipboard.writeText(url).then(function(){
+        var s=e.target.closest('.sh-cp'); var o=s.getAttribute('aria-label');
+        s.classList.add('copied'); s.setAttribute('aria-label','Link copied');
+        setTimeout(function(){s.classList.remove('copied');s.setAttribute('aria-label',o)},1600);
       });
-    });
-
-    tools.querySelector('.c-toggle').addEventListener('click', function (e) {
-      var btn = e.currentTarget;
-      var open = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!open));
-      thread.hidden = open;
-      if (open) return;
-
-      document.querySelectorAll('.thread').forEach(function (t) {
-        if (t === thread) return;
-        t.hidden = true; t.innerHTML = ''; delete t.dataset.loaded;
-        var other = t.previousElementSibling.querySelector('.c-toggle');
-        if (other) other.setAttribute('aria-expanded', 'false');
-      });
-
-      if (thread.dataset.loaded) return;
-      thread.dataset.loaded = '1';
-
-      if (CUSDIS.appId) {
-        thread.innerHTML = '<p class="setup">Loading the thread…</p>';
-        var box = document.createElement('div');
-        box.id = 'cusdis_thread';
-        box.setAttribute('data-host', CUSDIS.host);
-        box.setAttribute('data-app-id', CUSDIS.appId);
-        box.setAttribute('data-page-id', term);
-        box.setAttribute('data-page-url', url);
-        box.setAttribute('data-page-title', title);
-        loadCusdis(function (err) {
-          if (err) {
-            thread.innerHTML = '<p class="setup">The thread could not load. You can send the question through <a href="' + CONTACT + '">contact</a> instead.</p>';
-            return;
-          }
-          thread.innerHTML = '';
-          thread.appendChild(box);
-          if (window.CUSDIS && window.CUSDIS.initial) window.CUSDIS.initial();
-        });
-        return;
-      }
-
-      if (GISCUS.repoId && GISCUS.categoryId) {
-        var s = document.createElement('script');
-        s.src = 'https://giscus.app/client.js';
-        s.async = true; s.crossOrigin = 'anonymous';
-        s.setAttribute('data-repo', GISCUS.repo);
-        s.setAttribute('data-repo-id', GISCUS.repoId);
-        s.setAttribute('data-category', GISCUS.category);
-        s.setAttribute('data-category-id', GISCUS.categoryId);
-        s.setAttribute('data-mapping', 'specific');
-        s.setAttribute('data-term', term);
-        s.setAttribute('data-strict', '0');
-        s.setAttribute('data-reactions-enabled', '1');
-        s.setAttribute('data-emit-metadata', '0');
-        s.setAttribute('data-input-position', 'bottom');
-        s.setAttribute('data-theme', 'light');
-        s.setAttribute('data-lang', 'en');
-        thread.appendChild(s);
-        return;
-      }
-
-      thread.innerHTML = '<p class="setup">Comments are not switched on yet. Paste a Cusdis App ID, or the giscus ids, into the block at the bottom of this file. Until then, questions are welcome through <a href="' + CONTACT + '">contact</a>.</p>';
     });
   });
+})();
+</script>
+
+<!-- ============ COMMENTS (Disqus) — one-time setup ============
+     1. Sign up free at disqus.com, choose "I want to install Disqus on my site"
+     2. Pick a shortname (e.g. techverify) and the Basic (free) plan
+     3. Replace YOUR_DISQUS_SHORTNAME below with it. That is all.
+     Moderation, email notifications and threaded replies come with it.
+============================================================= -->
+<script>
+var disqus_config = function(){ this.page.url = location.href; this.page.identifier = location.pathname; };
+(function(){
+  var d=document, s=d.createElement('script');
+  s.src='https://YOUR_DISQUS_SHORTNAME.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date()); (d.head||d.body).appendChild(s);
+})();
+</script>
+
+<!-- ============ ANALYTICS (Google Analytics 4) — one-time setup ============
+     1. analytics.google.com -> Admin -> Create property -> Web -> your site URL
+     2. Copy the Measurement ID (looks like G-XXXXXXXXXX)
+     3. Replace BOTH occurrences of G-XXXXXXXXXX below
+     Gives you: readers per article, country/city, referrer (LinkedIn, Google,
+     direct), device, time on page. It cannot identify individuals by name.
+======================================================================== -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+<script>
+/* ---- Comment form: emails the comment for moderation (no backend needed) ---- */
+(function(){
+  var b=document.getElementById('csend'); if(!b) return;
+  b.addEventListener('click',function(){
+    var n=(document.getElementById('cname').value||'').trim();
+    var e=(document.getElementById('cmail').value||'').trim();
+    var c=(document.getElementById('cbody').value||'').trim();
+    if(!c){document.getElementById('cbody').focus();return}
+    var art=document.querySelector('article h2');
+    location.href='mailto:umersidiqii@gmail.com?subject='+encodeURIComponent('Article comment \u2014 '+(art?art.textContent.slice(0,60):'website'))
+      +'&body='+encodeURIComponent('Name: '+n+'\nEmail: '+e+'\nPage: '+location.href+'\n\nComment:\n'+c);
+  });
+})();
 </script>
 </body>
 </html>
