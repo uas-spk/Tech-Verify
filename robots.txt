@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# no crawl-delay, no disallows
+Sitemap: https://uas-spk.github.io/B2G-B2B-Consulting-Services/sitemap.xml
