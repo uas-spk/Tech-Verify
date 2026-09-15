@@ -50,6 +50,21 @@
   .sub input{font-family:inherit;font-size:15px;padding:12px 15px;border:1.5px solid var(--blue);border-radius:26px;min-width:250px}
   .sub button{font-family:inherit;font-weight:700;font-size:15px;padding:12px 24px;border-radius:26px;border:1.5px solid var(--blue);background:var(--blue);color:#fff;cursor:pointer}
   .sub button:hover{opacity:.88}
+  .joind{background:var(--blue-tint);border-left:4px solid var(--blue);padding:12px 16px;font-size:14.5px;margin:18px 0 0}
+  .toc{border:1.5px solid var(--line);padding:18px 22px;margin:26px 0 0}
+  .toc h2{font-size:17px;margin-bottom:8px}
+  .toc ol{margin:0;padding-left:20px}
+  .toc li{font-size:14.5px;margin:5px 0}
+  .rt{font-size:12.5px;color:var(--muted)}
+  .cfallback{font-size:13px;color:var(--muted);margin:14px 0 6px}
+  .disc{margin:18px 0 0}
+  .cmt{border-top:1px solid var(--line);padding:14px 0 4px}
+  .cmt .hd{font-size:13.5px;font-weight:700}
+  .cmt .hd span{font-weight:400;color:var(--muted)}
+  .cmt p{font-size:14.5px;margin:6px 0 0}
+  .rply{margin:10px 0 0 22px;padding:10px 14px;background:var(--blue-tint);border-left:3px solid var(--blue)}
+  .rply .hd{font-size:13px}
+  .rply p{font-size:14px}
   .cform{margin:6px 0 0}
   .crow{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 10px}
   .crow input{flex:1;min-width:210px;font-family:inherit;font-size:15px;padding:11px 14px;border:1.5px solid var(--blue);border-radius:12px}
@@ -57,7 +72,6 @@
   .cbtn{margin-top:10px;font-family:inherit;font-weight:700;font-size:15px;padding:12px 26px;border-radius:26px;border:1.5px solid var(--blue);background:var(--blue);color:#fff;cursor:pointer}
   .cbtn:hover{opacity:.88}
   .cnote{font-size:12.5px;color:var(--muted);margin:10px 0 0}
-  #disqus_thread{margin:14px 0 0}
   @media (max-width:700px){article{padding:24px 22px}nav.main{gap:12px}.sub input{width:100%;min-width:0}.sub{width:100%}.sub button{width:100%}}
 </style>
 </head>
@@ -89,6 +103,14 @@
       <p>Notes from the test bench and the tender desk — standards, acceptance testing and market access, written for people who have to sign for the equipment.</p>
     </div>
 
+    <nav class="toc" aria-label="Articles on this page">
+      <h2>On this page</h2>
+      <ol>
+        <li><a href="#busbar-conductivity">45% was the requirement. We delivered 61.63%</a> <span class="rt">· 4 min read</span></li>
+        <li><a href="#witnessed-fat-motors">Five motors, one week in Germany</a> <span class="rt">· 4 min read</span></li>
+      </ol>
+    </nav>
+
 <!-- ============================================================
      HOW TO PUBLISH A NEW ARTICLE (about 2 minutes):
      1. Open: github.com/uas-spk/techverify/edit/main/articles.html
@@ -109,6 +131,12 @@
       <p>Opening paragraph.</p>
       <p>Second paragraph.</p>
       <div class="takeaway"><b>Takeaway:</b> one sentence the reader keeps.</div>
+      <div class="joind">
+        <b>Join the discussion.</b> Have you encountered this &mdash; a specified figure you had to prove, or a test you would now insist on witnessing? Add it below: other readers learn as much from your experience as from mine.
+      </div>
+      <div class="disc">
+        <!-- PUBLISHED-COMMENTS-GO-HERE -->
+      </div>
       <div class="share" aria-label="Share this article">
         <span class="shlbl">Share</span>
         <a class="sh sh-li" href="#" target="_blank" rel="noopener" aria-label="Share on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.4 8.2h4.2V24H.4zM8.3 8.2h4v2.2h.1c.56-1 1.9-2.2 3.9-2.2 4.2 0 5 2.7 5 6.3V24h-4.2v-6.9c0-1.6 0-3.7-2.3-3.7s-2.6 1.8-2.6 3.6V24H8.3z"/></svg></a>
@@ -121,23 +149,50 @@
      == COPY-END ==
 ============================================================ -->
 
+
+<!-- ============================================================
+     PUBLISHING A READER COMMENT (you control what appears)
+     A reader sends a comment via the form. To publish it:
+     1. Open this file in GitHub, find PUBLISHED-COMMENTS-GO-HERE
+        for the article concerned
+     2. Paste the block below under it and fill it in
+     3. Commit. It is public in about a minute.
+
+     == COPY-START ==
+        <div class="cmt">
+          <p class="hd">Reader name <span>· Company or role, if they gave one · 14 September 2026</span></p>
+          <p>Their comment, pasted as they wrote it.</p>
+          <div class="rply">
+            <p class="hd">Umer Siddiqui · reply</p>
+            <p>Your answer.</p>
+          </div>
+        </div>
+     == COPY-END ==
+============================================================ -->
+
 <!-- ==================== NEW-ARTICLES-GO-HERE ==================== -->
 
     <article id="busbar-conductivity">
       <h2>45% was the requirement. We delivered 61.63% — and that number is why the busbar was accepted.</h2>
       <p class="meta">14 September 2026 · Umer Siddiqui</p>
       <p>An EPC ordered 6000&nbsp;A aluminium busbar trunking with one unusual condition written into the award: the conductor had to demonstrate a minimum conductivity, expressed as a percentage of the International Annealed Copper Standard. Not "aluminium busbar to standard". A number, verified, before acceptance.</p>
-      <p>That condition exists because aluminium is not one material. EC-grade 1350 alloy runs around 61% IACS; common structural extrusion alloys in the 6000 series land in the low-to-mid fifties, and an off-spec or recycled billet can fall further. The bar looks identical in all three cases. Painted, bolted and enclosed, nobody on site can tell them apart — but the temperature rise, the losses and the long-term joint behaviour are decided at the billet, months before anyone energizes anything.</p>
-      <p class="pull">Two busbars can carry the same nameplate rating and be separated by 15% conductivity. One passes the type test. The other cooks.</p>
-      <p>So the sequence was: specify the alloy and temper, confirm the mill certificate, inspect the extrusion plant, and test the delivered conductor — ASTM B193 resistivity, converted to % IACS — before the assembly went to its IEC 61439 verification. The result came back at 61.63% against a 45% requirement. Comfortably clear, on paper, with the report attached to the acceptance file.</p>
+      <p>That condition exists because aluminium is not one material. EC-grade 1350 alloy runs around 61% IACS; common structural extrusion alloys in the 6000 series land in the low-to-mid fifties, and an off-spec or recycled billet can fall further. The bar looks identical in all three cases. Painted, bolted and enclosed, the difference is not visible on site — but the temperature rise, the losses and the long-term joint behaviour are decided at the billet, months before anyone energizes anything.</p>
+      <p class="pull">Two busbars can carry the same nameplate rating and be separated by 15% conductivity. One passes the type test. The other overheats in service.</p>
+      <p>So the sequence was: specify the alloy and temper, confirm the mill certificate, inspect the extrusion plant, and test the delivered conductor — ASTM B193 resistivity, converted to % IACS — before the assembly went to its IEC 61439 verification. The result came back at 61.63% against a 45% requirement. A clear margin, documented, with the report attached to the acceptance file.</p>
       <p>Three things that number bought, in order of how much they mattered:</p>
       <ul>
         <li><b>Acceptance without argument.</b> The condition was met in evidence, not in assurance. No site debate, no conditional sign-off, no retention held back pending "clarification".</li>
         <li><b>A defensible temperature-rise case.</b> Conductivity feeds directly into I²R losses, which feed the temperature-rise verification. Meeting the conductivity floor with margin is what makes the thermal result reproducible rather than lucky.</li>
-        <li><b>A file that survives the bad day.</b> If a joint ever runs hot in service, the question becomes "was the conductor compliant?" With a dated third-party number on record, that question closes in one email instead of one investigation.</li>
+        <li><b>A file that survives the bad day.</b> If a joint ever runs hot in service, the question becomes "was the conductor compliant?" With a dated third-party number on record, that question is resolved by reference to the file rather than by investigation.</li>
       </ul>
-      <p>The wider point has nothing to do with busbar. When a buyer writes a number into a specification, they are telling you exactly where they have been burned before. Treat it as the acceptance gate it is: verify it upstream, in the factory, on the material — not downstream, on site, on the schedule.</p>
+      <p>The wider point has nothing to do with busbar. When a buyer writes a number into a specification, they are telling you exactly where they have been burned before. Treat it as the acceptance gate that it is: verify it upstream, in the factory, on the material — not downstream, on site, on the schedule.</p>
       <div class="takeaway"><b>Takeaway:</b> a specified number is not a target to approach — it is a gate to clear with margin, evidenced before shipment. Conductivity, temperature rise, ingress rating, refrigerant type: the cheapest place to prove any of them is the factory floor.</div>
+      <div class="joind">
+        <b>Join the discussion.</b> Have you encountered this &mdash; a specified figure you had to prove, or a test you would now insist on witnessing? Add it below: other readers learn as much from your experience as from mine.
+      </div>
+      <div class="disc">
+        <!-- PUBLISHED-COMMENTS-GO-HERE -->
+      </div>
       <div class="share" aria-label="Share this article">
         <span class="shlbl">Share</span>
         <a class="sh sh-li" href="#" target="_blank" rel="noopener" aria-label="Share on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.4 8.2h4.2V24H.4zM8.3 8.2h4v2.2h.1c.56-1 1.9-2.2 3.9-2.2 4.2 0 5 2.7 5 6.3V24h-4.2v-6.9c0-1.6 0-3.7-2.3-3.7s-2.6 1.8-2.6 3.6V24H8.3z"/></svg></a>
@@ -151,18 +206,22 @@
     <article id="witnessed-fat-motors">
       <h2>Five motors, one week in Germany: what a witnessed FAT actually catches</h2>
       <p class="meta">12 September 2026 · Umer Siddiqui</p>
-      <p>Three high-voltage and two medium-voltage machines, tested at the manufacturer's works before release. Heat runs, no-load and locked-rotor characteristics, vibration, insulation, and the paperwork that has to travel with each serial number. A week of standing on a test floor — and a week that is routinely the first thing cut when a schedule slips.</p>
+      <p>Three high-voltage and two medium-voltage machines, tested at the manufacturer's works before release. Heat runs, no-load and locked-rotor characteristics, vibration, insulation, and the paperwork that has to travel with each serial number. A week of standing on a test floor — and a week that is routinely the first item cut when a schedule slips.</p>
       <p>Here is what witnessing catches that a stamped certificate never will:</p>
       <ul>
         <li><b>The machine tested is the machine shipped.</b> Serial numbers and nameplates are checked against the test report in front of you. A type-test certificate for a family member is not a routine test for your unit.</li>
-        <li><b>Deviation handling in real time.</b> A vibration reading slightly outside the ISO band, a temperature-rise class judged by extrapolation, a bearing re-greased "just before" the run. On the floor, these get explained, repeated or corrected. In a report, they get rounded.</li>
-        <li><b>Accessories that quietly differ.</b> Winding and bearing RTDs, space heaters, terminal box orientation, cable-entry size, mounting and shaft details — the bits that do not stop a motor from spinning on a test bed but do stop it from being installable.</li>
+        <li><b>Deviation handling in real time.</b> A vibration reading slightly outside the ISO band, a temperature-rise class judged by extrapolation, a bearing re-greased "just before" the run. On the floor, these get explained, repeated or corrected. In a report issued later, they are summarised.</li>
+        <li><b>Accessories that quietly differ.</b> Winding and bearing RTDs, space heaters, terminal box orientation, cable-entry size, mounting and shaft details — the details that do not prevent a motor from running on a test bed but do prevent it from being installed.</li>
         <li><b>Hazardous-area detail.</b> Where the machine is Ex-rated, the marking string, gas group, temperature class and certificate scope must match the zone it is going to. A mismatch here is not a paperwork issue; it is an ignition source.</li>
         <li><b>What "burn-in" is really for.</b> Electronics and control assemblies fail early or fail late, rarely in between. Running them hot and powered for an extended, documented period is how infant mortality surfaces in a factory rather than in a live process.</li>
       </ul>
-      <p class="pull">A failure found on the test floor costs a technician and a day. The same failure found at commissioning costs a mobilized crew, a delayed handover, and your place on the next bid list.</p>
-      <p>And this is the part buyers underestimate: the value is not only technical. A witnessed test creates a dated, independent baseline. Months later, when something misbehaves in service, that baseline is what turns a blame contest — site conditions versus product defect — into a ten-minute comparison. Without it, every argument is opinion against opinion, and the supplier usually loses on reputation even when they are right on engineering.</p>
+      <p class="pull">A failure found on the test floor costs a technician and a day. The same failure found at commissioning costs a mobilised crew, a delayed handover, and a supplier’s standing with that client.</p>
+      <p>And this is the part buyers underestimate: the value is not only technical. A witnessed test creates a dated, independent baseline. Months later, when something misbehaves in service, that baseline is what turns a blame contest — site conditions versus product defect — into a ten-minute comparison. Without it, the discussion becomes opinion against opinion, and the supplier commonly loses on perception even when the engineering supports them.</p>
       <div class="takeaway"><b>Takeaway:</b> the test week is not a formality bolted to the end of manufacturing. It is the cheapest insurance the product line will ever buy — and the only version of the truth that both parties will accept later.</div>
+      <div class="joind">
+        <b>Join the discussion.</b> Have you encountered this &mdash; a specified figure you had to prove, or a test you would now insist on witnessing? Add it below: other readers learn as much from your experience as from mine.
+      </div>
+      
       <div class="share" aria-label="Share this article">
         <span class="shlbl">Share</span>
         <a class="sh sh-li" href="#" target="_blank" rel="noopener" aria-label="Share on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.4 8.2h4.2V24H.4zM8.3 8.2h4v2.2h.1c.56-1 1.9-2.2 3.9-2.2 4.2 0 5 2.7 5 6.3V24h-4.2v-6.9c0-1.6 0-3.7-2.3-3.7s-2.6 1.8-2.6 3.6V24H8.3z"/></svg></a>
@@ -185,7 +244,8 @@
 
     <div class="engage" id="comments">
       <h2>Comments &amp; replies</h2>
-      <p>Questions, disagreements and war stories all welcome. Comments are reviewed before they appear, and I reply to every one.</p>
+      <p>Questions, challenges and field experience are all welcome. Comments are reviewed before they appear, and I reply to every one.</p>
+      <p class="cfallback">Comments are read, reviewed and published below with my reply. No account, no sign-up — just the form.</p>
       <div class="cform">
         <div class="crow">
           <input id="cname" type="text" placeholder="Your name" aria-label="Your name"/>
@@ -195,7 +255,6 @@
         <button class="cbtn" id="csend" type="button">Post comment</button>
         <p class="cnote">Opens your email app with the comment ready to send — nothing is stored on this site. Published comments show your name only, never your email.</p>
       </div>
-      <div id="disqus_thread"></div>
     </div>
   </div>
 
@@ -235,20 +294,6 @@
 })();
 </script>
 
-<!-- ============ COMMENTS (Disqus) — one-time setup ============
-     1. Sign up free at disqus.com, choose "I want to install Disqus on my site"
-     2. Pick a shortname (e.g. techverify) and the Basic (free) plan
-     3. Replace YOUR_DISQUS_SHORTNAME below with it. That is all.
-     Moderation, email notifications and threaded replies come with it.
-============================================================= -->
-<script>
-var disqus_config = function(){ this.page.url = location.href; this.page.identifier = location.pathname; };
-(function(){
-  var d=document, s=d.createElement('script');
-  s.src='https://YOUR_DISQUS_SHORTNAME.disqus.com/embed.js';
-  s.setAttribute('data-timestamp', +new Date()); (d.head||d.body).appendChild(s);
-})();
-</script>
 
 <!-- ============ ANALYTICS (Google Analytics 4) — one-time setup ============
      1. analytics.google.com -> Admin -> Create property -> Web -> your site URL
@@ -280,5 +325,6 @@ var disqus_config = function(){ this.page.url = location.href; this.page.identif
   });
 })();
 </script>
+
 </body>
 </html>
